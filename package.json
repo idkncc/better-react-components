@@ -6,6 +6,11 @@
     "type": "git",
     "url": "https://github.com/npm/cli.git"
   },
+  "bugs": {
+    "url": "https://github.com/Mon4ik/yandex-homekit/issues"
+  },
+  "homepage": "https://github.com/Mon4ik/yandex-homekit#readme",
+
   "main": "out/init.lua",
   "typings": "out/index.d.ts",
   "files": [
