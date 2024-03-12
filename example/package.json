@@ -1,0 +1,26 @@
+{
+	"name": "rbxts-react-example",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"scripts": {
+		"devInstall": "pnpm un @rbxts/better-react-components && pnpm i ../rbxts-better-react-components-*.tgz",
+		"build": "rbxtsc",
+		"watch": "rbxtsc -w"
+	},
+	"devDependencies": {
+		"@rbxts/compiler-types": "2.2.0-types.0",
+		"@rbxts/types": "^1.0.760",
+		"roblox-ts": "2.3.0-dev-eb0ff9c",
+		"typescript": "^5.4.2"
+	},
+	"dependencies": {
+		"@rbxts/better-react-components": "file:../rbxts-better-react-components-1.0.0.tgz",
+		"@rbxts/catppuccin": "^1.0.2",
+		"@rbxts/pretty-react-hooks": "^0.4.2",
+		"@rbxts/react": "^0.1.1",
+		"@rbxts/react-roblox": "^0.3.3",
+		"@rbxts/ripple": "^0.7.1",
+		"@rbxts/services": "^1.5.4"
+	}
+}

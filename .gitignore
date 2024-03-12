@@ -1,0 +1,9 @@
+/node_modules
+/out
+/include
+
+.DS_Store
+*.tsbuildinfo
+*.log
+
+rbxts-better-react-components-*.tgz

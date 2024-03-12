@@ -1,0 +1,22 @@
+{
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"jsx": true,
+		"useJSXTextNode": true,
+		"ecmaVersion": 2018,
+		"sourceType": "module",
+		"project": "./tsconfig.json"
+	},
+	"ignorePatterns": ["/out"],
+	"plugins": ["@typescript-eslint", "roblox-ts", "unused-imports", "simple-import-sort"],
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:roblox-ts/recommended"
+	],
+	"rules": {
+		"unused-imports/no-unused-imports": "warn",
+		"simple-import-sort/imports": "warn",
+		"simple-import-sort/exports": "warn"
+	}
+}
