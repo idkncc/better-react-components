@@ -1,6 +1,6 @@
 # Better React Components
 
-Roblox's elements, with builtin modifiers
+Roblox's ui elements, with builtin modifiers
 
 Also see **[introduction](docs/1_Introduction.md)**
 
@@ -23,14 +23,13 @@ Also see **[introduction](docs/1_Introduction.md)**
 
 	<DummyElement />
 	<Button
-		position={new UDim2(0, 0, 0, 0)} size={new UDim2(0, 0, 0, 0)}
 		textColor={Color3.fromHex("#64FEE7")}
 		text="Hello world!"
 	/>
 	<Text
-		position={new UDim2(0, 0, 0, 0)} size={new UDim2(0, 0, 0, 0)}
-		background={Color3.fromHex("#64FEE7")
+		background={Color3.fromHex("#64FEE7")}
 		text="Hello world!"
+		font={Enum.Font.Arial}
 	/>
 </Frame>;
 ```
