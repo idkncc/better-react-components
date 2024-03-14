@@ -1,4 +1,5 @@
 export { Frame } from "./components/Frame";
+export { ScrollingFrame } from "./components/ScrollingFrame";
 export { Button } from "./components/Button";
 export { Text } from "./components/Text";
 
