@@ -2,7 +2,7 @@
 
 <u>Introduction</u> • [Modifiers](2_Modifiers.md) • [Components](3_Components.md)
 
-> **Warning**
+> [!WARNING]
 >
 > Documentation is still in development. Best way to learn it – check out source code
 >
@@ -10,7 +10,9 @@
 > - [Frame](../src/components/Frame.tsx)
 > - [Text](../src/components/Text.tsx)
 > - [Button](../src/components/Button.tsx)
-> - _And other components at [/src/components/](../src/components/)_
+> - _And other components at [/src/components/](../src/components)_
+> 
+> Also see Hoarcekat stories at [/stories](../stories)
 >
 
 ## Why?
