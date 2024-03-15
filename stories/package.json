@@ -10,17 +10,16 @@
 	},
 	"devDependencies": {
 		"@rbxts/compiler-types": "2.2.0-types.0",
-		"@rbxts/types": "^1.0.760",
-		"roblox-ts": "2.3.0-dev-eb0ff9c",
+		"@rbxts/types": "^1.0.763",
+		"roblox-ts": "2.3.0-dev-a25975b",
 		"typescript": "^5.4.2"
 	},
 	"dependencies": {
-		"@rbxts/better-react-components": "file:../rbxts-better-react-components-1.0.0.tgz",
+		"@rbxts/better-react-components": "file:..",
 		"@rbxts/catppuccin": "^1.0.2",
 		"@rbxts/pretty-react-hooks": "^0.4.2",
 		"@rbxts/react": "^0.1.1",
-		"@rbxts/react-roblox": "^0.3.3",
-		"@rbxts/ripple": "^0.7.1",
+		"@rbxts/react-roblox": "^0.3.4",
 		"@rbxts/services": "^1.5.4"
 	}
 }

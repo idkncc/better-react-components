@@ -6,23 +6,20 @@ settings:
 
 dependencies:
   '@rbxts/better-react-components':
-    specifier: file:../rbxts-better-react-components-1.0.0.tgz
-    version: file:../rbxts-better-react-components-1.0.0.tgz
+    specifier: file:..
+    version: file:..
   '@rbxts/catppuccin':
     specifier: ^1.0.2
     version: 1.0.2
   '@rbxts/pretty-react-hooks':
     specifier: ^0.4.2
-    version: 0.4.2(@rbxts/react-roblox@0.3.3)(@rbxts/react@0.1.1)
+    version: 0.4.2(@rbxts/react-roblox@0.3.4)(@rbxts/react@0.1.1)
   '@rbxts/react':
     specifier: ^0.1.1
     version: 0.1.1
   '@rbxts/react-roblox':
-    specifier: ^0.3.3
-    version: 0.3.3
-  '@rbxts/ripple':
-    specifier: ^0.7.1
-    version: 0.7.1
+    specifier: ^0.3.4
+    version: 0.3.4
   '@rbxts/services':
     specifier: ^1.5.4
     version: 1.5.4
@@ -32,11 +29,11 @@ devDependencies:
     specifier: 2.2.0-types.0
     version: 2.2.0-types.0
   '@rbxts/types':
-    specifier: ^1.0.760
-    version: 1.0.760
+    specifier: ^1.0.763
+    version: 1.0.763
   roblox-ts:
-    specifier: 2.3.0-dev-eb0ff9c
-    version: 2.3.0-dev-eb0ff9c
+    specifier: 2.3.0-dev-a25975b
+    version: 2.3.0-dev-a25975b
   typescript:
     specifier: ^5.4.2
     version: 5.4.2
@@ -55,7 +52,7 @@ packages:
     resolution: {integrity: sha512-kxb5AZizP05XSmo3waS/QkcfNMD5b6HX4gGwyHOyBow260R5MIT4L/ZUPLvleXXyb9b67X4NVmHoac1tPXOLNA==}
     dev: false
 
-  /@rbxts/pretty-react-hooks@0.4.2(@rbxts/react-roblox@0.3.3)(@rbxts/react@0.1.1):
+  /@rbxts/pretty-react-hooks@0.4.2(@rbxts/react-roblox@0.3.4)(@rbxts/react@0.1.1):
     resolution: {integrity: sha512-PSHTkfNeG1+sXo1EIuzPmxIcR5BQVcP3MZG7fjUF7ulUfmfbY4AUzCsQoXxYYshavLCBA6OxEigKS+eOJX4kWg==}
     peerDependencies:
       '@rbxts/react': '*'
@@ -63,24 +60,24 @@ packages:
     dependencies:
       '@rbxts/flipper': 2.0.1
       '@rbxts/react': 0.1.1
-      '@rbxts/react-roblox': 0.3.3
+      '@rbxts/react-roblox': 0.3.4
       '@rbxts/services': 1.5.4
       '@rbxts/set-timeout': 1.1.2
     dev: false
 
-  /@rbxts/react-roblox@0.3.3:
-    resolution: {integrity: sha512-NUcx3z+uBlg4Gv/SSebd9yZG0iIGujKx+OwBsW9qCGHvJQNNmh+BoEnb4D8NNrpIzzV1tnNRTeRXW9qZfMn4hw==}
+  /@rbxts/react-roblox@0.3.4:
+    resolution: {integrity: sha512-YtqJpjU9HVKi7j1e45e8eYyAar3/B/u9/C78lfVmZ7+4S0RVauAQHVp56MgkfKgn8Nyi3xZNV0U5Qi6fJo1vHg==}
     dependencies:
-      '@rbxts/react': 0.3.3
-      '@rbxts/react-vendor': 0.3.3
+      '@rbxts/react': 0.3.4
+      '@rbxts/react-vendor': 0.3.4
     dev: false
 
   /@rbxts/react-vendor@0.1.0:
     resolution: {integrity: sha512-RGyKA2djMy5snBMCf6iKFdtm77rkrJuLU8ysGtMcBnqz2Jip6oDAwIpMXIqcGplCPXO+83iLuIs55eefp9qa7A==}
     dev: false
 
-  /@rbxts/react-vendor@0.3.3:
-    resolution: {integrity: sha512-lJ3HBOxayRf9NfkI8T1ZPxTG+dv3mLmV79DcbgTTkpRUe/U4jCdRqLoVyat7ueyBIKha8OSC/jEouyWtdqtJRw==}
+  /@rbxts/react-vendor@0.3.4:
+    resolution: {integrity: sha512-zMN7VBCpOEoNUfz0m6pgU38JSlQ+UGKj/rSCvQUlUB2fwDz06FkVbgHqpbNiJJp6JjdeamjnBmvz//eZLTuHqw==}
     dev: false
 
   /@rbxts/react@0.1.1:
@@ -89,10 +86,10 @@ packages:
       '@rbxts/react-vendor': 0.1.0
     dev: false
 
-  /@rbxts/react@0.3.3:
-    resolution: {integrity: sha512-Nq/h/eW0FtkoFd4MJ0EM4KjtlmiYRaWkYYCJoZsvqqR3m6QiGpfcvGPDdAvQvzqsPdwvISP5EAdPCCzM0WaX3w==}
+  /@rbxts/react@0.3.4:
+    resolution: {integrity: sha512-1Vu97fsJyO6+XCuUWz9Cd32xgM7aWQ9HWhqgSUE8Dh8LdFlkUNK73HbjzgjUYBLNBf8S+uCXqj9RNjAmgMTO1Q==}
     dependencies:
-      '@rbxts/react-vendor': 0.3.3
+      '@rbxts/react-vendor': 0.3.4
     dev: false
 
   /@rbxts/ripple@0.7.1:
@@ -109,8 +106,8 @@ packages:
       '@rbxts/services': 1.5.4
     dev: false
 
-  /@rbxts/types@1.0.760:
-    resolution: {integrity: sha512-Aia9h2STfOkCux8667S0hi2jSTco+dNBfXgj+JG2Rkq2zoAw0pxYCjF8JNxsvPpVGfedLAnvafd2Hz1QLRSOkg==}
+  /@rbxts/types@1.0.763:
+    resolution: {integrity: sha512-I+jQ+SlLSm4FkaUJGzT6Sq5+kjLeand6uUEoUxmpN91hxSh7wiP4Qn2YamnVDyBm29+He1FvqeAmxwlZwIX+vQ==}
     dev: true
 
   /@roblox-ts/luau-ast@1.0.11:
@@ -135,21 +132,21 @@ packages:
     resolution: {integrity: sha512-yTbItCNreRooED33qjunPthRcSjERP1r4MqCZc7wv0u2sUkzTFp45tgUfS5+r7FrZPdmCCNflLhVSP/o+SemsQ==}
     dependencies:
       '@types/jsonfile': 6.1.4
-      '@types/node': 20.11.25
+      '@types/node': 20.11.28
     dev: true
 
   /@types/jsonfile@6.1.4:
     resolution: {integrity: sha512-D5qGUYwjvnNNextdU59/+fI+spnwtTFmyQP0h+PfIOSkNfpU6AOICUOkm4i0OnSk+NyjdPJrxCDro0sJsWlRpQ==}
     dependencies:
-      '@types/node': 20.11.25
+      '@types/node': 20.11.28
     dev: true
 
   /@types/mocha@10.0.6:
     resolution: {integrity: sha512-dJvrYWxP/UcXm36Qn36fxhUKu8A/xMRXVT2cliFF1Z7UA9liG5Psj3ezNSZw+5puH2czDXRLcXQxf8JbJt0ejg==}
     dev: true
 
-  /@types/node@20.11.25:
-    resolution: {integrity: sha512-TBHyJxk2b7HceLVGFcpAUjsa5zIdsPWlR6XHfyGzd0SFu+/NFgQgMAl96MSDZgQDvJAvV6BKsFOrt6zIL09JDw==}
+  /@types/node@20.11.28:
+    resolution: {integrity: sha512-M/GPWVS2wLkSkNHVeLkrF2fD5Lx5UC4PxA0uZcKc6QqbIQUJyW1jVjueJYi1z8n0I5PxYrtpnPnWglE+y9A0KA==}
     dependencies:
       undici-types: 5.26.5
     dev: true
@@ -157,7 +154,7 @@ packages:
   /@types/prompts@2.4.9:
     resolution: {integrity: sha512-qTxFi6Buiu8+50/+3DGIWLHM6QuWsEKugJnnP6iv2Mc4ncxE4A/OJkjuVOA+5X0X1S/nq5VJRa8Lu+nwcvbrKA==}
     dependencies:
-      '@types/node': 20.11.25
+      '@types/node': 20.11.28
       kleur: 3.0.3
     dev: true
 
@@ -204,8 +201,8 @@ packages:
       picomatch: 2.3.1
     dev: true
 
-  /binary-extensions@2.2.0:
-    resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
+  /binary-extensions@2.3.0:
+    resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
     engines: {node: '>=8'}
     dev: true
 
@@ -308,8 +305,8 @@ packages:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
     dev: true
 
-  /hasown@2.0.1:
-    resolution: {integrity: sha512-1/th4MHjnwncwXsIW6QMzlvYL9kG5e/CpVvLRZe4XPa8TOUNbCELqmvhDmnkNsAjwaG4+I8gJJL0JBvTTLO9qA==}
+  /hasown@2.0.2:
+    resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
     dependencies:
       function-bind: 1.1.2
@@ -319,13 +316,13 @@ packages:
     resolution: {integrity: sha512-ZMERYes6pDydyuGidse7OsHxtbI7WVeUEozgR/g7rd0xUimYNlvZRE/K2MgZTjWy725IfelLeVcEM97mmtRGXw==}
     engines: {node: '>=8'}
     dependencies:
-      binary-extensions: 2.2.0
+      binary-extensions: 2.3.0
     dev: true
 
   /is-core-module@2.13.1:
     resolution: {integrity: sha512-hHrIjvZsftOsvKSn2TRYl63zvxsgE0K+0mYMoH6gD4omR5IWB2KynivBQczo3+wF1cCkjzvptnI9Q0sPU66ilw==}
     dependencies:
-      hasown: 2.0.1
+      hasown: 2.0.2
     dev: true
 
   /is-extglob@2.1.1:
@@ -417,8 +414,8 @@ packages:
       supports-preserve-symlinks-flag: 1.0.0
     dev: true
 
-  /roblox-ts@2.3.0-dev-eb0ff9c:
-    resolution: {integrity: sha512-mwuAUvhSsUGN+T9BwvLIhUW/K37ciRxITilGrqN7TB9kgdYYIcE0kwQrkek8pn2kMwB4Zo8ClM6ian2b65dFHw==}
+  /roblox-ts@2.3.0-dev-a25975b:
+    resolution: {integrity: sha512-O+A7IxZRXsYYErani8whQj7FyHhx4KxwCuZTvnLiNjB0DsquhK7CCYMd2J0kWZu6DwNCC28ugtDIoJA791KTGA==}
     hasBin: true
     dependencies:
       '@roblox-ts/luau-ast': 1.0.11
@@ -426,7 +423,7 @@ packages:
       '@roblox-ts/rojo-resolver': 1.0.6
       '@types/fs-extra': 11.0.4
       '@types/mocha': 10.0.6
-      '@types/node': 20.11.25
+      '@types/node': 20.11.28
       '@types/prompts': 2.4.9
       '@types/resolve': 1.20.6
       '@types/ts-expose-internals': /ts-expose-internals@5.3.3
@@ -435,7 +432,7 @@ packages:
       fs-extra: 11.2.0
       kleur: 4.1.5
       resolve: 1.22.8
-      typescript: 5.3.3
+      typescript: 5.4.2
       yargs: 17.7.2
     dev: true
 
@@ -469,12 +466,6 @@ packages:
 
   /ts-expose-internals@5.3.3:
     resolution: {integrity: sha512-0lW96u0pa08dq9QLYUBRbgGkvsD+LvPAVGe94kr2tHaRZAxgckwJ+qqc1BSRoR1rpkTZf7AWAa6DKrLGFmctwg==}
-    dev: true
-
-  /typescript@5.3.3:
-    resolution: {integrity: sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==}
-    engines: {node: '>=14.17'}
-    hasBin: true
     dev: true
 
   /typescript@5.4.2:
@@ -530,14 +521,13 @@ packages:
       yargs-parser: 21.1.1
     dev: true
 
-  file:../rbxts-better-react-components-1.0.0.tgz:
-    resolution: {integrity: sha512-TpzPb8ySwI9bNIVKFcTWCcILdsZ00j+hPZsgsBKjJpLe6SNVfjZo8PW78SPyO2GvQzRrknafYnuW4Nn2T8fGfg==, tarball: file:../rbxts-better-react-components-1.0.0.tgz}
+  file:..:
+    resolution: {directory: .., type: directory}
     name: '@rbxts/better-react-components'
-    version: 1.0.0
     dependencies:
-      '@rbxts/pretty-react-hooks': 0.4.2(@rbxts/react-roblox@0.3.3)(@rbxts/react@0.1.1)
+      '@rbxts/pretty-react-hooks': 0.4.2(@rbxts/react-roblox@0.3.4)(@rbxts/react@0.1.1)
       '@rbxts/react': 0.1.1
-      '@rbxts/react-roblox': 0.3.3
+      '@rbxts/react-roblox': 0.3.4
       '@rbxts/ripple': 0.7.1
       '@rbxts/services': 1.5.4
     dev: false

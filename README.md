@@ -64,4 +64,4 @@ Also see **[introduction](docs/1_Introduction.md)**
 - [X] UISizeConstraint
 - [ ] UIStroke ±
 - [ ] UITableLayout
-- [ ] UITextSizeConstraint
+- [X] UITextSizeConstraint

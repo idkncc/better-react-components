@@ -45,7 +45,7 @@ Add roblox's properties to element
 ```tsx
 <Frame
 	noBackground // same as backgroundTransparency={1}
-	background={Color3}
+	background={Color3 | string} // if its string, it will be converted from HEX color to Color3
 	backgroundTransparency={number}
 >
 	...
@@ -126,6 +126,19 @@ Same as `UISizeConstraint`
 >
 	...
 </Frame>;
+```
+
+### Text Size Constraint
+
+Same as `UITextSizeConstraint`
+
+```tsx
+<Text
+	minTextSize={number} 
+	maxTextSize={number}
+>
+	...
+</Text>;
 ```
 
 ## Utils

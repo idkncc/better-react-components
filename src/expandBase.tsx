@@ -1,14 +1,14 @@
 import React, { InstanceAttributes, InstanceProps } from "@rbxts/react";
-import { ReactProps, ResolvableAnchorPoint, resolveAnchorPoint, resolveUDim } from "./utils";
+import { ReactProps, ResolvableAnchorPoint, resolveAnchorPoint, resolveColor3, resolveUDim } from "./utils";
 
 export type BaseProps<T extends Instance> = ReactProps<T> & {
 	visible?: boolean,
 
 	noBackground?: boolean
-	background?: Color3
+	background?: Color3 | string
 	backgroundTransparency?: number
 
-	border?: Color3
+	border?: Color3 | string
 	borderSize?: number
 
 	position?: UDim2
@@ -32,6 +32,9 @@ export type BaseProps<T extends Instance> = ReactProps<T> & {
 
 	minSize?: Vector2
 	maxSize?: Vector2
+
+	minTextSize?: number
+	maxTextSize?: number
 }
 
 /**
@@ -49,7 +52,7 @@ export function expandBase<T extends GuiObject>(name: string, additionalProps: I
 		{
 			Visible: userProps.visible,
 
-			BackgroundColor3: userProps.background,
+			BackgroundColor3: resolveColor3(userProps.background),
 			BackgroundTransparency: userProps.noBackground ? 1 : (userProps.backgroundTransparency ?? 0),
 
 			AutomaticSize: userProps.automaticSize,
@@ -86,8 +89,11 @@ export function expandBase<T extends GuiObject>(name: string, additionalProps: I
 		// Stroke (border)
 		userProps.stroke !== undefined
 		|| userProps.border !== undefined || userProps.borderSize !== undefined
-			? <uistroke Color={userProps.border} Thickness={userProps.borderSize}
-						{...userProps.stroke} />
+			? <uistroke
+				Color={resolveColor3(userProps.border)}
+				Thickness={userProps.borderSize}
+				{...userProps.stroke}
+			/>
 			: undefined,
 
 		// Padding
@@ -105,6 +111,15 @@ export function expandBase<T extends GuiObject>(name: string, additionalProps: I
 		// Size constraint
 		userProps.minSize !== undefined || userProps.maxSize !== undefined
 			? <uisizeconstraint MinSize={userProps.minSize} MaxSize={userProps.maxSize} />
+			: undefined,
+
+		// Text Size constraint
+
+		userProps.minTextSize !== undefined || userProps.maxTextSize !== undefined
+			? <uitextsizeconstraint
+				MinTextSize={userProps.minTextSize ?? 1}
+				MaxTextSize={userProps.maxTextSize}
+			/>
 			: undefined,
 
 		userProps.children,

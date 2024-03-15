@@ -63,14 +63,21 @@ export function resolveAnchorPoint(value: ResolvableAnchorPoint): Vector2 {
 }
 
 export function resolveUDim(value: number | UDim): UDim {
-	if (typeIs(value, "UDim")) return value
-	return new UDim(0, value)
+	if (typeIs(value, "UDim")) return value;
+	return new UDim(0, value);
+}
+
+export function resolveColor3(value: string | Color3 | undefined): Color3 | undefined {
+	if (!value) return undefined;
+
+	if (typeIs(value, "Color3")) return value;
+	return Color3.fromHex(value);
 }
 
 export function omit<T, K extends keyof T>(obj: T, ...keys: K[]): Omit<T, K> {
 	for (const [_, key] of ipairs(keys)) {
-		delete obj[key]
+		delete obj[key];
 	}
 
-	return obj as Omit<T, K>
+	return obj as Omit<T, K>;
 }
