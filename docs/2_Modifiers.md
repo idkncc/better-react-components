@@ -4,9 +4,72 @@
 
 Roblox UI Modifiers, but in simpler way
 
-## Modifiers
+## Default Modifiers
+
+These modifiers are available on all components
+> [see **/src/expandBase.tsx**](../src/expandBase.tsx) for source code
+
+### Standard properties
+
+```tsx
+<Frame
+	visible={boolean}
+
+	position={UDim2}
+	size={UDim2}
+    anchorPoint={ResolvableAnchorPoint}
+
+	automaticSize={Enum.AutomaticSize | "X" | "Y" | "XY"}
+>
+	...
+</Frame>;
+```
+
+### Override roblox
+
+Add roblox's properties to element
+
+```tsx
+<Frame
+	overrideRoblox={InstanceProps<Frame>}
+
+	// for example:
+	//  overrideRoblox={{ Rotation: 12, Style: ..., ZIndex: 5}}
+>
+	...
+</Frame>;
+```
+
+### Background
+
+```tsx
+<Frame
+	noBackground // same as backgroundTransparency={1}
+	background={Color3}
+	backgroundTransparency={number}
+>
+	...
+</Frame>;
+```
+
+### Stroke (border)
+
+Same as `UIStroke`
+
+```tsx
+<Frame
+	border={Color3}
+	borderSize={number}
+
+	stroke={InstanceProps<UIStroke>} // custom props for UIStroke
+>
+	...
+</Frame>;
+```
 
 ### Corner Radius
+
+Same as `UICorner`
 
 ```tsx
 <Frame
@@ -19,6 +82,8 @@ Roblox UI Modifiers, but in simpler way
 
 ### Aspect Ratio
 
+Same as `UIAspectRatioConstraint`
+
 ```tsx
 <Frame
 	aspectRatio={1}
@@ -29,27 +94,35 @@ Roblox UI Modifiers, but in simpler way
 </Frame>;
 ```
 
-### Stroke
+### Padding
+
+Same as `UIPadding`
 
 ```tsx
 <Frame
-	stroke={{ /* roblox props for UIStroke*/ }}
+	padding={number} // for top, left, bottom, right
+
+	// or individually:
+	// paddingTop={number}
+	// paddingLeft={number}
+	// paddingBottom={number}
+	// paddingRight={number}
+
+	// also supports UDim
+	// padding={UDim}
 >
 	...
 </Frame>;
 ```
 
-### Padding
+### Size Constraint
+
+Same as `UISizeConstraint`
 
 ```tsx
 <Frame
-	padding={4} // for top, left, bottom, right
-
-	// or individually:
-	// paddingTop={4}
-	// paddingLeft={4}
-	// paddingBottom={4}
-	// paddingRight={4}
+	minSize={Vector2} // min size in pixels
+	maxSize={Vector2} // max size in pixels
 >
 	...
 </Frame>;

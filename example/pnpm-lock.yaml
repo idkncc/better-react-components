@@ -531,7 +531,7 @@ packages:
     dev: true
 
   file:../rbxts-better-react-components-1.0.0.tgz:
-    resolution: {integrity: sha512-CsQM8ZxD3NlWU7sNc5FmW7vXwvhgZOdRTqhyRbamSLhnmNBqVnmmfp8j7NytIj2F1bTw2Nw995lNEL6AVGN4Og==, tarball: file:../rbxts-better-react-components-1.0.0.tgz}
+    resolution: {integrity: sha512-TpzPb8ySwI9bNIVKFcTWCcILdsZ00j+hPZsgsBKjJpLe6SNVfjZo8PW78SPyO2GvQzRrknafYnuW4Nn2T8fGfg==, tarball: file:../rbxts-better-react-components-1.0.0.tgz}
     name: '@rbxts/better-react-components'
     version: 1.0.0
     dependencies:

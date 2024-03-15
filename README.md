@@ -34,3 +34,34 @@ Also see **[introduction](docs/1_Introduction.md)**
 </Frame>;
 ```
 
+## Support
+
+### TODO
+- [ ] Support for Bindings in props
+- [ ] Better documentation
+- [ ] Tests
+
+### Components
+
+- [X] Frame
+- [ ] ScrollableFrame ±
+- [X] Button
+- [ ] ImageButton
+- [X] Text
+- [ ] Image
+- [ ] TextBox
+
+### Modifiers
+
+- [X] UIAspectRatioConstraint
+- [X] UICorner
+- [ ] UIGradient
+- [X] UIGridLayout [(see GridLayout)](src/components/GridLayout.tsx)
+- [X] UIListLayout [(see ListLayout)](src/components/ListLayout.tsx)
+- [X] UIPadding
+- [ ] UIPageLayout
+- [ ] UIScale
+- [X] UISizeConstraint
+- [ ] UIStroke ±
+- [ ] UITableLayout
+- [ ] UITextSizeConstraint

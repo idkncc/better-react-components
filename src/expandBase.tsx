@@ -43,6 +43,7 @@ export type BaseProps<T extends Instance> = ReactProps<T> & {
  *  - etc
  */
 export function expandBase<T extends GuiObject>(name: string, additionalProps: InstanceAttributes<T>, userProps: BaseProps<T>) {
+
 	return React.createElement(
 		name,
 		{
@@ -61,6 +62,8 @@ export function expandBase<T extends GuiObject>(name: string, additionalProps: I
 			Change: userProps.change,
 			Tag: userProps.tag,
 			ref: userProps.ref,
+
+			BorderSizePixel: 0, // we use UIStroke instead
 
 			...userProps.overrideRoblox,
 			...additionalProps,

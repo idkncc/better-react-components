@@ -1,8 +1,9 @@
 # Introduction
+
 <u>Introduction</u> • [Modifiers](2_Modifiers.md) • [Components](3_Components.md)
 
 > **Warning**
-> 
+>
 > Documentation is still in development. Best way to learn it – check out source code
 >
 > - [Base component](../src/expandBase.tsx)
@@ -10,12 +11,14 @@
 > - [Text](../src/components/Text.tsx)
 > - [Button](../src/components/Button.tsx)
 > - _And other components at [/src/components/](../src/components/)_
-> 
+>
 
 ## Why?
+
 This package can help You with Roblox's UI Modifiers
 
 #### Before:
+
 ```tsx
 <frame
 	Position={new UDim2(.5, 0, .5, 0)}
@@ -36,6 +39,7 @@ This package can help You with Roblox's UI Modifiers
 ```
 
 #### After:
+
 ```tsx
 <Frame
 	position={new UDim2(.5, 0, .5, 0)}
@@ -56,9 +60,10 @@ This package can help You with Roblox's UI Modifiers
 </Frame>
 ```
 
-
 ## Installation
+
 Pro tip: use [this @rbxts/react template](https://github.com/littensy/rbxts-react-example)
+
 ```bash
 # install with any package manager:
 pnpm add @rbxts/better-react-components
@@ -67,6 +72,7 @@ npm install @rbxts/better-react-components
 ```
 
 ## Usage:
+
 ```tsx
 // import any component
 import { Frame, Text } from "@rbxts/better-react-components";
@@ -84,11 +90,24 @@ return (
 ```
 
 ## Unusual behaviours
-1. By default, `Text`'s background is transparent
+
+1. Borders are disabled by default. Also components use `UIStroke` instead of border properties
    ```tsx
-   <Text text="Hello world!" />; // background IS transparent
-   <Text
-        text="Hello world!" 
-        backgroundTransparency={0} 
-   />; // background IS NOT transparent
+   {/* no borders: */}
+   <Frame> 
+      ...
+   </Frame>
+   
+   {/* red borders: */}
+   <Frame 
+    border={Color3.fromHex("#FF0000")}
+    borderSize={1}
+   > 
+      ...
+   </Frame>
+   
+   {/* attributes to UIStroke: */}
+   <Frame stroke={{...}}> 
+      ...
+   </Frame>
    ```
