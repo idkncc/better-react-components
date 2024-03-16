@@ -1,4 +1,4 @@
-import { ExpandableComponent } from "./componentExpand";
+import ExpandableComponent from "./ExpandableComponent";
 import { ReactProps, ResolvableAnchorPoint, resolveAnchorPoint, resolveColor3, resolveUDim } from "../utils";
 import { InstanceProps } from "@rbxts/react";
 import React from "@rbxts/react";

@@ -1,4 +1,4 @@
-import BaseComponent, { BaseProps } from "./BaseComponent";
+import BaseComponent from "./BaseComponent";
 import { resolveColor3 } from "../utils";
 import { InstanceEvent } from "@rbxts/react";
 

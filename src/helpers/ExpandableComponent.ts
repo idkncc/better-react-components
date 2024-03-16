@@ -5,7 +5,7 @@ import { flat } from "../utils";
 type PropBuilder<P, C extends Instance> = (userProps: P) => InstanceProps<C>
 type ChildrenBuilder<P> = (userProps: P) => ReactNode[]
 
-export class ExpandableComponent<I extends Instance, P extends object> {
+export default class ExpandableComponent<I extends Instance, P extends object> {
 	private propsBuilders: PropBuilder<P, I>[];
 	private childrenBuilders: ChildrenBuilder<P>[];
 
