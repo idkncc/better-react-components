@@ -11,6 +11,7 @@ export type BaseProps<T extends Instance> = ReactProps<T> & {
 	backgroundTransparency?: number
 
 	border?: Color3 | string
+	borderMode?: Enum.ApplyStrokeMode | "Contextual" | "Border"
 	borderSize?: number
 
 	position?: UDim2
@@ -82,6 +83,7 @@ export default new ExpandableComponent<GuiObject, BaseProps<GuiObject>>([], [])
 				? <uistroke
 					Color={resolveColor3(userProps.border)}
 					Thickness={userProps.borderSize}
+					ApplyStrokeMode={userProps.borderMode}
 					{...userProps.stroke}
 				/>
 				: undefined,

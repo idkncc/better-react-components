@@ -4,7 +4,7 @@ import { InstanceEvent } from "@rbxts/react";
 
 export type TextComponentInstance = TextLabel | TextButton | TextBox
 export type TextComponentProps<T extends Instance = TextComponentInstance> = {
-	text: string,
+	text?: string,
 	textColor?: Color3 | string
 
 	textSize?: "AUTO" | number

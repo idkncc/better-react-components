@@ -37,9 +37,9 @@ Also see **[introduction](docs/1_Introduction.md)**
 ## Support
 
 ### TODO
+- [X] Stories
 - [ ] Support for Bindings in props
 - [ ] Better documentation
-- [ ] Tests
 
 ### Components
 
