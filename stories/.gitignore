@@ -4,3 +4,6 @@
 *.tsbuildinfo
 yarn-error.log
 .DS_Store
+
+# sorry
+pnpm-lock.yaml
