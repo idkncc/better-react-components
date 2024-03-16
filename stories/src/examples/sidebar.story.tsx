@@ -24,7 +24,7 @@ function CoolButton(props: { text: string, onClick: () => void }) {
 			textColor={Latte.Text}
 
 			event={{
-				Activated: props.onClick,
+				Activated: props.onClick
 			}}
 		/>
 	);

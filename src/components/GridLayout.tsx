@@ -1,21 +1,5 @@
 import React from "@rbxts/react";
 
-/*
-const frameProps = omit(
-		props,
-		"cellPadding",
-		"cellSize",
-		"cellAspectRatio",
-		"cellAspectType",
-		"cellAspectAxis",
-		"startCorner",
-		"direction",
-		"horizontalAlign",
-		"verticalAlign",
-		"sortOrder",
-	);
-*/
-
 export type GridLayoutProps = {
 	cellPadding?: UDim2
 	cellSize?: UDim2

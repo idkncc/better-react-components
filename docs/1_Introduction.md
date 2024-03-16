@@ -1,15 +1,15 @@
 # Introduction
 
-<u>Introduction</u> • [Modifiers](2_Modifiers.md) • [Components](3_Components.md)
+<u>Introduction</u> • [Modifiers](2_Modifiers.md) • [Components](3_Components.md) • [Custom Components](4_Custom_Components.md)
 
 > [!WARNING]
 >
 > Documentation is still in development. Best way to learn it – check out source code
 >
 > - [Base component](../src/expandBase.tsx)
-> - [Frame](../src/components/Frame.tsx)
-> - [Text](../src/components/Text.tsx)
-> - [Button](../src/components/Button.tsx)
+> - [Frame](../src/components/Frame.ts)
+> - [Text](../src/components/Text.ts)
+> - [Button](../src/components/Button.ts)
 > - _And other components at [/src/components/](../src/components)_
 > 
 > Also see Hoarcekat stories at [/stories](../stories)

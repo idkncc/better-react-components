@@ -10,7 +10,6 @@
     "url": "https://github.com/Mon4ik/better-react-components/issues"
   },
   "homepage": "https://github.com/Mon4ik/better-react-components#readme",
-
   "main": "out/init.lua",
   "typings": "out/index.d.ts",
   "files": [
@@ -36,6 +35,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@rbxts/object-utils": "^1.0.4",
     "@rbxts/pretty-react-hooks": "^0.4.1",
     "@rbxts/react": "^0.1.0",
     "@rbxts/react-roblox": "^0.3.0",
@@ -44,7 +44,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-
-  "release": { "branches": [ "main" ] }
+  }
 }

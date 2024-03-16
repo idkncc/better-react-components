@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@rbxts/better-react-components':
-    specifier: file:..
-    version: file:..
+    specifier: file:../rbxts-better-react-components-1.0.0.tgz
+    version: file:../rbxts-better-react-components-1.0.0.tgz
   '@rbxts/catppuccin':
     specifier: ^1.0.2
     version: 1.0.2
@@ -50,6 +50,10 @@ packages:
 
   /@rbxts/flipper@2.0.1:
     resolution: {integrity: sha512-kxb5AZizP05XSmo3waS/QkcfNMD5b6HX4gGwyHOyBow260R5MIT4L/ZUPLvleXXyb9b67X4NVmHoac1tPXOLNA==}
+    dev: false
+
+  /@rbxts/object-utils@1.0.4:
+    resolution: {integrity: sha512-dLLhf022ipV+9i910sOE7kl9losKHoon0WgeerHqVMQA5EYsLUsVT2AxhJuhk8MiDn5oJ2GiFofE/LadY9TpJQ==}
     dev: false
 
   /@rbxts/pretty-react-hooks@0.4.2(@rbxts/react-roblox@0.3.4)(@rbxts/react@0.1.1):
@@ -521,10 +525,12 @@ packages:
       yargs-parser: 21.1.1
     dev: true
 
-  file:..:
-    resolution: {directory: .., type: directory}
+  file:../rbxts-better-react-components-1.0.0.tgz:
+    resolution: {integrity: sha512-/txKcolusTjbo8uvdTcRm2BWLlo8LR+inmeIHlYOdW909Bh+wpXAQl6vvmGbuWrIzkH55POnCfXqBspsoeOa5w==, tarball: file:../rbxts-better-react-components-1.0.0.tgz}
     name: '@rbxts/better-react-components'
+    version: 1.0.0
     dependencies:
+      '@rbxts/object-utils': 1.0.4
       '@rbxts/pretty-react-hooks': 0.4.2(@rbxts/react-roblox@0.3.4)(@rbxts/react@0.1.1)
       '@rbxts/react': 0.1.1
       '@rbxts/react-roblox': 0.3.4

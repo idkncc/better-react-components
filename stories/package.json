@@ -15,7 +15,7 @@
 		"typescript": "^5.4.2"
 	},
 	"dependencies": {
-		"@rbxts/better-react-components": "file:..",
+		"@rbxts/better-react-components": "file:../rbxts-better-react-components-1.0.0.tgz",
 		"@rbxts/catppuccin": "^1.0.2",
 		"@rbxts/pretty-react-hooks": "^0.4.2",
 		"@rbxts/react": "^0.1.1",

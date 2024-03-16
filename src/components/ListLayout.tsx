@@ -1,21 +1,6 @@
 import React from "@rbxts/react";
 import { resolveUDim } from "../utils";
 
-/*
-const frameProps = omit(
-		props,
-		"cellPadding",
-		"cellSize",
-		"cellAspectRatio",
-		"cellAspectType",
-		"cellAspectAxis",
-		"startCorner",
-		"direction",
-		"horizontalAlign",
-		"verticalAlign",
-		"sortOrder",
-	);
-*/
 
 export type ListLayoutProps = {
 	padding?: number | UDim

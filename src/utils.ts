@@ -81,3 +81,15 @@ export function omit<T, K extends keyof T>(obj: T, ...keys: K[]): Omit<T, K> {
 
 	return obj as Omit<T, K>;
 }
+
+export function flat<T>(arr: T[][]): T[] {
+	const newArr: defined[] = [];
+
+	for (const [_, v] of ipairs(arr)) {
+		for (const [_, value] of ipairs(v)) {
+			newArr.push(value as unknown as defined);
+		}
+	}
+
+	return newArr as T[];
+}

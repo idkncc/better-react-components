@@ -1,6 +1,6 @@
-import { BaseProps, expandBase } from "../expandBase";
+import BaseComponent from "../helpers/BaseComponent";
 
-export type ScrollingFrameProps = BaseProps<ScrollingFrame> & {
+export type ScrollingFrameProps = {
 	automaticCanvasSize?: Enum.AutomaticSize | "X" | "Y" | "XY"
 
 	canvasPosition?: Vector2
@@ -13,24 +13,23 @@ export type ScrollingFrameProps = BaseProps<ScrollingFrame> & {
 	scrollbarInsetV?: boolean | Enum.ScrollBarInset
 }
 
-export function ScrollingFrame(props: ScrollingFrameProps) {
-	return expandBase<ScrollingFrame>(
-		"scrollingframe",
-		{
+export const ScrollingFrame = BaseComponent
+	.expand<ScrollingFrame, ScrollingFrameProps>(
+		(props) => ({
 			AutomaticCanvasSize: props.automaticCanvasSize,
 
 			CanvasPosition: props.canvasPosition,
 			CanvasSize: props.canvasSize,
 
 			HorizontalScrollBarInset:
-				typeIs(props.scrollbarInsetV, "boolean") && props.scrollbarInsetV
+				typeIs(props.scrollbarInsetH, "boolean") && props.scrollbarInsetH
 					? Enum.ScrollBarInset.Always
-					: props.scrollbarInsetV || Enum.ScrollBarInset.None,
+					: props.scrollbarInsetH || Enum.ScrollBarInset.None,
 			VerticalScrollBarInset:
 				typeIs(props.scrollbarInsetV, "boolean") && props.scrollbarInsetV
 					? Enum.ScrollBarInset.Always
 					: props.scrollbarInsetV || Enum.ScrollBarInset.None,
-		},
-		props,
-	);
-}
+		}),
+		(props) => [],
+	)
+	.build("scrollingframe");
