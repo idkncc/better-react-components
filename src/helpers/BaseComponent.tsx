@@ -3,7 +3,7 @@ import { ReactProps, ResolvableAnchorPoint, resolveAnchorPoint, resolveColor3, r
 import { InstanceProps } from "@rbxts/react";
 import React from "@rbxts/react";
 
-export type BaseProps<T extends Instance> = ReactProps<T> & {
+export type BaseProps<T extends Instance> = {
 	visible?: boolean,
 
 	noBackground?: boolean
@@ -38,6 +38,8 @@ export type BaseProps<T extends Instance> = ReactProps<T> & {
 
 	minTextSize?: number
 	maxTextSize?: number
+	
+	overrideRoblox?: InstanceProps<T>
 }
 
 export default new ExpandableComponent<GuiObject, BaseProps<GuiObject>>([], [])
@@ -53,11 +55,6 @@ export default new ExpandableComponent<GuiObject, BaseProps<GuiObject>>([], [])
 			Position: userProps.position,
 			Size: userProps.size,
 			AnchorPoint: resolveAnchorPoint(userProps.anchorPoint ?? new Vector2(0, 0)),
-
-			Event: userProps.event,
-			Change: userProps.change,
-			Tag: userProps.tag,
-			ref: userProps.ref,
 
 			BorderSizePixel: 0, // we use UIStroke instead
 
@@ -113,7 +110,5 @@ export default new ExpandableComponent<GuiObject, BaseProps<GuiObject>>([], [])
 					MaxTextSize={userProps.maxTextSize}
 				/>
 				: undefined,
-
-			userProps.children,
 		],
 	);

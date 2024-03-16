@@ -1,6 +1,6 @@
 import Object from "@rbxts/object-utils";
 import React, { ReactNode, InstanceProps, FunctionComponent, ReactInstance } from "@rbxts/react";
-import { flat } from "../utils";
+import { flat, ReactProps } from "../utils";
 
 type PropBuilder<P, C extends Instance> = (userProps: P) => InstanceProps<C>
 type ChildrenBuilder<P> = (userProps: P) => ReactNode[]
@@ -27,10 +27,15 @@ export default class ExpandableComponent<I extends Instance, P extends object> {
 		);
 	}
 
-	build(elementType: string): FunctionComponent<P> {
-		return (userProps) => {
+	build(elementType: string) {
+		return React.forwardRef((userProps: P & ReactProps<I>, ref) => {
 			const props: InstanceProps<I> = Object.assign(
-				{},
+				{
+					Event: userProps.event,
+					Change: userProps.change,
+					Tag: userProps.tag,
+					ref: ref,
+				},
 				...this.propsBuilders
 					.map((build) => build(userProps)),
 			);
@@ -39,8 +44,9 @@ export default class ExpandableComponent<I extends Instance, P extends object> {
 				this.childrenBuilders
 					.map((build) => build(userProps).filterUndefined()),
 			);
+			if (userProps.children) children.push(userProps.children);
 
 			return React.createElement(elementType, props, ...children);
-		};
+		});
 	}
 }
