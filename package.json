@@ -18,7 +18,8 @@
   "scripts": {
     "clean": "rimraf out/",
     "build": "pnpm clean && rbxtsc",
-    "watch": "rbxtsc -w"
+    "watch": "rbxtsc -w",
+    "tgz": "mv $(pnpm pack) package.tgz"
   },
   "devDependencies": {
     "@rbxts/compiler-types": "2.2.0-types.0",

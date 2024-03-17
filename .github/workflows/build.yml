@@ -47,8 +47,11 @@ jobs:
       - name: Install dependencies on package
         run: pnpm install
 
-      - name: Build and Pack package
-        run: pnpm build && pnpm pack
+      - name: Build package
+        run: pnpm build
+
+      - name: Pack package
+        run: pnpm tgz
 
       - name: Install dependencies on stories
         working-directory: ./stories

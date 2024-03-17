@@ -6,4 +6,6 @@
 *.tsbuildinfo
 *.log
 
+# development tarballs
 rbxts-better-react-components-*.tgz
+package.tgz
