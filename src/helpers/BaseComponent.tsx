@@ -11,13 +11,13 @@ export type BaseProps<T extends Instance> = {
 	backgroundTransparency?: number
 
 	border?: Color3 | string
-	borderMode?: Enum.ApplyStrokeMode | "Contextual" | "Border"
+	borderMode?: Enum.ApplyStrokeMode
 	borderSize?: number
 
 	position?: UDim2
 	size?: UDim2,
 	anchorPoint?: ResolvableAnchorPoint
-	automaticSize?: Enum.AutomaticSize | "X" | "Y" | "XY"
+	automaticSize?: Enum.AutomaticSize
 
 	cornerRadius?: number | UDim
 
@@ -38,11 +38,9 @@ export type BaseProps<T extends Instance> = {
 
 	minTextSize?: number
 	maxTextSize?: number
-	
-	overrideRoblox?: InstanceProps<T>
 }
 
-export default new ExpandableComponent<GuiObject, BaseProps<GuiObject>>([], [])
+export default new ExpandableComponent<GuiObject, BaseProps<GuiObject>>()
 	.expand(
 		(userProps) => ({
 			Visible: userProps.visible,
@@ -57,8 +55,6 @@ export default new ExpandableComponent<GuiObject, BaseProps<GuiObject>>([], [])
 			AnchorPoint: resolveAnchorPoint(userProps.anchorPoint ?? new Vector2(0, 0)),
 
 			BorderSizePixel: 0, // we use UIStroke instead
-
-			...userProps.overrideRoblox,
 		}),
 		(userProps) => [
 			userProps.cornerRadius !== undefined

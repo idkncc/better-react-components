@@ -1,17 +1,31 @@
 import Object from "@rbxts/object-utils";
-import React, { ReactNode, InstanceProps, FunctionComponent, ReactInstance } from "@rbxts/react";
+import React, {
+	ReactNode,
+	InstanceProps,
+	FunctionComponent,
+	ReactInstance,
+	AllowRefs,
+	InferEnumNames, Binding,
+} from "@rbxts/react";
 import { flat, ReactProps } from "../utils";
 
-type PropBuilder<P, C extends Instance> = (userProps: P) => InstanceProps<C>
-type ChildrenBuilder<P> = (userProps: P) => ReactNode[]
+type PropBuilder<P extends object, C extends Instance> = (userProps: BindingVariants<P>) => InstanceProps<C>
+type ChildrenBuilder<P extends object> = (userProps: BindingVariants<P>) => ReactNode[]
+
+export type BindingVariants<T extends object> = {
+	[P in keyof T]?:
+	| T[P]
+	| InferEnumNames<T[P]>
+	| Binding<Exclude<T[P], undefined>>;
+};
 
 export default class ExpandableComponent<I extends Instance, P extends object> {
 	private propsBuilders: PropBuilder<P, I>[];
 	private childrenBuilders: ChildrenBuilder<P>[];
 
 	constructor(
-		propsBuilders: PropBuilder<P, I>[],
-		childrenBuilders: ChildrenBuilder<P>[],
+		propsBuilders: PropBuilder<P, I>[] = [],
+		childrenBuilders: ChildrenBuilder<P>[] = [],
 	) {
 		this.propsBuilders = propsBuilders;
 		this.childrenBuilders = childrenBuilders;
@@ -28,16 +42,19 @@ export default class ExpandableComponent<I extends Instance, P extends object> {
 	}
 
 	build(elementType: string) {
-		return React.forwardRef((userProps: P & ReactProps<I>, ref) => {
+		return React.forwardRef((userProps: BindingVariants<P & ReactProps<I>>, ref) => {
 			const props: InstanceProps<I> = Object.assign(
+				Object.assign({},
+					...this.propsBuilders
+						.map((build) => build(userProps)),
+				),
 				{
 					Event: userProps.event,
 					Change: userProps.change,
 					Tag: userProps.tag,
 					ref: ref,
 				},
-				...this.propsBuilders
-					.map((build) => build(userProps)),
+				userProps.overrideRoblox as object,
 			);
 
 			const children = flat(
