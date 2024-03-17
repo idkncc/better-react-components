@@ -1,18 +1,19 @@
 import BaseComponent from "./BaseComponent";
-import { resolveColor3 } from "../utils";
-import { InstanceEvent } from "@rbxts/react";
+import { resolveBinding, resolveColor3 } from "../utils";
+
+import type { InferEnumNames, InstanceEvent } from "@rbxts/react";
 
 export type TextComponentInstance = TextLabel | TextButton | TextBox
 export type TextComponentProps<T extends Instance = TextComponentInstance> = {
 	text?: string,
 	textColor?: Color3 | string
 
-	textSize?: "AUTO" | number
+	textSize?: number
 
 	font?: Enum.Font | Font
 
-	align?: Enum.TextXAlignment | "Left" | "Center" | "Right"
-	verticalAlign?: Enum.TextYAlignment | "Top" | "Center" | "Bottom"
+	align?: Enum.TextXAlignment
+	verticalAlign?: Enum.TextYAlignment
 
 	event?: InstanceEvent<T>
 }
@@ -21,15 +22,21 @@ export default BaseComponent
 	.expand<TextComponentInstance, TextComponentProps>(
 		(props) => ({
 			Text: props.text,
-			TextSize: props.textSize === "AUTO" ? 0 : props.textSize,
-			TextScaled: props.textSize === "AUTO",
+			TextSize: props.textSize,
+			TextScaled: false,
 			TextColor3: resolveColor3(props.textColor),
 
-			Font: typeIs(props.font, "Font") ? undefined : props.font,
-			FontFace: typeIs(props.font, "Font") ? props.font : undefined,
+			FontFace: resolveBinding<Enum.Font | Font, Font>(
+				props.font as Enum.Font | Font,
+				(font) =>
+					typeIs(font, "Font")
+						? font
+						: typeIs(font, "string")
+							? Font.fromEnum(Enum.Font[font as InferEnumNames<Enum.Font>])
+							: Font.fromEnum(font),
+			),
 
 			TextXAlignment: props.align,
 			TextYAlignment: props.verticalAlign,
-		}),
-		(props) => [],
+		})
 	);

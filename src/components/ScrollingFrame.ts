@@ -1,16 +1,18 @@
 import BaseComponent from "../helpers/BaseComponent";
+import { resolveBinding } from "../utils";
+import { InferEnumNames } from "@rbxts/react";
 
 export type ScrollingFrameProps = {
-	automaticCanvasSize?: Enum.AutomaticSize | "X" | "Y" | "XY"
+	automaticCanvasSize?: Enum.AutomaticSize
 
 	canvasPosition?: Vector2
 	canvasSize?: UDim2
 
 	/* Horizontal Scrollbar inset */
-	scrollbarInsetH?: boolean | Enum.ScrollBarInset
+	scrollbarInsetH?: Enum.ScrollBarInset | boolean
 
 	/* Vertical Scrollbar inset */
-	scrollbarInsetV?: boolean | Enum.ScrollBarInset
+	scrollbarInsetV?: Enum.ScrollBarInset
 }
 
 export const ScrollingFrame = BaseComponent
@@ -21,15 +23,20 @@ export const ScrollingFrame = BaseComponent
 			CanvasPosition: props.canvasPosition,
 			CanvasSize: props.canvasSize,
 
-			HorizontalScrollBarInset:
-				typeIs(props.scrollbarInsetH, "boolean") && props.scrollbarInsetH
-					? Enum.ScrollBarInset.Always
-					: props.scrollbarInsetH || Enum.ScrollBarInset.None,
-			VerticalScrollBarInset:
-				typeIs(props.scrollbarInsetV, "boolean") && props.scrollbarInsetV
-					? Enum.ScrollBarInset.Always
-					: props.scrollbarInsetV || Enum.ScrollBarInset.None,
-		}),
-		(props) => [],
+			HorizontalScrollBarInset: resolveBinding(
+				props.scrollbarInsetH,
+				(scrollbarInsetH) =>
+					typeIs(scrollbarInsetH, "boolean") && scrollbarInsetH
+						? Enum.ScrollBarInset.Always
+						: (scrollbarInsetH as Enum.ScrollBarInset) || Enum.ScrollBarInset.None,
+			),
+			VerticalScrollBarInset: resolveBinding(
+				props.scrollbarInsetV,
+				(scrollbarInsetV) =>
+					typeIs(scrollbarInsetV, "boolean") && scrollbarInsetV
+						? Enum.ScrollBarInset.Always
+						: (scrollbarInsetV as Enum.ScrollBarInset) || Enum.ScrollBarInset.None,
+			),
+		})
 	)
 	.build("scrollingframe");

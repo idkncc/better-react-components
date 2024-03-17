@@ -4,7 +4,6 @@
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
-		"devInstall": "pnpm un @rbxts/better-react-components && pnpm i ../rbxts-better-react-components-*.tgz",
 		"build": "rbxtsc",
 		"watch": "rbxtsc -w"
 	},

@@ -1,7 +1,18 @@
 // tl t tr
 // cl c cr
 // bl b br
-import { InstanceChangeEvent, InstanceEvent, InstanceProps, Key, ReactNode, Ref, RefObject } from "@rbxts/react";
+import {
+	Binding,
+	InstanceChangeEvent,
+	InstanceEvent,
+	InstanceProps,
+	Key,
+	ReactNode,
+	Ref,
+	RefObject,
+} from "@rbxts/react";
+
+import { BindingOrValue, isBinding } from "@rbxts/pretty-react-hooks";
 
 export type ReactProps<T extends Instance> = {
 	key?: Key;
@@ -34,52 +45,67 @@ export enum AnchorPoints {
 export type ResolvableAnchorPoint =
 	Vector2 | AnchorPointsVariant | AnchorPoints
 
-export function resolveAnchorPoint(value: ResolvableAnchorPoint): Vector2 {
-	if (typeIs(value, "Vector2")) return value;
+export function resolveAnchorPoint(value: BindingOrValue<ResolvableAnchorPoint>): BindingOrValue<Vector2> {
+	if (isBinding(value)) {
+		return value.map((v) => resolveAnchorPoint(v) as Vector2);
+	} else {
+		if (typeIs(value, "Vector2")) return value;
 
-	switch (value) {
-		case AnchorPoints.TopLeft:
-			return new Vector2(0, 0);
-		case AnchorPoints.Top:
-			return new Vector2(.5, 0);
-		case AnchorPoints.TopRight:
-			return new Vector2(1, 0);
-		case AnchorPoints.MiddleLeft:
-			return new Vector2(0, .5);
-		case AnchorPoints.Middle:
-			return new Vector2(.5, .5);
-		case AnchorPoints.MiddleRight:
-			return new Vector2(1, .5);
-		case AnchorPoints.BottomLeft:
-			return new Vector2(0, 1);
-		case AnchorPoints.Bottom:
-			return new Vector2(.5, 1);
-		case AnchorPoints.BottomRight:
-			return new Vector2(1, 1);
+		switch (value) {
+			case AnchorPoints.TopLeft:
+				return new Vector2(0, 0);
+			case AnchorPoints.Top:
+				return new Vector2(.5, 0);
+			case AnchorPoints.TopRight:
+				return new Vector2(1, 0);
+			case AnchorPoints.MiddleLeft:
+				return new Vector2(0, .5);
+			case AnchorPoints.Middle:
+				return new Vector2(.5, .5);
+			case AnchorPoints.MiddleRight:
+				return new Vector2(1, .5);
+			case AnchorPoints.BottomLeft:
+				return new Vector2(0, 1);
+			case AnchorPoints.Bottom:
+				return new Vector2(.5, 1);
+			case AnchorPoints.BottomRight:
+				return new Vector2(1, 1);
 
-		default:
-			return new Vector2(0, 0);
+			default:
+				return new Vector2(0, 0);
+		}
+	}
+
+}
+
+export function resolveUDim(value: BindingOrValue<number | UDim>): BindingOrValue<UDim> {
+	if (isBinding(value)) {
+		return value.map((v) => resolveUDim(v) as UDim);
+	} else {
+		if (typeIs(value, "UDim")) return value;
+		return new UDim(0, value);
 	}
 }
 
-export function resolveUDim(value: number | UDim): UDim {
-	if (typeIs(value, "UDim")) return value;
-	return new UDim(0, value);
-}
-
-export function resolveColor3(value: string | Color3 | undefined): Color3 | undefined {
+export function resolveColor3(value: BindingOrValue<string | Color3> | undefined): BindingOrValue<Color3> | undefined {
 	if (!value) return undefined;
 
-	if (typeIs(value, "Color3")) return value;
-	return Color3.fromHex(value);
+	if (isBinding(value)) {
+		return value.map((v) => resolveColor3(v) as Color3);
+	} else {
+		if (typeIs(value, "Color3")) return value;
+		return Color3.fromHex(value);
+	}
 }
 
-export function omit<T, K extends keyof T>(obj: T, ...keys: K[]): Omit<T, K> {
-	for (const [_, key] of ipairs(keys)) {
-		delete obj[key];
-	}
+export function resolveBinding<T, R>(bindingOrValue: BindingOrValue<T> | undefined, callback: (value: T) => R): BindingOrValue<R> | undefined {
+	if (!bindingOrValue) return
 
-	return obj as Omit<T, K>;
+	if (isBinding(bindingOrValue)) {
+		return bindingOrValue.map(callback)
+	} else {
+		return callback(bindingOrValue)
+	}
 }
 
 export function flat<T>(arr: T[][]): T[] {
