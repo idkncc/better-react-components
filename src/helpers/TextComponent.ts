@@ -8,7 +8,7 @@ export type TextComponentProps<T extends Instance = TextComponentInstance> = {
 	text?: string,
 	textColor?: Color3 | string
 
-	textSize?: number
+	textSize?: number | "AUTO"
 
 	font?: Enum.Font | Font
 
@@ -22,8 +22,17 @@ export default BaseComponent
 	.expand<TextComponentInstance, TextComponentProps>(
 		(props) => ({
 			Text: props.text,
-			TextSize: props.textSize,
-			TextScaled: false,
+			TextSize: resolveBinding(
+				props.textSize,
+				(size) =>
+					typeIs(size, "number")
+						? size
+						: 0,
+			),
+			TextScaled: resolveBinding(
+				props.textSize,
+				(size) => size === "AUTO",
+			),
 			TextColor3: resolveColor3(props.textColor),
 
 			FontFace: resolveBinding<Enum.Font | Font, Font>(
@@ -38,5 +47,5 @@ export default BaseComponent
 
 			TextXAlignment: props.align,
 			TextYAlignment: props.verticalAlign,
-		})
+		}),
 	);

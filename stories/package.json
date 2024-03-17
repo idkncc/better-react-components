@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"scripts": {
 		"build": "rbxtsc",
-		"watch": "rbxtsc -w"
+		"watch": "rbxtsc -w",
+		"devInstall": "pnpm un @rbxts/better-react-components && pnpm add ../package.tgz"
 	},
 	"devDependencies": {
 		"@rbxts/compiler-types": "2.2.0-types.0",

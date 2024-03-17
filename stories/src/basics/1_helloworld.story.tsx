@@ -13,13 +13,13 @@ export = hoarcekat(() => {
 				text="Hello world!"
 				size={new UDim2(1, 0, 1, 0)}
 
-				font={Enum.Font.BuilderSansBold}
+				font={Enum.Font.BuilderSansBold} // font (Enum.Font or Font)
 				textSize={48}
-				borderSize={5}
+				borderSize={5} // border thickness
 
-				noBackground
+				noBackground // disable background
 				textColor={Latte.Text}
-				border={Latte.Base}
+				border={Latte.Base} // border color3
 			/>
 		</App>
 	);

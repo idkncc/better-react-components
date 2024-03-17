@@ -33,7 +33,8 @@ export = hoarcekat(() => {
 					size={UDim2.fromScale(1, 1)}
 
 					font={Enum.Font.BuilderSansBold}
-					textSize={32}
+					textSize={"AUTO"}
+					maxTextSize={32}
 
 					background={Color3.fromHex("#0000FF")}
 					textColor={Color3.fromHex("#FFFFFF")}
