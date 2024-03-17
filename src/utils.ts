@@ -108,14 +108,6 @@ export function resolveBinding<T, R>(bindingOrValue: BindingOrValue<T> | undefin
 	}
 }
 
-export function omit<T, K extends keyof T>(obj: T, ...keys: K[]): Omit<T, K> {
-	for (const [_, key] of ipairs(keys)) {
-		delete obj[key];
-	}
-
-	return obj as Omit<T, K>;
-}
-
 export function flat<T>(arr: T[][]): T[] {
 	const newArr: defined[] = [];
 

@@ -7,7 +7,7 @@ Roblox UI Modifiers, but in simpler way
 ## Default Modifiers
 
 These modifiers are available on all components
-> [see **/src/expandBase.tsx**](../src/expandBase.tsx) for source code
+> [see **/src/helpers/BaseComponent.tsx**](../src/helpers/BaseComponent.tsx) for source code
 
 ### Standard properties
 

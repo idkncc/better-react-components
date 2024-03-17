@@ -37,7 +37,6 @@ export const ScrollingFrame = BaseComponent
 						? Enum.ScrollBarInset.Always
 						: (scrollbarInsetV as Enum.ScrollBarInset) || Enum.ScrollBarInset.None,
 			),
-		}),
-		(props) => [],
+		})
 	)
 	.build("scrollingframe");

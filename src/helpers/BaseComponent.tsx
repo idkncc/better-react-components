@@ -3,7 +3,7 @@ import { ReactProps, ResolvableAnchorPoint, resolveAnchorPoint, resolveColor3, r
 import { InstanceProps } from "@rbxts/react";
 import React from "@rbxts/react";
 
-export type BaseProps<T extends Instance> = {
+export type BaseProps = {
 	visible?: boolean,
 
 	noBackground?: boolean
@@ -40,7 +40,7 @@ export type BaseProps<T extends Instance> = {
 	maxTextSize?: number
 }
 
-export default new ExpandableComponent<GuiObject, BaseProps<GuiObject>>()
+export default new ExpandableComponent<GuiObject, BaseProps>()
 	.expand(
 		(userProps) => ({
 			Visible: userProps.visible,

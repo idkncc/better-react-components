@@ -1,6 +1,7 @@
 import BaseComponent from "./BaseComponent";
 import { resolveBinding, resolveColor3 } from "../utils";
-import { createBinding, InferEnumNames, InstanceEvent } from "@rbxts/react";
+
+import type { InferEnumNames, InstanceEvent } from "@rbxts/react";
 
 export type TextComponentInstance = TextLabel | TextButton | TextBox
 export type TextComponentProps<T extends Instance = TextComponentInstance> = {
@@ -37,6 +38,5 @@ export default BaseComponent
 
 			TextXAlignment: props.align,
 			TextYAlignment: props.verticalAlign,
-		}),
-		(props) => [],
+		})
 	);

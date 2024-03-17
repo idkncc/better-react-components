@@ -1,13 +1,9 @@
+import React from "@rbxts/react";
 import Object from "@rbxts/object-utils";
-import React, {
-	ReactNode,
-	InstanceProps,
-	FunctionComponent,
-	ReactInstance,
-	AllowRefs,
-	InferEnumNames, Binding,
-} from "@rbxts/react";
+
 import { flat, ReactProps } from "../utils";
+
+import type { ReactNode, InstanceProps, InferEnumNames, Binding } from "@rbxts/react";
 
 type PropBuilder<P extends object, C extends Instance> = (userProps: BindingVariants<P>) => InstanceProps<C>
 type ChildrenBuilder<P extends object> = (userProps: BindingVariants<P>) => ReactNode[]
@@ -46,7 +42,8 @@ export default class ExpandableComponent<I extends Instance, P extends object> {
 			const props: InstanceProps<I> = Object.assign(
 				Object.assign({},
 					...this.propsBuilders
-						.map((build) => build(userProps)),
+						.map((build) => build(userProps))
+						.filterUndefined(),
 				),
 				{
 					Event: userProps.event,
