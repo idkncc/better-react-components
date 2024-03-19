@@ -9,6 +9,7 @@ import {
 } from "../utils";
 import { InstanceProps } from "@rbxts/react";
 import React from "@rbxts/react";
+import { isBinding } from "@rbxts/pretty-react-hooks";
 
 function resolveGradient(value: Array<ColorOrHex> | Array<ColorSequenceKeypoint> | ColorSequence): ColorSequence {
 	if (typeIs(value, "ColorSequence")) {
@@ -16,7 +17,7 @@ function resolveGradient(value: Array<ColorOrHex> | Array<ColorSequenceKeypoint>
 	} else if (typeIs(value[0], "ColorSequenceKeypoint")) {
 		return new ColorSequence(value as Array<ColorSequenceKeypoint>);
 	} else {
-		if (value.size() === 1) value = [value[0], value[0]]
+		if (value.size() === 1) value = [value[0], value[0]];
 
 		const keypointsCount = value.size();
 		const step = 1 / (keypointsCount - 1);
@@ -24,7 +25,6 @@ function resolveGradient(value: Array<ColorOrHex> | Array<ColorSequenceKeypoint>
 		const seq: Array<ColorSequenceKeypoint> = [];
 		let j = 0;
 		for (let i = 0; i <= 1; i += step) {
-			print(value[j], i);
 			seq.push(new ColorSequenceKeypoint(i, resolveColor3(value[j] as ColorOrHex) as Color3));
 			j++;
 		}
@@ -40,6 +40,7 @@ export type BaseProps = {
 	noBackground?: boolean
 	background?: ColorOrHex | Array<ColorOrHex> | Array<ColorSequenceKeypoint> | ColorSequence
 	backgroundTransparency?: number
+	gradientRotation: number
 
 	border?: ColorOrHex
 	borderMode?: Enum.ApplyStrokeMode
@@ -144,15 +145,20 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
 					MaxTextSize={userProps.maxTextSize}
 				/>
 				: undefined,
-
-			// Gradient
-			resolveBinding(
-				userProps.background,
-				(bgColor) =>
-					!typeIs(bgColor, "string") && !typeIs(bgColor, "Color3")
-						? <uigradient
-							Color={resolveGradient(bgColor)}
-						/>
-						: undefined),
 		],
+	)
+	.expand(
+		() => ({}),
+		(userProps) => {
+			const bgColor = (isBinding(userProps.background) ? userProps.background.getValue() : userProps.background);
+
+			return [
+				!typeIs(bgColor, "string") && !typeIs(bgColor, "Color3") && !typeIs(bgColor, "nil")
+					? <uigradient
+						Color={resolveBinding(userProps.background as [], resolveGradient)}
+						Rotation={userProps.gradientRotation}
+					/>
+					: undefined,
+			];
+		},
 	);
