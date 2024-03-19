@@ -30,6 +30,8 @@ export type AnchorPointsVariant =
 	"ml" | "m" | "mr" |
 	"bl" | "b" | "br"
 
+export type ColorOrHex = Color3 | string
+
 export enum AnchorPoints {
 	TopLeft = "tl",
 	Top = "t",
@@ -87,7 +89,7 @@ export function resolveUDim(value: BindingOrValue<number | UDim>): BindingOrValu
 	}
 }
 
-export function resolveColor3(value: BindingOrValue<string | Color3> | undefined): BindingOrValue<Color3> | undefined {
+export function resolveColor3(value: BindingOrValue<ColorOrHex> | undefined): BindingOrValue<Color3> | undefined {
 	if (!value) return undefined;
 
 	if (isBinding(value)) {
@@ -99,12 +101,12 @@ export function resolveColor3(value: BindingOrValue<string | Color3> | undefined
 }
 
 export function resolveBinding<T, R>(bindingOrValue: BindingOrValue<T> | undefined, callback: (value: T) => R): BindingOrValue<R> | undefined {
-	if (!bindingOrValue) return
+	if (!bindingOrValue) return;
 
 	if (isBinding(bindingOrValue)) {
-		return bindingOrValue.map(callback)
+		return bindingOrValue.map(callback);
 	} else {
-		return callback(bindingOrValue)
+		return callback(bindingOrValue);
 	}
 }
 

@@ -1,16 +1,47 @@
 import ExpandableComponent from "./ExpandableComponent";
-import { ReactProps, ResolvableAnchorPoint, resolveAnchorPoint, resolveColor3, resolveUDim } from "../utils";
+import {
+	ColorOrHex,
+	ReactProps,
+	ResolvableAnchorPoint,
+	resolveAnchorPoint, resolveBinding,
+	resolveColor3,
+	resolveUDim,
+} from "../utils";
 import { InstanceProps } from "@rbxts/react";
 import React from "@rbxts/react";
+
+function resolveGradient(value: Array<ColorOrHex> | Array<ColorSequenceKeypoint> | ColorSequence): ColorSequence {
+	if (typeIs(value, "ColorSequence")) {
+		return value as ColorSequence;
+	} else if (typeIs(value[0], "ColorSequenceKeypoint")) {
+		return new ColorSequence(value as Array<ColorSequenceKeypoint>);
+	} else {
+		if (value.size() === 1) value = [value[0], value[0]]
+
+		const keypointsCount = value.size();
+		const step = 1 / (keypointsCount - 1);
+
+		const seq: Array<ColorSequenceKeypoint> = [];
+		let j = 0;
+		for (let i = 0; i <= 1; i += step) {
+			print(value[j], i);
+			seq.push(new ColorSequenceKeypoint(i, resolveColor3(value[j] as ColorOrHex) as Color3));
+			j++;
+		}
+
+
+		return new ColorSequence(seq);
+	}
+}
 
 export type BaseProps = {
 	visible?: boolean,
 
 	noBackground?: boolean
-	background?: Color3 | string
+	background?: ColorOrHex | Array<ColorOrHex> | Array<ColorSequenceKeypoint> | ColorSequence
 	backgroundTransparency?: number
 
-	border?: Color3 | string
+	border?: ColorOrHex
 	borderMode?: Enum.ApplyStrokeMode
 	borderSize?: number
 	borderLineJoinMode?: Enum.LineJoinMode
@@ -46,7 +77,13 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
 		(userProps) => ({
 			Visible: userProps.visible,
 
-			BackgroundColor3: resolveColor3(userProps.background),
+			BackgroundColor3: resolveBinding(
+				userProps.background,
+				(value) =>
+					typeIs(value, "string") || typeIs(value, "Color3")
+						? resolveColor3(value) as Color3 // regular color
+						: Color3.fromHex("#FFFFFF"), // gradient
+			),
 			BackgroundTransparency: userProps.noBackground ? 1 : (userProps.backgroundTransparency ?? 0),
 
 			AutomaticSize: userProps.automaticSize,
@@ -75,7 +112,7 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
 			userProps.stroke !== undefined
 			|| userProps.border !== undefined || userProps.borderSize !== undefined || userProps.borderLineJoinMode !== undefined
 				? <uistroke
-					Color={resolveColor3(userProps.border)}
+					Color={resolveColor3(userProps.border as ColorOrHex)}
 					Thickness={userProps.borderSize}
 					ApplyStrokeMode={userProps.borderMode}
 					LineJoinMode={userProps.borderLineJoinMode}
@@ -107,5 +144,15 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
 					MaxTextSize={userProps.maxTextSize}
 				/>
 				: undefined,
+
+			// Gradient
+			resolveBinding(
+				userProps.background,
+				(bgColor) =>
+					!typeIs(bgColor, "string") && !typeIs(bgColor, "Color3")
+						? <uigradient
+							Color={resolveGradient(bgColor)}
+						/>
+						: undefined),
 		],
 	);

@@ -45,7 +45,15 @@ Add roblox's properties to element
 ```tsx
 <Frame
 	noBackground // same as backgroundTransparency={1}
-	background={Color3 | string} // if its string, it will be converted from HEX color to Color3
+	background={Color3 | string} // if its string, it will be converted from HEX value to Color3
+
+	//
+	// Gradients: (NEW)
+	//  background={Array<Color3 | string> | Array<ColorSequenceKeypoint>}
+	//
+	// see example at /stories/src/tests/gradients.story.tsx
+	//
+
 	backgroundTransparency={number}
 >
 	...

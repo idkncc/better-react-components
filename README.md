@@ -55,9 +55,10 @@ Also see **[introduction](docs/1_Introduction.md)**
 
 - [X] UIAspectRatioConstraint
 - [X] UICorner
-- [ ] UIGradient
+- [X] UIGradient
 - [X] UIGridLayout [(see GridLayout)](src/components/GridLayout.tsx)
 - [X] UIListLayout [(see ListLayout)](src/components/ListLayout.tsx)
+- [ ] ~~UIFlexLayout~~ (in Roblox Studio Beta Features)
 - [X] UIPadding
 - [ ] UIPageLayout
 - [ ] UIScale
