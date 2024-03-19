@@ -2,6 +2,7 @@ import BaseComponent from "./BaseComponent";
 import { resolveBinding, resolveColor3 } from "../utils";
 
 import type { InferEnumNames, InstanceEvent } from "@rbxts/react";
+import { mapBinding } from "@rbxts/pretty-react-hooks";
 
 export type TextComponentInstance = TextLabel | TextButton | TextBox
 export type TextComponentProps<T extends Instance = TextComponentInstance> = {
@@ -22,27 +23,27 @@ export default BaseComponent
 	.expand<TextComponentInstance, TextComponentProps>(
 		(props) => ({
 			Text: props.text,
-			TextSize: resolveBinding(
+			TextSize: mapBinding(
 				props.textSize,
 				(size) =>
 					typeIs(size, "number")
 						? size
 						: 0,
 			),
-			TextScaled: resolveBinding(
+			TextScaled: mapBinding(
 				props.textSize,
 				(size) => size === "AUTO",
 			),
 			TextColor3: resolveColor3(props.textColor),
 
-			FontFace: resolveBinding<Enum.Font | Font, Font>(
+			FontFace: mapBinding<Enum.Font | Font, Font>(
 				props.font as Enum.Font | Font,
 				(font) =>
 					typeIs(font, "Font")
-						? font
+						? font // font
 						: typeIs(font, "string")
-							? Font.fromEnum(Enum.Font[font as InferEnumNames<Enum.Font>])
-							: Font.fromEnum(font),
+							? Font.fromEnum(Enum.Font[font as InferEnumNames<Enum.Font>]) // font enum key
+							: Font.fromEnum(font), // font enum
 			),
 
 			TextXAlignment: props.align,

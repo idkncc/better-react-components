@@ -1,9 +1,10 @@
 import Object from "@rbxts/object-utils";
 import BaseComponent from "../helpers/BaseComponent";
 
-import { resolveBinding, resolveColor3 } from "../utils";
+import { resolveColor3 } from "../utils";
 
 import type { InstanceAttributes } from "@rbxts/react";
+import { mapBinding } from "@rbxts/pretty-react-hooks";
 
 export type ScrollingFrameProps = {
 	automaticCanvasSize?: Enum.AutomaticSize
@@ -40,14 +41,14 @@ export const ScrollingFrame = BaseComponent
 				CanvasPosition: props.canvasPosition,
 				CanvasSize: props.canvasSize,
 
-				HorizontalScrollBarInset: resolveBinding(
+				HorizontalScrollBarInset: mapBinding(
 					props.scrollbarInsetH,
 					(scrollbarInsetH) =>
 						typeIs(scrollbarInsetH, "boolean") && scrollbarInsetH
 							? Enum.ScrollBarInset.Always
 							: (scrollbarInsetH as Enum.ScrollBarInset) || Enum.ScrollBarInset.None,
 				),
-				VerticalScrollBarInset: resolveBinding(
+				VerticalScrollBarInset: mapBinding(
 					props.scrollbarInsetV,
 					(scrollbarInsetV) =>
 						typeIs(scrollbarInsetV, "boolean") && scrollbarInsetV
@@ -56,17 +57,17 @@ export const ScrollingFrame = BaseComponent
 				),
 
 				ScrollingDirection: props.direction,
-				ScrollingEnabled: resolveBinding(props.scrollbar, (scrollbar) => !typeIs(scrollbar, "boolean")),
+				ScrollingEnabled: mapBinding(props.scrollbar, (scrollbar) => !typeIs(scrollbar, "boolean")),
 			} as InstanceAttributes<ScrollingFrame>,
 
 			// scrollbar settings
 			{
-				TopImage: resolveBinding(props.scrollbar, (scrollbar) => scrollbar && scrollbar.topImage),
-				MidImage: resolveBinding(props.scrollbar, (scrollbar) => scrollbar && scrollbar.midImage),
-				BottomImage: resolveBinding(props.scrollbar, (scrollbar) => scrollbar && scrollbar.bottomImage),
+				TopImage: mapBinding(props.scrollbar, (scrollbar) => scrollbar && scrollbar.topImage),
+				MidImage: mapBinding(props.scrollbar, (scrollbar) => scrollbar && scrollbar.midImage),
+				BottomImage: mapBinding(props.scrollbar, (scrollbar) => scrollbar && scrollbar.bottomImage),
 
-				ScrollBarImageColor3: resolveBinding(props.scrollbar, (scrollbar) => scrollbar && resolveColor3(scrollbar.imageColor) as Color3),
-				ScrollBarImageTransparency: resolveBinding(props.scrollbar, (scrollbar) => scrollbar && scrollbar.imageTransparency),
+				ScrollBarImageColor3: mapBinding(props.scrollbar, (scrollbar) => scrollbar && resolveColor3(scrollbar.imageColor) as Color3),
+				ScrollBarImageTransparency: mapBinding(props.scrollbar, (scrollbar) => scrollbar && scrollbar.imageTransparency),
 
 			} as InstanceAttributes<ScrollingFrame>,
 		),

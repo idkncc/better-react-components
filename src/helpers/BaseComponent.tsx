@@ -3,13 +3,13 @@ import {
 	ColorOrHex,
 	ReactProps,
 	ResolvableAnchorPoint,
-	resolveAnchorPoint, resolveBinding,
+	resolveAnchorPoint,
 	resolveColor3,
 	resolveUDim,
 } from "../utils";
 import { InstanceProps } from "@rbxts/react";
 import React from "@rbxts/react";
-import { isBinding } from "@rbxts/pretty-react-hooks";
+import { isBinding, mapBinding } from "@rbxts/pretty-react-hooks";
 
 function resolveGradient(value: Array<ColorOrHex> | Array<ColorSequenceKeypoint> | ColorSequence): ColorSequence {
 	if (typeIs(value, "ColorSequence")) {
@@ -78,7 +78,7 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
 		(userProps) => ({
 			Visible: userProps.visible,
 
-			BackgroundColor3: resolveBinding(
+			BackgroundColor3: mapBinding(
 				userProps.background,
 				(value) =>
 					typeIs(value, "string") || typeIs(value, "Color3")
@@ -155,7 +155,7 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
 			return [
 				!typeIs(bgColor, "string") && !typeIs(bgColor, "Color3") && !typeIs(bgColor, "nil")
 					? <uigradient
-						Color={resolveBinding(userProps.background as [], resolveGradient)}
+						Color={mapBinding(userProps.background as [], resolveGradient)}
 						Rotation={userProps.gradientRotation}
 					/>
 					: undefined,

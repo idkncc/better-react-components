@@ -100,6 +100,9 @@ export function resolveColor3(value: BindingOrValue<ColorOrHex> | undefined): Bi
 	}
 }
 
+/**
+ * @deprecated Use `mapBinding` from `@rbxts/pretty-react-hooks`. Probably will be removed later.
+ */
 export function resolveBinding<T, R>(bindingOrValue: BindingOrValue<T> | undefined, callback: (value: T) => R): BindingOrValue<R> | undefined {
 	if (!bindingOrValue) return;
 
