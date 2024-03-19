@@ -1,12 +1,20 @@
 # Modifiers && Utils
 
-[Introduction](1_Introduction.md) • <u>Modifiers</u> • [Components](3_Components.md) • [Custom Components](4_Custom_Components.md)
+[Introduction](1_Introduction.md) • <u>
+Modifiers</u> • [Components](3_Components.md) • [Custom Components](4_Custom_Components.md)
 
 Roblox UI Modifiers, but in simpler way
+
+> [!NOTE]
+>
+> All properties support Bindings!
 
 ## Default Modifiers
 
 These modifiers are available on all components
+
+> [!INFORMATION]
+> 
 > [see **/src/helpers/BaseComponent.tsx**](../src/helpers/BaseComponent.tsx) for source code
 
 ### Standard properties
@@ -17,7 +25,7 @@ These modifiers are available on all components
 
 	position={UDim2}
 	size={UDim2}
-    anchorPoint={ResolvableAnchorPoint}
+	anchorPoint={ResolvableAnchorPoint}
 
 	automaticSize={Enum.AutomaticSize | "X" | "Y" | "XY"}
 >
@@ -142,11 +150,23 @@ Same as `UITextSizeConstraint`
 
 ```tsx
 <Text
-	minTextSize={number} 
+	minTextSize={number}
 	maxTextSize={number}
 >
 	...
 </Text>;
+```
+
+### Scale
+
+Same as `UIScale`
+
+```tsx
+<Frame
+	scale={number}
+>
+	...
+</Frame>;
 ```
 
 ## Utils

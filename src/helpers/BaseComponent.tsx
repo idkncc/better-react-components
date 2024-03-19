@@ -50,6 +50,8 @@ export type BaseProps = {
 
 	minTextSize?: number
 	maxTextSize?: number
+
+	scale?: number
 }
 
 export default new ExpandableComponent<GuiObject, BaseProps>()
@@ -123,6 +125,11 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
 				/>
 				: undefined,
 
-			<GradientElement color={userProps.background} rotation={userProps.gradientRotation} />
+			// Scale
+			userProps.scale !== undefined
+				? <uiscale Scale={userProps.scale} />
+				: undefined,
+
+			<GradientElement color={userProps.background} rotation={userProps.gradientRotation} />,
 		],
-	)
+	);
