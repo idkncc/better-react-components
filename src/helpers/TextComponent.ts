@@ -1,13 +1,14 @@
 import BaseComponent from "./BaseComponent";
-import { resolveBinding, resolveColor3 } from "../utils";
+import { ColorOrHex, resolveColor3 } from "../utils";
 
-import type { InferEnumNames, InstanceEvent } from "@rbxts/react";
+import React, { InferEnumNames, InstanceEvent } from "@rbxts/react";
 import { mapBinding } from "@rbxts/pretty-react-hooks";
+import { getBaseColor, Gradient, GradientElement } from "./Gradient";
 
 export type TextComponentInstance = TextLabel | TextButton | TextBox
 export type TextComponentProps<T extends Instance = TextComponentInstance> = {
 	text?: string,
-	textColor?: Color3 | string
+	textColor?: ColorOrHex
 
 	textSize?: number | "AUTO"
 
@@ -36,14 +37,16 @@ export default BaseComponent
 			),
 			TextColor3: resolveColor3(props.textColor),
 
-			FontFace: mapBinding<Enum.Font | Font, Font>(
-				props.font as Enum.Font | Font,
+			FontFace: mapBinding(
+				props.font,
 				(font) =>
-					typeIs(font, "Font")
-						? font // font
-						: typeIs(font, "string")
-							? Font.fromEnum(Enum.Font[font as InferEnumNames<Enum.Font>]) // font enum key
-							: Font.fromEnum(font), // font enum
+					typeIs(font, "nil")
+						? Font.fromEnum(Enum.Font.Legacy)
+						: typeIs(font, "Font")
+							? font // font
+							: typeIs(font, "string")
+								? Font.fromEnum(Enum.Font[font as InferEnumNames<Enum.Font>]) // font enum key
+								: Font.fromEnum(font), // font enum
 			),
 
 			TextXAlignment: props.align,

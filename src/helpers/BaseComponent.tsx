@@ -9,40 +9,19 @@ import {
 } from "../utils";
 import { InstanceProps } from "@rbxts/react";
 import React from "@rbxts/react";
-import { isBinding, mapBinding } from "@rbxts/pretty-react-hooks";
-
-function resolveGradient(value: Array<ColorOrHex> | Array<ColorSequenceKeypoint> | ColorSequence): ColorSequence {
-	if (typeIs(value, "ColorSequence")) {
-		return value as ColorSequence;
-	} else if (typeIs(value[0], "ColorSequenceKeypoint")) {
-		return new ColorSequence(value as Array<ColorSequenceKeypoint>);
-	} else {
-		if (value.size() === 1) value = [value[0], value[0]];
-
-		const keypointsCount = value.size();
-		const step = 1 / (keypointsCount - 1);
-
-		const seq: Array<ColorSequenceKeypoint> = [];
-		let j = 0;
-		for (let i = 0; i <= 1; i += step) {
-			seq.push(new ColorSequenceKeypoint(i, resolveColor3(value[j] as ColorOrHex) as Color3));
-			j++;
-		}
-
-
-		return new ColorSequence(seq);
-	}
-}
+import { getBindingValue, isBinding, mapBinding } from "@rbxts/pretty-react-hooks";
+import { getBaseColor, Gradient, GradientElement } from "./Gradient";
 
 export type BaseProps = {
 	visible?: boolean,
 
 	noBackground?: boolean
-	background?: ColorOrHex | Array<ColorOrHex> | Array<ColorSequenceKeypoint> | ColorSequence
+	background?: Gradient | ColorOrHex
 	backgroundTransparency?: number
 	gradientRotation: number
 
-	border?: ColorOrHex
+	border?: ColorOrHex | Gradient
+	borderGradientRotation?: number
 	borderMode?: Enum.ApplyStrokeMode
 	borderSize?: number
 	borderLineJoinMode?: Enum.LineJoinMode
@@ -78,13 +57,7 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
 		(userProps) => ({
 			Visible: userProps.visible,
 
-			BackgroundColor3: mapBinding(
-				userProps.background,
-				(value) =>
-					typeIs(value, "string") || typeIs(value, "Color3")
-						? resolveColor3(value) as Color3 // regular color
-						: Color3.fromHex("#FFFFFF"), // gradient
-			),
+			BackgroundColor3: getBaseColor(userProps.background),
 			BackgroundTransparency: userProps.noBackground ? 1 : (userProps.backgroundTransparency ?? 0),
 
 			AutomaticSize: userProps.automaticSize,
@@ -112,13 +85,17 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
 			// Stroke (border)
 			userProps.stroke !== undefined
 			|| userProps.border !== undefined || userProps.borderSize !== undefined || userProps.borderLineJoinMode !== undefined
-				? <uistroke
-					Color={resolveColor3(userProps.border as ColorOrHex)}
-					Thickness={userProps.borderSize}
-					ApplyStrokeMode={userProps.borderMode}
-					LineJoinMode={userProps.borderLineJoinMode}
-					{...userProps.stroke}
-				/>
+				? (
+					<uistroke
+						Color={getBaseColor(userProps.border)}
+						Thickness={userProps.borderSize}
+						ApplyStrokeMode={userProps.borderMode}
+						LineJoinMode={userProps.borderLineJoinMode}
+						{...userProps.stroke}
+					>
+						<GradientElement color={userProps.border} rotation={userProps.borderGradientRotation} />
+					</uistroke>
+				)
 				: undefined,
 
 			// Padding
@@ -145,20 +122,7 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
 					MaxTextSize={userProps.maxTextSize}
 				/>
 				: undefined,
+
+			<GradientElement color={userProps.background} rotation={userProps.gradientRotation} />
 		],
 	)
-	.expand(
-		() => ({}),
-		(userProps) => {
-			const bgColor = (isBinding(userProps.background) ? userProps.background.getValue() : userProps.background);
-
-			return [
-				!typeIs(bgColor, "string") && !typeIs(bgColor, "Color3") && !typeIs(bgColor, "nil")
-					? <uigradient
-						Color={mapBinding(userProps.background as [], resolveGradient)}
-						Rotation={userProps.gradientRotation}
-					/>
-					: undefined,
-			];
-		},
-	);

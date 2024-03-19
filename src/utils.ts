@@ -12,7 +12,7 @@ import {
 	RefObject,
 } from "@rbxts/react";
 
-import { BindingOrValue, isBinding } from "@rbxts/pretty-react-hooks";
+import { BindingOrValue, isBinding, mapBinding } from "@rbxts/pretty-react-hooks";
 
 export type ReactProps<T extends Instance> = {
 	key?: Key;
@@ -48,9 +48,7 @@ export type ResolvableAnchorPoint =
 	Vector2 | AnchorPointsVariant | AnchorPoints
 
 export function resolveAnchorPoint(value: BindingOrValue<ResolvableAnchorPoint>): BindingOrValue<Vector2> {
-	if (isBinding(value)) {
-		return value.map((v) => resolveAnchorPoint(v) as Vector2);
-	} else {
+	return mapBinding(value, (value) => {
 		if (typeIs(value, "Vector2")) return value;
 
 		switch (value) {
@@ -76,28 +74,27 @@ export function resolveAnchorPoint(value: BindingOrValue<ResolvableAnchorPoint>)
 			default:
 				return new Vector2(0, 0);
 		}
-	}
-
+	});
 }
 
 export function resolveUDim(value: BindingOrValue<number | UDim>): BindingOrValue<UDim> {
-	if (isBinding(value)) {
-		return value.map((v) => resolveUDim(v) as UDim);
-	} else {
+	return mapBinding(value, (value) => {
 		if (typeIs(value, "UDim")) return value;
 		return new UDim(0, value);
-	}
+	});
+}
+export function resolveColor3Value(value: ColorOrHex): Color3 {
+	if (typeIs(value, "Color3")) return value;
+	return Color3.fromHex(value);
 }
 
-export function resolveColor3(value: BindingOrValue<ColorOrHex> | undefined): BindingOrValue<Color3> | undefined {
+export function resolveColor3(value: BindingOrValue<ColorOrHex> | undefined): Binding<Color3> | undefined {
 	if (!value) return undefined;
 
-	if (isBinding(value)) {
-		return value.map((v) => resolveColor3(v) as Color3);
-	} else {
+	return mapBinding(value, (value) => {
 		if (typeIs(value, "Color3")) return value;
 		return Color3.fromHex(value);
-	}
+	});
 }
 
 /**

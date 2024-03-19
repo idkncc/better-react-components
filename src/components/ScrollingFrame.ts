@@ -4,7 +4,7 @@ import BaseComponent from "../helpers/BaseComponent";
 import { resolveColor3 } from "../utils";
 
 import type { InstanceAttributes } from "@rbxts/react";
-import { mapBinding } from "@rbxts/pretty-react-hooks";
+import { getBindingValue, mapBinding } from "@rbxts/pretty-react-hooks";
 
 export type ScrollingFrameProps = {
 	automaticCanvasSize?: Enum.AutomaticSize
@@ -66,7 +66,7 @@ export const ScrollingFrame = BaseComponent
 				MidImage: mapBinding(props.scrollbar, (scrollbar) => scrollbar && scrollbar.midImage),
 				BottomImage: mapBinding(props.scrollbar, (scrollbar) => scrollbar && scrollbar.bottomImage),
 
-				ScrollBarImageColor3: mapBinding(props.scrollbar, (scrollbar) => scrollbar && resolveColor3(scrollbar.imageColor) as Color3),
+				ScrollBarImageColor3: mapBinding(props.scrollbar, (scrollbar) => scrollbar && getBindingValue(resolveColor3(scrollbar.imageColor))),
 				ScrollBarImageTransparency: mapBinding(props.scrollbar, (scrollbar) => scrollbar && scrollbar.imageTransparency),
 
 			} as InstanceAttributes<ScrollingFrame>,

@@ -6,7 +6,7 @@ import {
 	Frame,
 	GridLayout,
 	ListLayout,
-	resolveColor3,
+	resolveColor3, resolveColor3Value,
 	Text,
 } from "@rbxts/better-react-components";
 import { App } from "../App";
@@ -43,7 +43,7 @@ function ButtonWithGradient() {
 		>
 			<Text
 				text={"Button w/ gradient"}
-				font={Enum.Font.BuilderSansBold}
+				font={Enum.Font.BuilderSans}
 				textSize={28}
 
 				size={new UDim2(1, 0, 1, 0)}
@@ -58,22 +58,36 @@ function ButtonWithGradient() {
 export = hoarcekat(() => {
 	return (
 		<App>
-			<ListLayout padding={4} />
+			<ListLayout padding={8} />
 
 			{/* Array of colors (timed automatically) */}
 			<Frame
 				size={new UDim2(1, -4, 0, 75)}
-				background={["#00FF00"]}
+				background={["#00FF00"]} // if only one color - will add second color and make UIGradient
+				cornerRadius={16}
 			/>
 
-			<Frame
+			<Text
+				text={"Example text"}
+				textSize={48}
+
 				size={new UDim2(1, -4, 0, 75)}
-				background={["#FF0000", "#0000FF"]}
+
+				font={Enum.Font.BuilderSansExtraBold}
+
+				background={"#000000"}
+				backgroundTransparency={.5}
+
+				textColor={"#FFFFFF"}
+				border={["#FF0000", "#0000FF"]} // supports backgrounds and borders!
+				borderSize={10}
+				cornerRadius={16}
 			/>
 
 			<Frame
 				size={new UDim2(1, -4, 0, 75)}
 				background={["#FF0000", "#FF00FF", "#0000FF"]}
+				cornerRadius={16}
 			/>
 
 
@@ -81,21 +95,23 @@ export = hoarcekat(() => {
 			<Frame
 				size={new UDim2(1, -4, 0, 75)}
 				background={[
-					new ColorSequenceKeypoint(0, resolveColor3("#000000") as Color3),
-					new ColorSequenceKeypoint(0.5-0.5/3, resolveColor3("#FF0000") as Color3),
-					new ColorSequenceKeypoint(0.5+0.5/3, resolveColor3("#FF0000") as Color3),
-					new ColorSequenceKeypoint(1, resolveColor3("#000000") as Color3)
+					new ColorSequenceKeypoint(0, resolveColor3Value("#000000") as Color3),
+					new ColorSequenceKeypoint(0.5-0.5/3, resolveColor3Value("#FF0000") as Color3),
+					new ColorSequenceKeypoint(0.5+0.5/3, resolveColor3Value("#FF0000") as Color3),
+					new ColorSequenceKeypoint(1, resolveColor3Value("#000000") as Color3)
 				]}
+				cornerRadius={16}
 			/>
 
 			{/* Sequence */}
 			<Frame
 				size={new UDim2(1, -4, 0, 75)}
 				background={new ColorSequence([
-					new ColorSequenceKeypoint(0, resolveColor3("#FF0000") as Color3),
-					new ColorSequenceKeypoint(0.5, resolveColor3("#3333CC") as Color3),
-					new ColorSequenceKeypoint(1, resolveColor3("#00FF00") as Color3)
+					new ColorSequenceKeypoint(0, resolveColor3Value("#FF0000") as Color3),
+					new ColorSequenceKeypoint(0.5, resolveColor3Value("#3333CC") as Color3),
+					new ColorSequenceKeypoint(1, resolveColor3Value("#00FF00") as Color3)
 				])}
+				cornerRadius={16}
 			/>
 
 			<Frame
