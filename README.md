@@ -11,7 +11,7 @@ Also see **[introduction](docs/1_Introduction.md)**
 	position={new UDim2(.5, 0, .5, 0)}
 	size={new UDim2(.5, 0, .5, 0)}
 
-	anchorPoint={"m"}
+	anchorPoint={AnchorPoints.Middle}
 	cornerRadius={8}
 	padding={4}
 >
@@ -23,12 +23,12 @@ Also see **[introduction](docs/1_Introduction.md)**
 
 	<DummyElement />
 	<Button
-		textColor={Color3.fromHex("#64FEE7")}
+		textColor={"#64FEE7"}
 		text="Hello world!"
 	/>
 	<Text
-		background={Color3.fromHex("#64FEE7")}
-		text="Hello world!"
+		background={"#64FEE7"}
+		text="Hello there!"
 		font={Enum.Font.Arial}
 	/>
 </Frame>;
@@ -38,18 +38,18 @@ Also see **[introduction](docs/1_Introduction.md)**
 
 ### TODO
 - [X] Stories
-- [ ] Support for Bindings in props
+- [X] Support for Bindings in props
 - [ ] Better documentation
 
 ### Components
 
 - [X] Frame
-- [ ] ScrollableFrame ±
+- [X] ScrollableFrame
 - [X] Button
 - [ ] ImageButton
 - [X] Text
 - [ ] Image
-- [ ] TextBox
+- [X] TextBox
 
 ### Modifiers
 
@@ -62,6 +62,6 @@ Also see **[introduction](docs/1_Introduction.md)**
 - [ ] UIPageLayout
 - [ ] UIScale
 - [X] UISizeConstraint
-- [ ] UIStroke ±
+- [X] UIStroke
 - [ ] UITableLayout
 - [X] UITextSizeConstraint

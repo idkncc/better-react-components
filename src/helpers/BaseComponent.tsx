@@ -13,6 +13,8 @@ export type BaseProps = {
 	border?: Color3 | string
 	borderMode?: Enum.ApplyStrokeMode
 	borderSize?: number
+	borderLineJoinMode?: Enum.LineJoinMode
+	stroke?: InstanceProps<UIStroke>
 
 	position?: UDim2
 	size?: UDim2,
@@ -25,7 +27,6 @@ export type BaseProps = {
 	aspectType?: Enum.AspectType
 	aspectAxis?: Enum.DominantAxis
 
-	stroke?: InstanceProps<UIStroke>
 
 	padding?: number | UDim
 	paddingLeft?: number | UDim
@@ -72,11 +73,12 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
 
 			// Stroke (border)
 			userProps.stroke !== undefined
-			|| userProps.border !== undefined || userProps.borderSize !== undefined
+			|| userProps.border !== undefined || userProps.borderSize !== undefined || userProps.borderLineJoinMode !== undefined
 				? <uistroke
 					Color={resolveColor3(userProps.border)}
 					Thickness={userProps.borderSize}
 					ApplyStrokeMode={userProps.borderMode}
+					LineJoinMode={userProps.borderLineJoinMode}
 					{...userProps.stroke}
 				/>
 				: undefined,
@@ -99,7 +101,6 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
 				: undefined,
 
 			// Text Size constraint
-
 			userProps.minTextSize !== undefined || userProps.maxTextSize !== undefined
 				? <uitextsizeconstraint
 					MinTextSize={userProps.minTextSize ?? 1}
