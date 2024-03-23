@@ -1,6 +1,7 @@
 import React from "@rbxts/react";
+import { BindingVariants } from "../helpers/ExpandableComponent";
 
-export type GridLayoutProps = {
+export type GridLayoutProps = BindingVariants<{
 	cellPadding?: UDim2
 	cellSize?: UDim2
 	cellAspectRatio?: number
@@ -11,7 +12,7 @@ export type GridLayoutProps = {
 	horizontalAlign?: Enum.HorizontalAlignment
 	verticalAlign?: Enum.VerticalAlignment,
 	sortOrder?: Enum.SortOrder;
-}
+}>
 
 export function GridLayout(props: GridLayoutProps) {
 	return (
