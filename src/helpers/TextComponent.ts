@@ -14,7 +14,12 @@ export type TextComponentProps<T extends Instance = TextComponentInstance> = {
 
 	font?: Enum.Font | Font
 
+	textAlign?: Enum.TextXAlignment
+	verticalTextAlign?: Enum.TextYAlignment
+
+	/** @deprecated use `textAlign` (WILL BE REMOVED IN NEXT MAJOR VERSION!) */
 	align?: Enum.TextXAlignment
+	/** @deprecated use `verticalTextAlign` (WILL BE REMOVED IN NEXT MAJOR VERSION!) */
 	verticalAlign?: Enum.TextYAlignment
 
 	event?: InstanceEvent<T>
@@ -49,7 +54,7 @@ export default BaseComponent
 								: Font.fromEnum(font), // font enum
 			),
 
-			TextXAlignment: props.align,
-			TextYAlignment: props.verticalAlign,
+			TextXAlignment: props.textAlign ?? props.align,
+			TextYAlignment: props.verticalTextAlign ?? props.verticalAlign,
 		}),
 	);

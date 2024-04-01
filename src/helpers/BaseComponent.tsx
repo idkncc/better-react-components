@@ -38,7 +38,6 @@ export type BaseProps = {
 	aspectType?: Enum.AspectType
 	aspectAxis?: Enum.DominantAxis
 
-
 	padding?: number | UDim
 	paddingLeft?: number | UDim
 	paddingRight?: number | UDim
@@ -51,7 +50,11 @@ export type BaseProps = {
 	minTextSize?: number
 	maxTextSize?: number
 
-	scale?: number
+	scale?: number,
+
+	layoutOrder?: number,
+	zIndex?: number,
+	sizeConstraint?: Enum.SizeConstraint
 }
 
 export default new ExpandableComponent<GuiObject, BaseProps>()
@@ -69,6 +72,10 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
 			AnchorPoint: resolveAnchorPoint(userProps.anchorPoint ?? new Vector2(0, 0)),
 
 			BorderSizePixel: 0, // we use UIStroke instead
+
+			LayoutOrder: userProps.layoutOrder,
+			ZIndex: userProps.zIndex,
+			SizeConstraint: userProps.sizeConstraint,
 		}),
 		(userProps) => [
 			userProps.cornerRadius !== undefined
