@@ -61,7 +61,7 @@ Also see **[introduction](docs/1_Introduction.md)**
 - [ ] ~~UIFlexLayout~~ (in Roblox Studio Beta Features)
 - [X] UIPadding
 - [ ] UIPageLayout
-- [ ] UIScale
+- [X] UIScale
 - [X] UISizeConstraint
 - [X] UIStroke
 - [ ] UITableLayout
