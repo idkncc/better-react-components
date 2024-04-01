@@ -1,9 +1,9 @@
 import BaseComponent from "./BaseComponent";
-import { ColorOrHex, resolveColor3 } from "../utils";
 
-import React, { InferEnumNames, InstanceEvent } from "@rbxts/react";
+import { ColorOrHex, resolveColor3 } from "../utils";
 import { mapBinding } from "@rbxts/pretty-react-hooks";
-import { getBaseColor, Gradient, GradientElement } from "./Gradient";
+
+import type { InferEnumNames, InstanceEvent } from "@rbxts/react";
 
 export type TextComponentInstance = TextLabel | TextButton | TextBox
 export type TextComponentProps<T extends Instance = TextComponentInstance> = {

@@ -2,7 +2,7 @@
 // cl c cr
 // bl b br
 import {
-	Binding,
+	Binding, type InferEnumNames,
 	InstanceChangeEvent,
 	InstanceEvent,
 	InstanceProps,
@@ -13,6 +13,13 @@ import {
 } from "@rbxts/react";
 
 import { BindingOrValue, isBinding, mapBinding } from "@rbxts/pretty-react-hooks";
+
+export type BindingVariants<T extends object> = {
+	[P in keyof T]?:
+	| T[P]
+	| InferEnumNames<T[P]>
+	| Binding<Exclude<T[P], undefined>>;
+};
 
 export type ReactProps<T extends Instance> = {
 	key?: Key;

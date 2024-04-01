@@ -1,6 +1,8 @@
-import { ColorOrHex, resolveColor3 } from "../utils";
-import { BindingOrValue, getBindingValue, isBinding, mapBinding } from "@rbxts/pretty-react-hooks";
 import React, { Binding } from "@rbxts/react";
+
+import { ColorOrHex, resolveColor3 } from "../utils";
+
+import { BindingOrValue, getBindingValue, mapBinding } from "@rbxts/pretty-react-hooks";
 
 export type Gradient = Array<ColorOrHex> | Array<ColorSequenceKeypoint> | ColorSequence
 
@@ -35,7 +37,7 @@ export type GradientElementProps = {
 }
 
 export function getBaseColor(color: BindingOrValue<Gradient | ColorOrHex | undefined>): Binding<Color3> | undefined {
-	if (typeIs(color, "nil")) return
+	if (typeIs(color, "nil")) return;
 
 	return mapBinding(
 		color,

@@ -7,7 +7,7 @@ type ButtonProps = TextComponentProps<TextButton> & {
 export const Button = TextComponent
 	.expand<TextButton, ButtonProps>(
 		(props) => ({
-			AutoButtonColor: props.autoButtonColor
-		})
+			AutoButtonColor: props.autoButtonColor,
+		}),
 	)
 	.build("textbutton");

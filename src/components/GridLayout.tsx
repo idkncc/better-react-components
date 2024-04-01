@@ -1,5 +1,5 @@
 import React from "@rbxts/react";
-import { BindingVariants } from "../helpers/ExpandableComponent";
+import { BindingVariants } from "../utils";
 
 export type GridLayoutProps = BindingVariants<{
 	cellPadding?: UDim2

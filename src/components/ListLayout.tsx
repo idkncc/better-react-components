@@ -1,7 +1,6 @@
 import React from "@rbxts/react";
-import { resolveUDim } from "../utils";
-import { BindingVariants } from "../helpers/ExpandableComponent";
 
+import { BindingVariants, resolveUDim } from "../utils";
 
 export type ListLayoutProps = BindingVariants<{
 	padding?: number | UDim

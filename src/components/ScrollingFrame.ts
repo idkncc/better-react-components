@@ -2,9 +2,9 @@ import Object from "@rbxts/object-utils";
 import BaseComponent from "../helpers/BaseComponent";
 
 import { resolveColor3 } from "../utils";
+import { getBindingValue, mapBinding } from "@rbxts/pretty-react-hooks";
 
 import type { InstanceAttributes } from "@rbxts/react";
-import { getBindingValue, mapBinding } from "@rbxts/pretty-react-hooks";
 
 export type ScrollingFrameProps = {
 	automaticCanvasSize?: Enum.AutomaticSize
@@ -18,7 +18,7 @@ export type ScrollingFrameProps = {
 	scrollbarInsetH?: Enum.ScrollBarInset | boolean
 
 	/* Vertical Scrollbar inset */
-	scrollbarInsetV?: Enum.ScrollBarInset
+	scrollbarInsetV?: Enum.ScrollBarInset | boolean
 
 	scrollbar?: Scrollbar | false
 }

@@ -1,4 +1,5 @@
 import TextComponent, { TextComponentProps } from "../helpers/TextComponent";
+
 import { resolveColor3 } from "../utils";
 
 type TextBoxProps = {

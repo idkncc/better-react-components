@@ -1,19 +1,13 @@
-import React from "@rbxts/react";
+import React, { InstanceProps, ReactNode } from "@rbxts/react";
 import Object from "@rbxts/object-utils";
 
-import { flat, ReactProps } from "../utils";
+import { BindingVariants as BindingVariantsUtils, flat, ReactProps } from "../utils";
 
-import type { ReactNode, InstanceProps, InferEnumNames, Binding } from "@rbxts/react";
+/** @deprecated import from `../utils`, not from here */
+export type BindingVariants<T extends object> = BindingVariantsUtils<T>
 
-type PropBuilder<P extends object, C extends Instance> = (userProps: BindingVariants<P>) => InstanceProps<C>
-type ChildrenBuilder<P extends object> = (userProps: BindingVariants<P>) => ReactNode[]
-
-export type BindingVariants<T extends object> = {
-	[P in keyof T]?:
-	| T[P]
-	| InferEnumNames<T[P]>
-	| Binding<Exclude<T[P], undefined>>;
-};
+type PropBuilder<P extends object, C extends Instance> = (userProps: BindingVariantsUtils<P>) => InstanceProps<C>
+type ChildrenBuilder<P extends object> = (userProps: BindingVariantsUtils<P>) => ReactNode[]
 
 export default class ExpandableComponent<I extends Instance, P extends object> {
 	private propsBuilders: PropBuilder<P, I>[];
@@ -38,7 +32,7 @@ export default class ExpandableComponent<I extends Instance, P extends object> {
 	}
 
 	build(elementType: string) {
-		return React.forwardRef((userProps: BindingVariants<P & ReactProps<I>>, ref) => {
+		return React.forwardRef((userProps: BindingVariantsUtils<P & ReactProps<I>>, ref) => {
 			const props: InstanceProps<I> = Object.assign(
 				Object.assign({},
 					...this.propsBuilders

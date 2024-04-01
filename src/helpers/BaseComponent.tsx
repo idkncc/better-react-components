@@ -1,16 +1,15 @@
+import React from "@rbxts/react";
 import ExpandableComponent from "./ExpandableComponent";
+
 import {
 	ColorOrHex,
-	ReactProps,
 	ResolvableAnchorPoint,
 	resolveAnchorPoint,
-	resolveColor3,
 	resolveUDim,
 } from "../utils";
-import { InstanceProps } from "@rbxts/react";
-import React from "@rbxts/react";
-import { getBindingValue, isBinding, mapBinding } from "@rbxts/pretty-react-hooks";
 import { getBaseColor, Gradient, GradientElement } from "./Gradient";
+
+import type { InstanceProps } from "@rbxts/react";
 
 export type BaseProps = {
 	visible?: boolean,
