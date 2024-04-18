@@ -58,6 +58,7 @@ export type BaseProps = {
 
 export default new ExpandableComponent<GuiObject, BaseProps>()
 	.expand(
+		// most basic props:
 		(userProps) => ({
 			Visible: userProps.visible,
 
@@ -76,6 +77,8 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
 			ZIndex: userProps.zIndex,
 			SizeConstraint: userProps.sizeConstraint,
 		}),
+
+		// most basic modifiers:
 		(userProps) => [
 			userProps.cornerRadius !== undefined
 				? <uicorner CornerRadius={resolveUDim(userProps.cornerRadius)} />

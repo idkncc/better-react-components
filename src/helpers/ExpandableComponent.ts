@@ -1,4 +1,4 @@
-import React, { InstanceProps, ReactNode } from "@rbxts/react";
+import React, { ForwardedRef, InstanceProps, ReactNode } from "@rbxts/react";
 import Object from "@rbxts/object-utils";
 
 import { BindingVariants as BindingVariantsUtils, flat, ReactProps } from "../utils";
@@ -33,28 +33,45 @@ export default class ExpandableComponent<I extends Instance, P extends object> {
 
 	build(elementType: string) {
 		return React.forwardRef((userProps: BindingVariantsUtils<P & ReactProps<I>>, ref) => {
-			const props: InstanceProps<I> = Object.assign(
-				Object.assign({},
-					...this.propsBuilders
-						.map((build) => build(userProps))
-						.filterUndefined(),
-				),
-				{
-					Event: userProps.event,
-					Change: userProps.change,
-					Tag: userProps.tag,
-					ref: ref,
-				},
-				userProps.overrideRoblox as object,
-			);
-
-			const children = flat(
-				this.childrenBuilders
-					.map((build) => build(userProps).filterUndefined()),
-			);
-			if (userProps.children) children.push(userProps.children);
+			const props = this.buildProps(userProps, ref);
+			const children = this.buildChildren(userProps);
 
 			return React.createElement(elementType, props, ...children);
 		});
+	}
+
+	buildProps(userProps: BindingVariantsUtils<P & ReactProps<I>>, ref: ForwardedRef<unknown>): InstanceProps<I> {
+		const builtProps: InstanceProps<I>[] = [];
+
+		for (const build of this.propsBuilders) {
+			const props = build(userProps);
+			if (props) {
+				builtProps.push(props);
+			}
+		}
+
+		return Object.assign(
+			Object.assign(
+				{},
+				...builtProps,
+			),
+			{
+				Event: userProps.event,
+				Change: userProps.change,
+				Tag: userProps.tag,
+				ref: ref,
+			},
+			userProps.overrideRoblox as object,
+		);
+	}
+
+	buildChildren(userProps: BindingVariantsUtils<P & ReactProps<I>>): React.ReactNode[] {
+		const children = flat(
+			this.childrenBuilders
+				.map((build) => build(userProps).filterUndefined()),
+		);
+		if (userProps.children) children.push(userProps.children);
+
+		return children;
 	}
 }
