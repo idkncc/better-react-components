@@ -38,8 +38,8 @@
   "dependencies": {
     "@rbxts/object-utils": "^1.0.4",
     "@rbxts/pretty-react-hooks": "^0.4.2",
-    "@rbxts/react": "^0.1.1",
-    "@rbxts/react-roblox": "^0.3.4",
+    "@rbxts/react": "^0.3.6",
+    "@rbxts/react-roblox": "^0.3.6",
     "@rbxts/ripple": "^0.7.1",
     "@rbxts/services": "^1.5.4"
   },
