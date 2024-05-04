@@ -1,4 +1,4 @@
-import React, { ForwardedRef, InstanceProps, ReactNode } from "@rbxts/react";
+import React, { ForwardedRef, InstanceProps, ReactChild, ReactNode } from "@rbxts/react";
 import Object from "@rbxts/object-utils";
 
 import { BindingVariants as BindingVariantsUtils, flat, ReactProps } from "../utils";
@@ -70,7 +70,7 @@ export default class ExpandableComponent<I extends Instance, P extends object> {
 			this.childrenBuilders
 				.map((build) => build(userProps).filterUndefined()),
 		);
-		if (userProps.children) children.push(userProps.children);
+		if (userProps.children) children.push(userProps.children as ReactChild);
 
 		return children;
 	}
