@@ -4,10 +4,11 @@ type ButtonProps = TextComponentProps<TextButton> & {
 	autoButtonColor: boolean
 }
 
-export const Button = TextComponent
+export const ButtonComponent = TextComponent
 	.expand<TextButton, ButtonProps>(
 		(props) => ({
 			AutoButtonColor: props.autoButtonColor,
 		}),
-	)
-	.build("textbutton");
+	);
+
+export const Button = ButtonComponent.build("textbutton");

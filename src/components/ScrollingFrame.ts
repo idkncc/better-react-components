@@ -32,7 +32,7 @@ export type Scrollbar = {
 	imageTransparency?: number
 }
 
-export const ScrollingFrame = BaseComponent
+export const ScrollingFrameComponent = BaseComponent
 	.expand<ScrollingFrame, ScrollingFrameProps>(
 		(props) => Object.assign(
 			{
@@ -71,5 +71,6 @@ export const ScrollingFrame = BaseComponent
 
 			} as InstanceAttributes<ScrollingFrame>,
 		),
-	)
-	.build("scrollingframe");
+	);
+
+export const ScrollingFrame = ScrollingFrameComponent.build("scrollingframe");

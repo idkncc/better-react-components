@@ -10,7 +10,7 @@ type TextBoxProps = {
 	clearTextOnFocus?: boolean
 }
 
-export const TextBox = TextComponent
+export const TextBoxComponent = TextComponent
 	.expand<TextBox, TextComponentProps<TextBox> & TextBoxProps>(
 		(props) => ({
 			PlaceholderText: props.placeholder,
@@ -18,6 +18,7 @@ export const TextBox = TextComponent
 
 			TextEditable: props.textEditable,
 			ClearTextOnFocus: props.clearTextOnFocus,
-		})
-	)
-	.build("textbox");
+		}),
+	);
+
+export const TextBox = TextBoxComponent.build("textbox");
