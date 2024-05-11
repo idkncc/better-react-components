@@ -2,13 +2,13 @@
 // cl c cr
 // bl b br
 import {
-	Binding, type InferEnumNames,
+	Binding,
+	type InferEnumNames,
 	InstanceChangeEvent,
 	InstanceEvent,
 	InstanceProps,
 	Key,
 	ReactNode,
-	Ref,
 	RefObject,
 } from "@rbxts/react";
 
@@ -90,6 +90,7 @@ export function resolveUDim(value: BindingOrValue<number | UDim>): BindingOrValu
 		return new UDim(0, value);
 	});
 }
+
 export function resolveColor3Value(value: ColorOrHex): Color3 {
 	if (typeIs(value, "Color3")) return value;
 	return Color3.fromHex(value);

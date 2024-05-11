@@ -43,7 +43,7 @@ export default class ExpandableComponent<I extends Instance, P extends object, C
 		);
 	}
 
-	expand<NI extends I, NP>(
+	expand<NI extends I = I, NP extends object = {}>(
 		propBuilder?: PropBuilder<P & NP, C, NI>,
 		childrenBuilder?: ChildrenBuilder<P & NP, C>,
 	): ExpandableComponent<NI, P & NP, C> {

@@ -13,6 +13,7 @@ export type TextComponentProps<T extends Instance = TextComponentInstance> = {
 	textSize?: number | "AUTO"
 
 	font?: Enum.Font | Font
+	richText?: boolean
 
 	textAlign?: Enum.TextXAlignment
 	verticalTextAlign?: Enum.TextYAlignment
@@ -53,6 +54,7 @@ export default BaseComponent
 								? Font.fromEnum(Enum.Font[font as InferEnumNames<Enum.Font>]) // font enum key
 								: Font.fromEnum(font), // font enum
 			),
+			RichText: props.richText,
 
 			TextXAlignment: props.textAlign ?? props.align,
 			TextYAlignment: props.verticalTextAlign ?? props.verticalAlign,

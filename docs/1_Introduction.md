@@ -11,7 +11,7 @@
 > - [Text](../src/components/Text.ts)
 > - [Button](../src/components/Button.ts)
 > - _And other components at [/src/components/](../src/components)_
-> 
+>
 > Also see Hoarcekat stories at [/stories](../stories)
 >
 

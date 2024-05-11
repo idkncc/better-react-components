@@ -8,7 +8,6 @@
     "$className": "DataModel",
     "ReplicatedStorage": {
       "$className": "ReplicatedStorage",
-
       "$path": "out",
       "rbxts_include": {
         "$path": "include",

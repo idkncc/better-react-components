@@ -1,12 +1,7 @@
 import React from "@rbxts/react";
 import ExpandableComponent from "./ExpandableComponent";
 
-import {
-	ColorOrHex,
-	ResolvableAnchorPoint,
-	resolveAnchorPoint,
-	resolveUDim,
-} from "../utils";
+import { ColorOrHex, ResolvableAnchorPoint, resolveAnchorPoint, resolveUDim } from "../utils";
 import { getBaseColor, Gradient, GradientElement } from "./Gradient";
 
 import type { InstanceProps } from "@rbxts/react";

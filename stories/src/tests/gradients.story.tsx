@@ -1,18 +1,9 @@
-import React, { useBinding, useEffect, useRef, useState } from "@rbxts/react";
+import React from "@rbxts/react";
 
-import {
-	AnchorPoints,
-	Button,
-	Frame,
-	GridLayout,
-	ListLayout,
-	resolveColor3, resolveColor3Value,
-	Text,
-} from "@rbxts/better-react-components";
+import { Button, Frame, ListLayout, resolveColor3Value, Text } from "@rbxts/better-react-components";
 import { App } from "../App";
 
 import { hoarcekat } from "@rbxts/pretty-react-hooks";
-import { Latte } from "@rbxts/catppuccin";
 import { brighten, useMotion } from "../utils";
 
 
@@ -36,7 +27,7 @@ function ButtonWithGradient() {
 				MouseButton1Down: () => colorMotion.spring(brighten(baseColor, -.25)),
 				MouseButton1Up: () => colorMotion.spring(brighten(baseColor, .05)),
 				MouseEnter: () => colorMotion.spring(brighten(baseColor, .05)),
-				MouseLeave: () => colorMotion.spring(baseColor)
+				MouseLeave: () => colorMotion.spring(baseColor),
 			}}
 
 			overrideRoblox={{ AutoButtonColor: false }}
@@ -96,9 +87,9 @@ export = hoarcekat(() => {
 				size={new UDim2(1, -4, 0, 75)}
 				background={[
 					new ColorSequenceKeypoint(0, resolveColor3Value("#000000") as Color3),
-					new ColorSequenceKeypoint(0.5-0.5/3, resolveColor3Value("#FF0000") as Color3),
-					new ColorSequenceKeypoint(0.5+0.5/3, resolveColor3Value("#FF0000") as Color3),
-					new ColorSequenceKeypoint(1, resolveColor3Value("#000000") as Color3)
+					new ColorSequenceKeypoint(0.5 - 0.5 / 3, resolveColor3Value("#FF0000") as Color3),
+					new ColorSequenceKeypoint(0.5 + 0.5 / 3, resolveColor3Value("#FF0000") as Color3),
+					new ColorSequenceKeypoint(1, resolveColor3Value("#000000") as Color3),
 				]}
 				cornerRadius={16}
 			/>
@@ -109,7 +100,7 @@ export = hoarcekat(() => {
 				background={new ColorSequence([
 					new ColorSequenceKeypoint(0, resolveColor3Value("#FF0000") as Color3),
 					new ColorSequenceKeypoint(0.5, resolveColor3Value("#3333CC") as Color3),
-					new ColorSequenceKeypoint(1, resolveColor3Value("#00FF00") as Color3)
+					new ColorSequenceKeypoint(1, resolveColor3Value("#00FF00") as Color3),
 				])}
 				cornerRadius={16}
 			/>

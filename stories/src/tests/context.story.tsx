@@ -1,8 +1,9 @@
 import React, { Binding, useMemo } from "@rbxts/react";
+
+import { BaseComponent } from "@rbxts/better-react-components/out/helpers";
 import { App } from "../App";
 
 import { hoarcekat, joinAnyBindings } from "@rbxts/pretty-react-hooks";
-import { BaseComponent } from "@rbxts/better-react-components/out/helpers";
 import { Players } from "@rbxts/services";
 
 type ImageProfileProps = {

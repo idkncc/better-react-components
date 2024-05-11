@@ -1,9 +1,9 @@
 import React from "@rbxts/react";
 
-import { hoarcekat } from "@rbxts/pretty-react-hooks";
-
-import { App } from "../App";
 import { AnchorPoints, Button, Frame, ListLayout } from "@rbxts/better-react-components";
+import { App } from "../App";
+
+import { hoarcekat } from "@rbxts/pretty-react-hooks";
 import { Latte } from "@rbxts/catppuccin";
 
 function CoolButton(props: { text: string, onClick: () => void }) {
@@ -24,7 +24,7 @@ function CoolButton(props: { text: string, onClick: () => void }) {
 			textColor={Latte.Text}
 
 			event={{
-				Activated: props.onClick
+				Activated: props.onClick,
 			}}
 		/>
 	);

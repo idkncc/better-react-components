@@ -1,7 +1,6 @@
 # Custom Components
 
-[Introduction](1_Introduction.md) • [Modifiers](2_Modifiers.md) • [Components](3_Components.md) • <u>Custom
-Components</u>
+[Introduction](1_Introduction.md) • [Modifiers](2_Modifiers.md) • [Components](3_Components.md) • <u>Custom Components</u>
 
 ## Terms
 

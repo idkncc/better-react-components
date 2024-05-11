@@ -1,9 +1,9 @@
 import React from "@rbxts/react";
 
-import { Frame, Text } from "@rbxts/better-react-components";
+import { Text } from "@rbxts/better-react-components";
+import { App } from "../App";
 
 import { hoarcekat } from "@rbxts/pretty-react-hooks";
-import { App } from "../App";
 import { Latte } from "@rbxts/catppuccin";
 
 export = hoarcekat(() => {

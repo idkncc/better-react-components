@@ -1,4 +1,5 @@
 import React from "@rbxts/react";
+
 import { Frame } from "@rbxts/better-react-components";
 
 declare const _G: Record<string, unknown>;

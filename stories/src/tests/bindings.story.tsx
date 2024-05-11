@@ -1,7 +1,6 @@
-import React, { useBinding, useEffect, useRef, useState } from "@rbxts/react";
+import React, { useBinding } from "@rbxts/react";
 
-import { AnchorPoints, Button, Frame, GridLayout, Text } from "@rbxts/better-react-components";
-import { App } from "../App";
+import { Button, Frame, GridLayout, Text } from "@rbxts/better-react-components";
 
 import { hoarcekat } from "@rbxts/pretty-react-hooks";
 import { Latte } from "@rbxts/catppuccin";

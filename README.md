@@ -37,6 +37,7 @@ Also see **[introduction](docs/1_Introduction.md)**
 ## Support
 
 ### TODO
+
 - [X] Stories
 - [X] Support for Bindings in props
 - [ ] Better documentation
@@ -48,7 +49,7 @@ Also see **[introduction](docs/1_Introduction.md)**
 - [X] Button
 - [ ] ImageButton
 - [X] Text
-- [ ] Image
+- [X] Image
 - [X] TextBox
 
 ### Modifiers
@@ -58,7 +59,7 @@ Also see **[introduction](docs/1_Introduction.md)**
 - [X] UIGradient
 - [X] UIGridLayout [(see GridLayout)](src/components/GridLayout.tsx)
 - [X] UIListLayout [(see ListLayout)](src/components/ListLayout.tsx)
-- [ ] ~~UIFlexLayout~~ (in Roblox Studio Beta Features)
+- [ ] ~~UIFlexLayout~~ (in Roblox Studio Beta Features, waiting for production release)
 - [X] UIPadding
 - [ ] UIPageLayout
 - [X] UIScale

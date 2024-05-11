@@ -1,7 +1,6 @@
 # Modifiers && Utils
 
-[Introduction](1_Introduction.md) • <u>
-Modifiers</u> • [Components](3_Components.md) • [Custom Components](4_Custom_Components.md)
+[Introduction](1_Introduction.md) • <u>Modifiers</u> • [Components](3_Components.md) • [Custom Components](4_Custom_Components.md)
 
 Roblox UI Modifiers, but in simpler way
 
@@ -14,7 +13,7 @@ Roblox UI Modifiers, but in simpler way
 These modifiers are available on all components
 
 > [!INFORMATION]
-> 
+>
 > [see **/src/helpers/BaseComponent.tsx**](../src/helpers/BaseComponent.tsx) for source code
 
 ### Standard properties
