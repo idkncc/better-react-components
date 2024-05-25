@@ -1,10 +1,10 @@
 import React from "@rbxts/react";
 
-import { Text } from "@rbxts/better-react-components";
+import { Text } from "../.."; // @rbxts/better-react-components
 import { App } from "../App";
 
 import { hoarcekat } from "@rbxts/pretty-react-hooks";
-import { Latte } from "@rbxts/catppuccin";
+import { CatppuccinLatte } from "../utils";
 
 export = hoarcekat(() => {
 	return (
@@ -18,8 +18,8 @@ export = hoarcekat(() => {
 				borderSize={5} // border thickness
 
 				noBackground // disable background
-				textColor={Latte.Text}
-				border={Latte.Base} // border color3
+				textColor={CatppuccinLatte.Text}
+				border={CatppuccinLatte.Base} // border color3
 			/>
 		</App>
 	);

@@ -58,7 +58,7 @@ Add roblox's properties to element
 	// Gradients: (NEW)
 	//  background={Array<Color3 | string> | Array<ColorSequenceKeypoint>}
 	//
-	// see example at /stories/src/tests/gradients.story.tsx
+	// see example at /src/stories/tests/gradients.story.tsx
 	//
 
 	backgroundTransparency={number}
@@ -201,6 +201,5 @@ import { resolveUDim } from "@rbxts/better-react-components";
 resolveUDim(8)              // UDim(0, 8)
 resolveUDim(n)              // UDim(0, n)
 
-resolveUDim(new UDim(a, b)) // UDim(a, b)  
-
+resolveUDim(new UDim(a, b)) // UDim(a, b)
 ```

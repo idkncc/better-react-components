@@ -3,8 +3,8 @@ import React from "@rbxts/react";
 import { hoarcekat } from "@rbxts/pretty-react-hooks";
 
 import { App } from "../App";
-import { AnchorPoints, TextBox } from "@rbxts/better-react-components";
-import { Latte } from "@rbxts/catppuccin";
+import { AnchorPoints, TextBox } from "../.."; // @rbxts/better-react-components
+import { CatppuccinLatte } from "../utils";
 
 
 export = hoarcekat(() => {
@@ -19,7 +19,7 @@ export = hoarcekat(() => {
 				anchorPoint={AnchorPoints.Middle}
 
 				cornerRadius={12}
-				border={Latte.Text}
+				border={CatppuccinLatte.Text}
 				borderMode={Enum.ApplyStrokeMode.Border}
 				borderSize={2}
 
@@ -27,9 +27,9 @@ export = hoarcekat(() => {
 				textSize={16}
 				placeholder="Cool textbox"
 
-				background={Latte.Base}
-				textColor={Latte.Text}
-				placeholderColor={Latte.Surface2}
+				background={CatppuccinLatte.Base}
+				textColor={CatppuccinLatte.Text}
+				placeholderColor={CatppuccinLatte.Surface2}
 			/>
 		</App>
 	);

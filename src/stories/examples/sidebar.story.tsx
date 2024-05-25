@@ -1,10 +1,10 @@
 import React from "@rbxts/react";
 
-import { AnchorPoints, Button, Frame, ListLayout } from "@rbxts/better-react-components";
+import { AnchorPoints, Button, Frame, ListLayout } from "../.."; // @rbxts/better-react-components
 import { App } from "../App";
 
 import { hoarcekat } from "@rbxts/pretty-react-hooks";
-import { Latte } from "@rbxts/catppuccin";
+import { CatppuccinLatte } from "../utils";
 
 function CoolButton(props: { text: string, onClick: () => void }) {
 	return (
@@ -20,8 +20,8 @@ function CoolButton(props: { text: string, onClick: () => void }) {
 			font={Enum.Font.BuilderSansBold}
 			textSize={14}
 
-			background={Latte.Mantle}
-			textColor={Latte.Text}
+			background={CatppuccinLatte.Mantle}
+			textColor={CatppuccinLatte.Text}
 
 			event={{
 				Activated: props.onClick,
@@ -40,7 +40,7 @@ export = hoarcekat(() => {
 				size={new UDim2(0, 100, 0, 0)}
 				automaticSize={"Y"}
 
-				background={Latte.Base}
+				background={CatppuccinLatte.Base}
 				padding={6}
 
 				cornerRadius={12}

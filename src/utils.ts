@@ -97,7 +97,7 @@ export function resolveColor3Value(value: ColorOrHex): Color3 {
 }
 
 export function resolveColor3(value: BindingOrValue<ColorOrHex> | undefined): Binding<Color3> | undefined {
-	if (!value) return undefined;
+	if (value === undefined) return undefined;
 
 	return mapBinding(value, (value) => {
 		if (typeIs(value, "Color3")) return value;
@@ -109,7 +109,7 @@ export function resolveColor3(value: BindingOrValue<ColorOrHex> | undefined): Bi
  * @deprecated Use `mapBinding` from `@rbxts/pretty-react-hooks`. Probably will be removed later.
  */
 export function resolveBinding<T, R>(bindingOrValue: BindingOrValue<T> | undefined, callback: (value: T) => R): BindingOrValue<R> | undefined {
-	if (!bindingOrValue) return;
+	if (bindingOrValue === undefined) return;
 
 	if (isBinding(bindingOrValue)) {
 		return bindingOrValue.map(callback);
@@ -121,9 +121,9 @@ export function resolveBinding<T, R>(bindingOrValue: BindingOrValue<T> | undefin
 export function flat<T>(arr: T[][]): T[] {
 	const newArr: defined[] = [];
 
-	for (const [_, v] of ipairs(arr)) {
-		for (const [_, value] of ipairs(v)) {
-			newArr.push(value as unknown as defined);
+	for (const i of arr) {
+		for (const j of arr) {
+			newArr.push(j as unknown as defined);
 		}
 	}
 

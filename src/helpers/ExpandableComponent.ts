@@ -77,7 +77,7 @@ export default class ExpandableComponent<I extends Instance, P extends object, C
 
 		for (const build of this.propsBuilders) {
 			const props = build(userProps, context);
-			if (props) {
+			if (props !== undefined) {
 				builtProps.push(props);
 			}
 		}
@@ -102,7 +102,7 @@ export default class ExpandableComponent<I extends Instance, P extends object, C
 			this.childrenBuilders
 				.map((build) => build(userProps, context).filterUndefined()),
 		);
-		if (userProps.children) children.push(userProps.children as ReactChild);
+		if (userProps.children !== undefined) children.push(userProps.children as ReactChild);
 
 		return children;
 	}

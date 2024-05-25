@@ -1,6 +1,6 @@
 import React from "@rbxts/react";
 
-import { Button, Frame, ListLayout, resolveColor3Value, Text } from "@rbxts/better-react-components";
+import { Button, Frame, ListLayout, resolveColor3Value, Text } from "../.."; // @rbxts/better-react-components
 import { App } from "../App";
 
 import { hoarcekat } from "@rbxts/pretty-react-hooks";

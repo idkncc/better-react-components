@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "@rbxts/react";
 
-import { AnchorPoints, Text } from "@rbxts/better-react-components";
+import { AnchorPoints, Text } from "../.."; // @rbxts/better-react-components
 import { App } from "../App";
 
 import { hoarcekat } from "@rbxts/pretty-react-hooks";

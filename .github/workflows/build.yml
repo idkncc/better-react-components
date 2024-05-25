@@ -27,36 +27,5 @@ jobs:
       - name: Build package
         run: pnpm build
 
-  build-stories:
-    runs-on: ubuntu-20.04
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: Use Node.js 20
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          registry-url: 'https://registry.npmjs.org'
-          cache: 'pnpm'
-
-      - name: Install dependencies on package
-        run: pnpm install
-
-      - name: Build package
-        run: pnpm build
-
-      - name: Pack package
-        run: pnpm tgz
-
-      - name: Install dependencies on stories
-        working-directory: ./stories
-        run: pnpm install
-
-      - name: Build stories
-        working-directory: ./stories
-        run: pnpm build
+      - name: Lint package
+        run: pnpm lint

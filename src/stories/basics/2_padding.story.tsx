@@ -1,6 +1,6 @@
 import React from "@rbxts/react";
 
-import { AnchorPoints, Frame, Text } from "@rbxts/better-react-components";
+import { AnchorPoints, Frame, Text } from "../.."; // @rbxts/better-react-components
 
 import { hoarcekat } from "@rbxts/pretty-react-hooks";
 import { App } from "../App";

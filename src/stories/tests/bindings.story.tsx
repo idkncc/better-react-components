@@ -1,9 +1,9 @@
 import React, { useBinding } from "@rbxts/react";
 
-import { Button, Frame, GridLayout, Text } from "@rbxts/better-react-components";
+import { Button, Frame, GridLayout, Text } from "../.."; // @rbxts/better-react-components
 
 import { hoarcekat } from "@rbxts/pretty-react-hooks";
-import { Latte } from "@rbxts/catppuccin";
+import { CatppuccinLatte } from "../utils";
 
 export = hoarcekat(() => {
 	const [count, setCount] = useBinding(0);
@@ -30,8 +30,8 @@ export = hoarcekat(() => {
 
 				cornerRadius={16}
 
-				background={Latte.Red}
-				textColor={Latte.Base}
+				background={CatppuccinLatte.Red}
+				textColor={CatppuccinLatte.Base}
 
 				event={{ Activated: () => setCount(count.getValue() - 1) }}
 			/>
@@ -42,8 +42,8 @@ export = hoarcekat(() => {
 
 				cornerRadius={16}
 
-				background={Latte.Base}
-				textColor={Latte.Text}
+				background={CatppuccinLatte.Base}
+				textColor={CatppuccinLatte.Text}
 			/>
 			<Button
 				text={"Add"}
@@ -52,8 +52,8 @@ export = hoarcekat(() => {
 
 				cornerRadius={16}
 
-				background={Latte.Green}
-				textColor={Latte.Base}
+				background={CatppuccinLatte.Green}
+				textColor={CatppuccinLatte.Base}
 
 				event={{ Activated: () => setCount(count.getValue() + 1) }}
 			/>

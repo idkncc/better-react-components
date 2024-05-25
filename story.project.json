@@ -1,5 +1,5 @@
 {
-  "name": "roblox-ts-game",
+  "name": "better-react-components-stories",
   "globIgnorePaths": [
     "**/package.json",
     "**/tsconfig.json"
