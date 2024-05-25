@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/better-react-components",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -70,7 +70,6 @@
       "plugin:@typescript-eslint/recommended",
       "plugin:roblox-ts/recommended"
     ],
-    "rules": {
-    }
+    "rules": {}
   }
 }
