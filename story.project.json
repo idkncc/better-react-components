@@ -8,7 +8,6 @@
     "$className": "DataModel",
     "ReplicatedStorage": {
       "$className": "ReplicatedStorage",
-      "$path": "out",
       "rbxts_include": {
         "$path": "include",
         "node_modules": {
@@ -17,6 +16,9 @@
             "$path": "node_modules/@rbxts"
           }
         }
+      },
+      "better-react-components": {
+        "$path": "out"
       }
     }
   }

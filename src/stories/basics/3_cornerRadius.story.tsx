@@ -14,9 +14,7 @@ export = hoarcekat(() => {
 				anchorPoint={AnchorPoints.Middle}
 
 				cornerRadius={18}
-			>
-
-			</Frame>
+			/>
 		</App>
 	);
 });

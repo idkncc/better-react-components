@@ -27,6 +27,6 @@
     "tsBuildInfoFile": "out/tsconfig.tsbuildinfo"
   },
   "exclude": [
-    "stories/**/*"
+    "out/**/*",
   ]
 }
