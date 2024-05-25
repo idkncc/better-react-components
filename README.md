@@ -1,5 +1,8 @@
 # Better React Components
 
+![NPM Downloads](https://img.shields.io/npm/dm/%40rbxts%2Fbetter-react-components?style=for-the-badge)
+![NPM Version](https://img.shields.io/npm/v/%40rbxts%2Fbetter-react-components?style=for-the-badge)
+
 Roblox's ui elements, with builtin modifiers
 
 Also see **[introduction](docs/1_Introduction.md)**
@@ -59,7 +62,7 @@ Also see **[introduction](docs/1_Introduction.md)**
 - [X] UIGradient
 - [X] UIGridLayout [(see GridLayout)](src/components/GridLayout.tsx)
 - [X] UIListLayout [(see ListLayout)](src/components/ListLayout.tsx)
-- [ ] ~~UIFlexLayout~~ (in Roblox Studio Beta Features, waiting for production release)
+- [ ] ~~UIFlexLayout~~ (waiting for production release 👀)
 - [X] UIPadding
 - [ ] UIPageLayout
 - [X] UIScale
@@ -67,3 +70,7 @@ Also see **[introduction](docs/1_Introduction.md)**
 - [X] UIStroke
 - [ ] UITableLayout
 - [X] UITextSizeConstraint
+
+### Custom Modifiers
+
+- [ ] FlowLayout [(view)](https://devforum.roblox.com/t/flow-flexbox-layout-for-lua/2614394)
