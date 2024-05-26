@@ -1,10 +1,9 @@
+import type { InstanceProps } from "@rbxts/react";
 import React from "@rbxts/react";
 import ExpandableComponent from "./ExpandableComponent";
 
 import { ColorOrHex, ResolvableAnchorPoint, resolveAnchorPoint, resolveUDim } from "../utils";
 import { getBaseColor, Gradient, GradientElement } from "./Gradient";
-
-import type { InstanceProps } from "@rbxts/react";
 
 export type BaseProps = {
 	visible?: boolean,
@@ -46,9 +45,16 @@ export type BaseProps = {
 
 	scale?: number,
 
-	layoutOrder?: number,
-	zIndex?: number,
+	layoutOrder?: number
+	zIndex?: number
 	sizeConstraint?: Enum.SizeConstraint
+
+	// Flex (BETA)
+	/** @deprecated Beta feature */
+	flex?: InstanceProps<UIFlexItem>
+
+	/** @deprecated Beta feature */
+	flexMode?: Enum.UIFlexMode
 }
 
 export default new ExpandableComponent<GuiObject, BaseProps>()
@@ -132,6 +138,11 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
 			// Scale
 			userProps.scale !== undefined
 				? <uiscale Scale={userProps.scale} />
+				: undefined,
+
+			// Flex item
+			userProps.flex !== undefined || userProps.flexMode !== undefined
+				? <uiflexitem FlexMode={userProps.flexMode} {...userProps.flex} />
 				: undefined,
 
 			<GradientElement color={userProps.background} rotation={userProps.gradientRotation} />,

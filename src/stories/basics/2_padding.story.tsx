@@ -10,6 +10,8 @@ export = hoarcekat(() => {
 		<App>
 			<Text
 				text={"red - parent\nblue - available space"}
+				textSize={'AUTO'}
+				maxTextSize={28}
 
 				size={UDim2.fromScale(.25, 1)}
 

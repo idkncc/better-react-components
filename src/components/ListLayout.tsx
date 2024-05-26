@@ -8,6 +8,19 @@ export type ListLayoutProps = BindingVariants<{
 	order?: Enum.SortOrder
 	horizontalAlign?: Enum.HorizontalAlignment
 	verticalAlign?: Enum.VerticalAlignment
+
+
+	/** @deprecated Beta feature */
+	flexWrap?: boolean
+
+	/** @deprecated Beta feature */
+	flexAlignX?: Enum.UIFlexAlignment
+
+	/** @deprecated Beta feature */
+	flexAlignY?: Enum.UIFlexAlignment
+
+	/** @deprecated Beta feature */
+	flexAlignItems?: Enum.ItemLineAlignment
 }>
 
 export function ListLayout(props: ListLayoutProps) {
@@ -21,6 +34,12 @@ export function ListLayout(props: ListLayoutProps) {
 
 			HorizontalAlignment={props.horizontalAlign}
 			VerticalAlignment={props.verticalAlign}
+
+			// Flex (BETA)
+			Wraps={props.flexWrap}
+			HorizontalFlex={props.flexAlignX}
+			VerticalFlex={props.flexAlignY}
+			ItemLineAlignment={props.flexAlignItems}
 		/>
 	);
 }

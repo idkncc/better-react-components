@@ -13,7 +13,7 @@ export = hoarcekat(() => {
 				aspectRatio={1}
 				anchorPoint={AnchorPoints.Middle}
 
-				cornerRadius={18}
+				cornerRadius={18} // EZ radius
 			/>
 		</App>
 	);

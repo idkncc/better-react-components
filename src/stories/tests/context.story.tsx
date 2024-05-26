@@ -27,11 +27,9 @@ const ImageProfile = BaseComponent
 						userId: userProps.userId,
 						thumbnailType: userProps.thumbnailType,
 						thumbnailSize: userProps.thumbnailSize,
-					}).map(({
-								userId,
-								thumbnailType,
-								thumbnailSize,
-							}) => Players.GetUserThumbnailAsync(userId!, thumbnailType!, thumbnailSize!)[0]);
+					}).map((data) =>
+						Players.GetUserThumbnailAsync(data.userId!, data.thumbnailType!, data.thumbnailSize!)[0]
+					);
 				},
 				[userProps.userId, userProps.thumbnailType, userProps.thumbnailSize],
 			);
