@@ -1,6 +1,7 @@
 # Introduction
 
-<u>Introduction</u> • [Modifiers](2_Modifiers.md) • [Components](3_Components.md) • [Custom Components](4_Custom_Components.md)
+<u>
+Introduction</u> • [Modifiers](2_Modifiers.md) • [Components](3_Components.md) • [Custom Components](4_Custom_Components.md)
 
 > [!WARNING]
 >
@@ -64,13 +65,15 @@ This package can help You with Roblox's UI Modifiers
 
 ## Installation
 
-Pro tip: use [this @rbxts/react template](https://github.com/littensy/rbxts-react-example)
+> [!TIP]
+>
+> Use [this @rbxts/react template](https://github.com/littensy/rbxts-react-example)
 
-```bash
+```shell
 # install with any package manager:
-pnpm add @rbxts/better-react-components
-yarn add @rbxts/better-react-components
 npm install @rbxts/better-react-components
+yarn add @rbxts/better-react-components
+pnpm add @rbxts/better-react-components
 ```
 
 ## Usage:
@@ -93,7 +96,7 @@ return (
 
 ## Unusual behaviours
 
-1. Borders are disabled by default. Also components use `UIStroke` instead of border properties
+1. Borders are disabled by default. Also, components use `UIStroke` instead of border properties
    ```tsx
    {/* no borders: */}
    <Frame> 

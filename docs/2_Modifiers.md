@@ -1,6 +1,7 @@
 # Modifiers && Utils
 
-[Introduction](1_Introduction.md) • <u>Modifiers</u> • [Components](3_Components.md) • [Custom Components](4_Custom_Components.md)
+[Introduction](1_Introduction.md) • <u>
+Modifiers</u> • [Components](3_Components.md) • [Custom Components](4_Custom_Components.md)
 
 Roblox UI Modifiers, but in simpler way
 
@@ -168,6 +169,19 @@ Same as `UIScale`
 </Frame>;
 ```
 
+### Flex Item (BETA)
+
+Same as `UIFlexItem`
+
+```tsx
+<Frame
+	flex={InstanceProps<UIFlexItem>}
+	flexMode={Enum.UIFlexMode}
+>
+	...
+</Frame>;
+```
+
 ## Utils
 
 Some utils, used for building this components
@@ -202,4 +216,56 @@ resolveUDim(8)              // UDim(0, 8)
 resolveUDim(n)              // UDim(0, n)
 
 resolveUDim(new UDim(a, b)) // UDim(a, b)
+```
+
+### calculateAspectRatio
+
+Easy calculate aspect ratio for object, can be used while development
+
+```tsx
+import { Frame } from "@rbxts/better-react-components";
+
+const { calculateAspectRatio } = Helper;
+
+<Frame
+	size={UDim2.fromScale(.6, .65)}
+
+	// sizes in percents, not in pixels.
+	// To calculate aspect ratio, use:
+	ref={calculateAspectRatio}
+
+	// on rendering, in console use will see (example):
+	//  [CALC_ASPECT_RATIO](2): 1.8844717137
+	// now, you can use 1.88 as aspect ratio
+	// aspectRatio={1.88}
+>
+	{/* ... */}
+</Frame>;
+```
+
+### createColorSequence
+
+Creates ColorSequence from `Array<ColorOrHex> | Array<ColorSequenceKeypoint> | ColorSequence`
+
+```ts
+import {Helpers} from "@rbxts/better-react-components";
+
+const { createColorSequence } = Helpers.Gradient;
+
+createColorSequence(["#FF0000", "#0000FF"]);
+createColorSequence([new Color3(.5, 0, 0), new Color3(0, 0, .5)]);
+
+createColorSequence([
+	new ColorSequenceKeypoint(0, Color3.fromRGB(255, 0, 0)),
+	new ColorSequenceKeypoint(0.5, Color3.fromRGB(0, 190, 200)),
+	new ColorSequenceKeypoint(1, Color3.fromRGB(190, 0, 255)),
+]);
+
+createColorSequence(
+	new ColorSequence([
+		new ColorSequenceKeypoint(0, Color3.fromRGB(255, 0, 0)),
+		new ColorSequenceKeypoint(0.5, Color3.fromRGB(0, 190, 200)),
+		new ColorSequenceKeypoint(1, Color3.fromRGB(190, 0, 255)),
+	]),
+);
 ```

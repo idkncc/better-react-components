@@ -62,7 +62,7 @@ Also see **[introduction](docs/1_Introduction.md)**
 - [X] UIGradient
 - [X] UIGridLayout [(see GridLayout)](src/components/GridLayout.tsx)
 - [X] UIListLayout [(see ListLayout)](src/components/ListLayout.tsx)
-- [ ] ~~UIFlexLayout~~ (waiting for production release 👀)
+- [X] UIFlexLayout **(not in production, added deprecation warnings)**
 - [X] UIPadding
 - [ ] UIPageLayout
 - [X] UIScale
