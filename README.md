@@ -41,8 +41,7 @@ Also see **[introduction](docs/1_Introduction.md)**
 
 ### TODO
 
-- [X] Stories
-- [X] Support for Bindings in props
+- [ ] Upgrade ESLint to `9.*.*` version
 - [ ] Better documentation
 
 ### Components
