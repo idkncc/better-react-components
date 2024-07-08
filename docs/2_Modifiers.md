@@ -1,11 +1,10 @@
 # Modifiers && Utils
 
-[Introduction](1_Introduction.md) • <u>
-Modifiers</u> • [Components](3_Components.md) • [Custom Components](4_Custom_Components.md)
+[Introduction](1_Introduction.md) • <u>Modifiers</u> • [Components](3_Components.md) • [Custom Components](4_Custom_Components.md)
 
 Roblox UI Modifiers, but in simpler way
 
-> [!NOTE]
+> [!TIP]
 >
 > All properties support Bindings!
 

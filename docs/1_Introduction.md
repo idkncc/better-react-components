@@ -1,9 +1,8 @@
 # Introduction
 
-<u>
-Introduction</u> • [Modifiers](2_Modifiers.md) • [Components](3_Components.md) • [Custom Components](4_Custom_Components.md)
+<u>Introduction</u> • [Modifiers](2_Modifiers.md) • [Components](3_Components.md) • [Custom Components](4_Custom_Components.md)
 
-> [!WARNING]
+> [!IMPORTANT]
 >
 > Documentation is still in development. Best way to learn it – check out source code
 >
@@ -90,7 +89,6 @@ return (
 		<Text text="Hello world!" />
 	</Frame>
 );
-
 ...
 ```
 
