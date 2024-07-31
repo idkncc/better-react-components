@@ -1,6 +1,7 @@
+export { Button, ButtonComponent } from "./components/Button";
 export { Frame } from "./components/Frame";
 export { ScrollingFrame } from "./components/ScrollingFrame";
-export { Button, ButtonComponent } from "./components/Button";
+export { Image, ImageRect, ImageProps, ImageComponent } from "./components/Image";
 export { Text } from "./components/Text";
 export { TextBox, TextBoxComponent } from "./components/TextBox";
 
