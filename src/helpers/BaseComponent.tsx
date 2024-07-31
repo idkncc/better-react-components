@@ -6,145 +6,142 @@ import { ColorOrHex, ResolvableAnchorPoint, resolveAnchorPoint, resolveUDim } fr
 import { getBaseColor, Gradient, GradientElement } from "./Gradient";
 
 export type BaseProps = {
-	visible?: boolean,
+    visible?: boolean,
 
-	noBackground?: boolean
-	background?: Gradient | ColorOrHex
-	backgroundTransparency?: number
-	gradientRotation: number
+    noBackground?: boolean
+    background?: Gradient | ColorOrHex
+    backgroundTransparency?: number
+    gradientRotation: number
 
-	border?: ColorOrHex | Gradient
-	borderGradientRotation?: number
-	borderMode?: Enum.ApplyStrokeMode
-	borderSize?: number
-	borderLineJoinMode?: Enum.LineJoinMode
-	stroke?: InstanceProps<UIStroke>
+    border?: ColorOrHex | Gradient
+    borderGradientRotation?: number
+    borderMode?: Enum.ApplyStrokeMode
+    borderSize?: number
+    borderLineJoinMode?: Enum.LineJoinMode
+    stroke?: InstanceProps<UIStroke>
 
-	position?: UDim2
-	size?: UDim2,
-	anchorPoint?: ResolvableAnchorPoint
-	automaticSize?: Enum.AutomaticSize
+    position?: UDim2
+    size?: UDim2,
+    anchorPoint?: ResolvableAnchorPoint
+    automaticSize?: Enum.AutomaticSize
 
-	cornerRadius?: number | UDim
+    cornerRadius?: number | UDim
 
-	aspectRatio?: number
-	aspectType?: Enum.AspectType
-	aspectAxis?: Enum.DominantAxis
+    aspectRatio?: number
+    aspectType?: Enum.AspectType
+    aspectAxis?: Enum.DominantAxis
 
-	padding?: number | UDim
-	paddingLeft?: number | UDim
-	paddingRight?: number | UDim
-	paddingTop?: number | UDim
-	paddingBottom?: number | UDim
+    padding?: number | UDim
+    paddingLeft?: number | UDim
+    paddingRight?: number | UDim
+    paddingTop?: number | UDim
+    paddingBottom?: number | UDim
 
-	minSize?: Vector2
-	maxSize?: Vector2
+    minSize?: Vector2
+    maxSize?: Vector2
 
-	minTextSize?: number
-	maxTextSize?: number
+    minTextSize?: number
+    maxTextSize?: number
 
-	scale?: number,
+    scale?: number,
 
-	layoutOrder?: number
-	zIndex?: number
-	sizeConstraint?: Enum.SizeConstraint
+    layoutOrder?: number
+    zIndex?: number
+    sizeConstraint?: Enum.SizeConstraint
 
-	// Flex (BETA)
-	/** @deprecated Beta feature */
-	flex?: InstanceProps<UIFlexItem>
-
-	/** @deprecated Beta feature */
-	flexMode?: Enum.UIFlexMode
+    // Flex
+    flex?: InstanceProps<UIFlexItem>
+    flexMode?: Enum.UIFlexMode
 }
 
 export default new ExpandableComponent<GuiObject, BaseProps>()
-	.expand(
-		// most basic props:
-		(userProps) => ({
-			Visible: userProps.visible,
+    .expand(
+        // most basic props:
+        (userProps) => ({
+            Visible: userProps.visible,
 
-			BackgroundColor3: getBaseColor(userProps.background),
-			BackgroundTransparency: userProps.noBackground ? 1 : (userProps.backgroundTransparency ?? 0),
+            BackgroundColor3: getBaseColor(userProps.background),
+            BackgroundTransparency: userProps.noBackground ? 1 : (userProps.backgroundTransparency ?? 0),
 
-			AutomaticSize: userProps.automaticSize,
+            AutomaticSize: userProps.automaticSize,
 
-			Position: userProps.position,
-			Size: userProps.size,
-			AnchorPoint: resolveAnchorPoint(userProps.anchorPoint ?? new Vector2(0, 0)),
+            Position: userProps.position,
+            Size: userProps.size,
+            AnchorPoint: resolveAnchorPoint(userProps.anchorPoint ?? new Vector2(0, 0)),
 
-			BorderSizePixel: 0, // we use UIStroke instead
+            BorderSizePixel: 0, // we use UIStroke instead
 
-			LayoutOrder: userProps.layoutOrder,
-			ZIndex: userProps.zIndex,
-			SizeConstraint: userProps.sizeConstraint,
-		}),
+            LayoutOrder: userProps.layoutOrder,
+            ZIndex: userProps.zIndex,
+            SizeConstraint: userProps.sizeConstraint,
+        }),
 
-		// most basic modifiers:
-		(userProps) => [
-			userProps.cornerRadius !== undefined
-				? <uicorner CornerRadius={resolveUDim(userProps.cornerRadius)} />
-				: undefined,
+        // most basic modifiers:
+        (userProps) => [
+            userProps.cornerRadius !== undefined
+                ? <uicorner CornerRadius={resolveUDim(userProps.cornerRadius)} />
+                : undefined,
 
-			// Aspect Ratio
-			userProps.aspectRatio !== undefined
-				? <uiaspectratioconstraint
-					AspectRatio={userProps.aspectRatio}
-					AspectType={userProps.aspectType}
-					DominantAxis={userProps.aspectAxis}
-				/>
-				: undefined,
+            // Aspect Ratio
+            userProps.aspectRatio !== undefined
+                ? <uiaspectratioconstraint
+                    AspectRatio={userProps.aspectRatio}
+                    AspectType={userProps.aspectType}
+                    DominantAxis={userProps.aspectAxis}
+                />
+                : undefined,
 
-			// Stroke (border)
-			userProps.stroke !== undefined
-			|| userProps.border !== undefined || userProps.borderSize !== undefined || userProps.borderLineJoinMode !== undefined
-				? (
-					<uistroke
-						Color={getBaseColor(userProps.border)}
-						Thickness={userProps.borderSize}
-						ApplyStrokeMode={userProps.borderMode}
-						LineJoinMode={userProps.borderLineJoinMode}
-						{...userProps.stroke}
-					>
-						<GradientElement color={userProps.border} rotation={userProps.borderGradientRotation} />
-					</uistroke>
-				)
-				: undefined,
+            // Stroke (border)
+            userProps.stroke !== undefined
+                || userProps.border !== undefined || userProps.borderSize !== undefined || userProps.borderLineJoinMode !== undefined
+                ? (
+                    <uistroke
+                        Color={getBaseColor(userProps.border)}
+                        Thickness={userProps.borderSize}
+                        ApplyStrokeMode={userProps.borderMode}
+                        LineJoinMode={userProps.borderLineJoinMode}
+                        {...userProps.stroke}
+                    >
+                        <GradientElement color={userProps.border} rotation={userProps.borderGradientRotation} />
+                    </uistroke>
+                )
+                : undefined,
 
-			// Padding
-			userProps.padding !== undefined
-			|| userProps.paddingLeft !== undefined || userProps.paddingRight !== undefined
-			|| userProps.paddingTop !== undefined || userProps.paddingBottom !== undefined
-				? <uipadding
-					PaddingRight={resolveUDim(userProps.paddingRight ?? userProps.padding ?? 0)}
-					PaddingLeft={resolveUDim(userProps.paddingLeft ?? userProps.padding ?? 0)}
-					PaddingTop={resolveUDim(userProps.paddingTop ?? userProps.padding ?? 0)}
-					PaddingBottom={resolveUDim(userProps.paddingBottom ?? userProps.padding ?? 0)}
-				/>
-				: undefined,
+            // Padding
+            userProps.padding !== undefined
+                || userProps.paddingLeft !== undefined || userProps.paddingRight !== undefined
+                || userProps.paddingTop !== undefined || userProps.paddingBottom !== undefined
+                ? <uipadding
+                    PaddingRight={resolveUDim(userProps.paddingRight ?? userProps.padding ?? 0)}
+                    PaddingLeft={resolveUDim(userProps.paddingLeft ?? userProps.padding ?? 0)}
+                    PaddingTop={resolveUDim(userProps.paddingTop ?? userProps.padding ?? 0)}
+                    PaddingBottom={resolveUDim(userProps.paddingBottom ?? userProps.padding ?? 0)}
+                />
+                : undefined,
 
-			// Size constraint
-			userProps.minSize !== undefined || userProps.maxSize !== undefined
-				? <uisizeconstraint MinSize={userProps.minSize} MaxSize={userProps.maxSize} />
-				: undefined,
+            // Size constraint
+            userProps.minSize !== undefined || userProps.maxSize !== undefined
+                ? <uisizeconstraint MinSize={userProps.minSize} MaxSize={userProps.maxSize} />
+                : undefined,
 
-			// Text Size constraint
-			userProps.minTextSize !== undefined || userProps.maxTextSize !== undefined
-				? <uitextsizeconstraint
-					MinTextSize={userProps.minTextSize ?? 1}
-					MaxTextSize={userProps.maxTextSize}
-				/>
-				: undefined,
+            // Text Size constraint
+            userProps.minTextSize !== undefined || userProps.maxTextSize !== undefined
+                ? <uitextsizeconstraint
+                    MinTextSize={userProps.minTextSize ?? 1}
+                    MaxTextSize={userProps.maxTextSize}
+                />
+                : undefined,
 
-			// Scale
-			userProps.scale !== undefined
-				? <uiscale Scale={userProps.scale} />
-				: undefined,
+            // Scale
+            userProps.scale !== undefined
+                ? <uiscale Scale={userProps.scale} />
+                : undefined,
 
-			// Flex item
-			userProps.flex !== undefined || userProps.flexMode !== undefined
-				? <uiflexitem FlexMode={userProps.flexMode} {...userProps.flex} />
-				: undefined,
+            // Flex item
+            userProps.flex !== undefined || userProps.flexMode !== undefined
+                ? <uiflexitem FlexMode={userProps.flexMode} {...userProps.flex} />
+                : undefined,
 
-			<GradientElement color={userProps.background} rotation={userProps.gradientRotation} />,
-		],
-	);
+            <GradientElement color={userProps.background} rotation={userProps.gradientRotation} />,
+        ],
+    );
