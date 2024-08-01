@@ -28,7 +28,7 @@ export function ListLayout(props: ListLayoutProps) {
             HorizontalAlignment={props.horizontalAlign}
             VerticalAlignment={props.verticalAlign}
 
-            // Flex (BETA)
+            // Flex
             Wraps={props.flexWrap}
             HorizontalFlex={props.flexAlignX}
             VerticalFlex={props.flexAlignY}
