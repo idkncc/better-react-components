@@ -1,4 +1,5 @@
 export { Button, ButtonComponent } from "./components/Button";
+export { CanvasGroup } from "./components/CanvasGroup";
 export { Frame } from "./components/Frame";
 export { ScrollingFrame } from "./components/ScrollingFrame";
 export { Image, ImageRect, ImageProps, ImageComponent } from "./components/Image";

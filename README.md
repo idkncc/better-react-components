@@ -53,7 +53,7 @@ Also see **[introduction](docs/1_Introduction.md)**
 - [X] Image
 - [X] Text
 - [X] TextBox
-- [ ] CanvasGroup
+- [X] CanvasGroup
 
 ### Modifiers
 
@@ -73,4 +73,4 @@ Also see **[introduction](docs/1_Introduction.md)**
 
 ### Custom Modifiers
 
-- [ ] FlowLayout [(view)](https://devforum.roblox.com/t/flow-flexbox-layout-for-lua/2614394)
+- ~~[ ] FlowLayout [(view)](https://devforum.roblox.com/t/flow-flexbox-layout-for-lua/2614394)~~ (Removed due release of flex features to ListLayout. [Devforum](https://devforum.roblox.com/t/flex-features-for-uilistlayout-client-release/3096190) )
