@@ -12,10 +12,9 @@ Also see **[introduction](docs/1_Introduction.md)**
 ![Comperance](docs/better-react-components-is-based.png)
 
 <details>
-    <summary>`better-react-components` code</summary>
+    <summary>better-react-components code</summary>
 
-
-    ```tsx
+    ```
     <Frame
         position={new UDim2(.5, 0, .5, 0)}
         size={new UDim2(.5, 0, .5, 0)}
