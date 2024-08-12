@@ -12,3 +12,8 @@ updates:
       prefix: "build(deps)"
     ignore:
       - dependency-name: "typescript"
+      - dependency-name: "roblox-ts"
+    groups:
+      packages:
+        patterns:
+          - "*"
