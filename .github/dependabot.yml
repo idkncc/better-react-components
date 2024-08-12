@@ -1,0 +1,14 @@
+# credits: https://github.com/roblox-ts/types/blob/e3a610314ae49c945b917df654e1094f7f1987f4/.github/dependabot.yml
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    versioning-strategy: increase
+    open-pull-requests-limit: 99
+    directory: "/"
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: "build(deps)"
+    ignore:
+      - dependency-name: "typescript"
