@@ -21,8 +21,8 @@ importers:
         specifier: ^0.4.0
         version: 0.4.0
       '@rbxts/ripple':
-        specifier: ^0.8.1
-        version: 0.8.1
+        specifier: ^0.8.2
+        version: 0.8.2
       '@rbxts/services':
         specifier: ^1.5.4
         version: 1.5.4
@@ -214,8 +214,8 @@ packages:
   '@rbxts/react@0.4.0':
     resolution: {integrity: sha512-yhqXzfH5YpwfZyiWipQMfQsI//2sC86Jqn2rMkP+l1y4CfhCvoYxpaI5qS7Xum9F+DsBHiwJNeUxm2V2LzXW0A==}
 
-  '@rbxts/ripple@0.8.1':
-    resolution: {integrity: sha512-3zQznIQcuXKb6Q0jZpKvhYRdWjQ+sMOBQt3KlQ7as4URiiQyXQCBGx7oWupVwJHuWi4CnpfQVkB2VFDWAmH20Q==}
+  '@rbxts/ripple@0.8.2':
+    resolution: {integrity: sha512-1F+yA8ugw0LEDBerQfIiIdUDoOfwz8O86GkH+sJkBViC/zJWDCZdrlzcdk7G7adePqkeBRfPp89g/4dUzZ4JQQ==}
 
   '@rbxts/services@1.5.4':
     resolution: {integrity: sha512-Klh+gRIT8zy3xRTX1YD6FZ9nAMzkzPLTHmciigt59PEF7PJXo31CF0IU0RegQ7VSMrz1iOnXwxbIwy3htcMfOA==}
@@ -2017,7 +2017,7 @@ snapshots:
     dependencies:
       '@rbxts/react-vendor': 0.4.0
 
-  '@rbxts/ripple@0.8.1': {}
+  '@rbxts/ripple@0.8.2': {}
 
   '@rbxts/services@1.5.4': {}
 
