@@ -34,7 +34,7 @@
     "eslint-plugin-roblox-ts": "^0.0.36",
     "eslint-plugin-unused-imports": "^3.1.0",
     "rimraf": "^5.0.8",
-    "roblox-ts": "2.3.0-dev-26ec859",
+    "roblox-ts": "2.3.0",
     "semantic-release": "^24.0.0",
     "typescript": "^5.5.3"
   },
