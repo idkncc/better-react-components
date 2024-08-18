@@ -1,47 +1,47 @@
 {
-  "name": "@rbxts/better-react-components",
-  "version": "2.8.0",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Mon4ik/better-react-components.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Mon4ik/better-react-components/issues"
-  },
-  "homepage": "https://github.com/Mon4ik/better-react-components#readme",
-  "main": "out/init.lua",
-  "typings": "out/index.d.ts",
-  "files": [
-    "out",
-    "!out/*.tsbuildinfo",
-    "!out/stories/**/*"
-  ],
-  "scripts": {
-    "build": "pnpm clean && rbxtsc",
-    "dev": "rbxtsc -w --type game --rojo story.project.json",
-    "dev-serve": "rojo serve story.project.json",
-    "lint": "eslint src",
-    "clean": "rimraf out/"
-  },
-  "devDependencies": {
-    "@rbxts/compiler-types": "2.3.0-types.1",
-    "@rbxts/types": "^1.0.798",
-    "@semantic-release/git": "^10.0.1",
-    "rimraf": "^6.0.1",
-    "roblox-ts": "2.3.0-dev-26ec859",
-    "semantic-release": "^24.0.0",
-    "typescript": "^5.5.3"
-  },
-  "dependencies": {
-    "@rbxts/object-utils": "^1.0.4",
-    "@rbxts/pretty-react-hooks": "^0.5.2",
-    "@rbxts/react": "^0.4.0",
-    "@rbxts/react-roblox": "^0.4.0",
-    "@rbxts/ripple": "^0.8.2",
-    "@rbxts/services": "^1.5.4"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+    "name": "@rbxts/better-react-components",
+    "version": "2.8.0",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/idkncc/better-react-components.git"
+    },
+    "bugs": {
+        "url": "https://github.com/idkncc/better-react-components/issues"
+    },
+    "homepage": "https://github.com/idkncc/better-react-components#readme",
+    "main": "out/init.lua",
+    "typings": "out/index.d.ts",
+    "files": [
+        "out",
+        "!out/*.tsbuildinfo",
+        "!out/stories/**/*"
+    ],
+    "scripts": {
+        "build": "pnpm clean && rbxtsc",
+        "dev": "rbxtsc -w --type game --rojo story.project.json",
+        "dev-serve": "rojo serve story.project.json",
+        "lint": "eslint src",
+        "clean": "rimraf out/"
+    },
+    "devDependencies": {
+        "@rbxts/compiler-types": "2.3.0-types.1",
+        "@rbxts/types": "^1.0.798",
+        "@semantic-release/git": "^10.0.1",
+        "rimraf": "^6.0.1",
+        "roblox-ts": "2.3.0-dev-26ec859",
+        "semantic-release": "^24.0.0",
+        "typescript": "^5.5.3"
+    },
+    "dependencies": {
+        "@rbxts/object-utils": "^1.0.4",
+        "@rbxts/pretty-react-hooks": "^0.5.2",
+        "@rbxts/react": "^0.4.0",
+        "@rbxts/react-roblox": "^0.4.0",
+        "@rbxts/ripple": "^0.8.2",
+        "@rbxts/services": "^1.5.4"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
 }
