@@ -79,12 +79,13 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
         // most basic modifiers:
         (userProps) => [
             userProps.cornerRadius !== undefined
-                ? <uicorner CornerRadius={resolveUDim(userProps.cornerRadius)} />
+                ? <uicorner key={"_BRC_CornerRadius"} CornerRadius={resolveUDim(userProps.cornerRadius)} />
                 : undefined,
 
             // Aspect Ratio
             userProps.aspectRatio !== undefined
                 ? <uiaspectratioconstraint
+                    key={"_BRC_AspectRatio"}
                     AspectRatio={userProps.aspectRatio}
                     AspectType={userProps.aspectType}
                     DominantAxis={userProps.aspectAxis}
@@ -96,6 +97,7 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
                 || userProps.border !== undefined || userProps.borderSize !== undefined || userProps.borderLineJoinMode !== undefined
                 ? (
                     <uistroke
+                        key={"_BRC_Stroke"}
                         Color={getBaseColor(userProps.border)}
                         Thickness={userProps.borderSize}
                         ApplyStrokeMode={userProps.borderMode}
@@ -112,6 +114,7 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
                 || userProps.paddingLeft !== undefined || userProps.paddingRight !== undefined
                 || userProps.paddingTop !== undefined || userProps.paddingBottom !== undefined
                 ? <uipadding
+                    key={"_BRC_Padding"}
                     PaddingRight={resolveUDim(userProps.paddingRight ?? userProps.padding ?? 0)}
                     PaddingLeft={resolveUDim(userProps.paddingLeft ?? userProps.padding ?? 0)}
                     PaddingTop={resolveUDim(userProps.paddingTop ?? userProps.padding ?? 0)}
@@ -121,12 +124,13 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
 
             // Size constraint
             userProps.minSize !== undefined || userProps.maxSize !== undefined
-                ? <uisizeconstraint MinSize={userProps.minSize} MaxSize={userProps.maxSize} />
+                ? <uisizeconstraint key={"_BRC_SizeConstr"} MinSize={userProps.minSize} MaxSize={userProps.maxSize} />
                 : undefined,
 
             // Text Size constraint
             userProps.minTextSize !== undefined || userProps.maxTextSize !== undefined
                 ? <uitextsizeconstraint
+                    key={"_BRC_TextSize"}
                     MinTextSize={userProps.minTextSize ?? 1}
                     MaxTextSize={userProps.maxTextSize}
                 />
@@ -134,12 +138,12 @@ export default new ExpandableComponent<GuiObject, BaseProps>()
 
             // Scale
             userProps.scale !== undefined
-                ? <uiscale Scale={userProps.scale} />
+                ? <uiscale key={"_BRC_Scale"} Scale={userProps.scale} />
                 : undefined,
 
             // Flex item
             userProps.flex !== undefined || userProps.flexMode !== undefined
-                ? <uiflexitem FlexMode={userProps.flexMode} {...userProps.flex} />
+                ? <uiflexitem key={"_BRC_FlexItem"} FlexMode={userProps.flexMode} {...userProps.flex} />
                 : undefined,
 
             <GradientElement color={userProps.background} rotation={userProps.gradientRotation} />,

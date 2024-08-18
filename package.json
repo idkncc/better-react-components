@@ -43,29 +43,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "eslintConfig": {
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "jsx": true,
-      "useJSXTextNode": false,
-      "ecmaVersion": 2018,
-      "sourceType": "module",
-      "project": "./tsconfig.json"
-    },
-    "ignorePatterns": [
-      "/out"
-    ],
-    "plugins": [
-      "@typescript-eslint",
-      "roblox-ts",
-      "unused-imports"
-    ],
-    "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:roblox-ts/recommended"
-    ],
-    "rules": {}
   }
 }
