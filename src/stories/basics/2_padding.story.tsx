@@ -6,42 +6,42 @@ import { hoarcekat } from "@rbxts/pretty-react-hooks";
 import { App } from "../App";
 
 export = hoarcekat(() => {
-	return (
-		<App>
-			<Text
-				text={"red - parent\nblue - available space"}
-				textSize={'AUTO'}
-				maxTextSize={28}
+    return (
+        <App>
+            <Text
+                text={"red - parent\nblue - available space"}
+                textSize={'AUTO'}
+                maxTextSize={28}
 
-				size={UDim2.fromScale(.25, 1)}
+                size={UDim2.fromScale(.25, 1)}
 
-				textColor={"#FFFFFF"}
-				background={"#000000"}
-				backgroundTransparency={.75}
-			/>
+                textColor={"#FFFFFF"}
+                background={"#000000"}
+                backgroundTransparency={.75}
+            />
 
-			<Frame
-				position={new UDim2(.5, 0, .5, 0)} // set position to the center
-				size={new UDim2(.75, 0, .75, 0)} // make it 75% of height and width
-				aspectRatio={1} // and to make a square, use aspect ratio
-				anchorPoint={AnchorPoints.Middle} // anchor point in the center
+            <Frame
+                position={new UDim2(.5, 0, .5, 0)} // set position to the center
+                size={new UDim2(.75, 0, .75, 0)} // make it 75% of height and width
+                aspectRatio={1} // and to make a square, use aspect ratio
+                anchorPoint={AnchorPoints.Middle} // anchor point in the center
 
-				background={"#FF0000"}
+                background={"#FF0000"}
 
-				padding={8} // PADDING
-			>
-				<Text
-					text="available space"
-					size={UDim2.fromScale(1, 1)}
+                padding={8} // PADDING
+            >
+                <Text
+                    text="available space"
+                    size={UDim2.fromScale(1, 1)}
 
-					font={Enum.Font.BuilderSansBold}
-					textSize={"AUTO"}
-					maxTextSize={32}
+                    font={Enum.Font.BuilderSansBold}
+                    textSize={"AUTO"}
+                    maxTextSize={32}
 
-					background={Color3.fromHex("#0000FF")}
-					textColor={Color3.fromHex("#FFFFFF")}
-				/>
-			</Frame>
-		</App>
-	);
+                    background={Color3.fromHex("#0000FF")}
+                    textColor={Color3.fromHex("#FFFFFF")}
+                />
+            </Frame>
+        </App>
+    );
 });

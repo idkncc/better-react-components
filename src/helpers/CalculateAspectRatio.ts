@@ -10,8 +10,8 @@
  *     ...
  * </Frame>
  *
- * In Output (some fraction):
- * [CALC_ASPECT_RATIO](1): .875
+ * // In Output (some fraction):
+ * // [CALC_ASPECT_RATIO](1): .875
  * ```
  */
 export function calculateAspectRatio(element: unknown) {

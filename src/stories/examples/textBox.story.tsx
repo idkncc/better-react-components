@@ -8,29 +8,29 @@ import { CatppuccinLatte } from "../utils";
 
 
 export = hoarcekat(() => {
-	return (
-		<App>
-			<TextBox
-				size={new UDim2(.5, 0, .5, 0)}
-				minSize={new Vector2(200, 100)}
-				aspectRatio={8 / 2}
+    return (
+        <App>
+            <TextBox
+                size={new UDim2(.5, 0, .5, 0)}
+                minSize={new Vector2(200, 100)}
+                aspectRatio={8 / 2}
 
-				position={new UDim2(.5, 0, .5, 0)}
-				anchorPoint={AnchorPoints.Middle}
+                position={new UDim2(.5, 0, .5, 0)}
+                anchorPoint={AnchorPoints.Middle}
 
-				cornerRadius={12}
-				border={CatppuccinLatte.Text}
-				borderMode={Enum.ApplyStrokeMode.Border}
-				borderSize={2}
+                cornerRadius={12}
+                border={CatppuccinLatte.Text}
+                borderMode={Enum.ApplyStrokeMode.Border}
+                borderSize={2}
 
-				text={""}
-				textSize={16}
-				placeholder="Cool textbox"
+                text={""}
+                textSize={16}
+                placeholder="Cool textbox"
 
-				background={CatppuccinLatte.Base}
-				textColor={CatppuccinLatte.Text}
-				placeholderColor={CatppuccinLatte.Surface2}
-			/>
-		</App>
-	);
+                background={CatppuccinLatte.Base}
+                textColor={CatppuccinLatte.Text}
+                placeholderColor={CatppuccinLatte.Surface2}
+            />
+        </App>
+    );
 });
