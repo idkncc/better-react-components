@@ -1,18 +1,20 @@
 name: Build package
 on:
-  - push
-  - pull_request
+  push:
+    branches:
+      - '!main'
+  pull_request:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
 
       - uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: 9
 
       - name: Use Node.js 20
         uses: actions/setup-node@v3
@@ -26,8 +28,3 @@ jobs:
 
       - name: Build package
         run: pnpm build
-
-      # removed, due eslint v9
-      #
-      # - name: Lint package
-      #   run: pnpm lint
