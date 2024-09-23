@@ -21,8 +21,8 @@ importers:
         specifier: ^0.4.0
         version: 0.4.0
       '@rbxts/ripple':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@rbxts/services':
         specifier: ^1.5.5
         version: 1.5.5
@@ -31,8 +31,8 @@ importers:
         specifier: 2.3.0-types.2
         version: 2.3.0-types.2
       '@rbxts/types':
-        specifier: ^1.0.806
-        version: 1.0.806
+        specifier: ^1.0.808
+        version: 1.0.808
       '@semantic-release/git':
         specifier: ^10.0.1
         version: 10.0.1(semantic-release@24.1.1(typescript@5.5.3))
@@ -165,8 +165,8 @@ packages:
   '@rbxts/react@0.4.0':
     resolution: {integrity: sha512-yhqXzfH5YpwfZyiWipQMfQsI//2sC86Jqn2rMkP+l1y4CfhCvoYxpaI5qS7Xum9F+DsBHiwJNeUxm2V2LzXW0A==}
 
-  '@rbxts/ripple@0.9.0':
-    resolution: {integrity: sha512-T3Tr85eX6W8qLK7VfbFWSiTbMor2Rk94LuOPLubk6dO4i2S99HQ0QNNa6BsJgd+qUSsVwEHjtdpoB92r/SZb1Q==}
+  '@rbxts/ripple@0.9.1':
+    resolution: {integrity: sha512-gLjKYy+mJO67NoN/9d7/8kBy6+SNG1/09GNNnh89DYWT5iHYdxC0/XKbKrKZpx7Fcsz5iY9Sl6vOvSnFwFbQuw==}
 
   '@rbxts/services@1.5.5':
     resolution: {integrity: sha512-Hu7QH2ecefS60zpakKG3T2vgABydoOJqpSG7nXr59wFAbPk/cA+OcsntYPHUWyHAat0VFGZ5jNZLTLdiqfssvg==}
@@ -174,8 +174,8 @@ packages:
   '@rbxts/set-timeout@1.1.2':
     resolution: {integrity: sha512-P/A0IiH9wuZdSJYr4Us0MDFm61nvIFR0acfKFHLkcOsgvIgELC90Up9ugiSsaMEHRIcIcO5UjE39LuS3xTzQHw==}
 
-  '@rbxts/types@1.0.806':
-    resolution: {integrity: sha512-3YLJp1BTdIQIxqOhniycRBduH3wBMlBVIQF0gMuFouRdTHar9rKVd+nDYSkObBI1iMpTvSjIrAn6PwyPbArzZw==}
+  '@rbxts/types@1.0.808':
+    resolution: {integrity: sha512-dMEN355B0nQ/o2MPrX1ZQW2UtYzbaiT71KeH6PuxjbfSBFlz8wVZ6/6xcb33mPW4n5Sj4AuNfihDR/Z5O+D9ig==}
 
   '@roblox-ts/luau-ast@2.0.0':
     resolution: {integrity: sha512-cmMi093IdwBOLVxwuordhM8AmtbyTIyRpsTbB0D/JauidW4SXsQRQowSwWjHo4QP0DRJBXvOIlxtqEQi50uNzQ==}
@@ -1578,7 +1578,7 @@ snapshots:
     dependencies:
       '@rbxts/react': 0.4.0
       '@rbxts/react-roblox': 0.4.0
-      '@rbxts/ripple': 0.9.0
+      '@rbxts/ripple': 0.9.1
       '@rbxts/services': 1.5.5
       '@rbxts/set-timeout': 1.1.2
 
@@ -1593,7 +1593,7 @@ snapshots:
     dependencies:
       '@rbxts/react-vendor': 0.4.0
 
-  '@rbxts/ripple@0.9.0': {}
+  '@rbxts/ripple@0.9.1': {}
 
   '@rbxts/services@1.5.5': {}
 
@@ -1601,7 +1601,7 @@ snapshots:
     dependencies:
       '@rbxts/services': 1.5.5
 
-  '@rbxts/types@1.0.806': {}
+  '@rbxts/types@1.0.808': {}
 
   '@roblox-ts/luau-ast@2.0.0': {}
 
