@@ -26,18 +26,18 @@
     },
     "devDependencies": {
         "@rbxts/compiler-types": "2.3.0-types.2",
-        "@rbxts/types": "^1.0.808",
+        "@rbxts/types": "^1.0.812",
         "@semantic-release/git": "^10.0.1",
         "rimraf": "^6.0.1",
         "roblox-ts": "2.3.0-dev-26ec859",
-        "semantic-release": "^24.1.1",
+        "semantic-release": "^24.1.2",
         "typescript": "^5.5.3"
     },
     "dependencies": {
         "@rbxts/object-utils": "^1.0.4",
         "@rbxts/pretty-react-hooks": "^0.6.0",
-        "@rbxts/react": "^0.4.0",
-        "@rbxts/react-roblox": "^0.4.0",
+        "@rbxts/react": "^17.2.1",
+        "@rbxts/react-roblox": "^17.2.1",
         "@rbxts/ripple": "^0.9.1",
         "@rbxts/services": "^1.5.5"
     },
