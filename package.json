@@ -33,10 +33,10 @@
   },
   "dependencies": {
     "@rbxts/object-utils": "^1.0.4",
-    "@rbxts/pretty-react-hooks": "^0.6.0",
-    "@rbxts/react": "^17.2.1",
-    "@rbxts/react-roblox": "^17.2.1",
-    "@rbxts/ripple": "^0.9.1",
+    "@rbxts/pretty-react-hooks": "^0.6.1",
+    "@rbxts/react": "^17.2.3",
+    "@rbxts/react-roblox": "^17.2.3",
+    "@rbxts/ripple": "^0.9.3",
     "@rbxts/services": "^1.5.5"
   },
   "publishConfig": {
