@@ -12,8 +12,8 @@ importers:
         specifier: ^1.0.4
         version: 1.0.4
       '@rbxts/pretty-react-hooks':
-        specifier: ^0.6.1
-        version: 0.6.1
+        specifier: ^0.6.2
+        version: 0.6.2
       '@rbxts/react':
         specifier: ^17.2.3
         version: 17.2.3
@@ -31,8 +31,8 @@ importers:
         specifier: 3.0.0-types.0
         version: 3.0.0-types.0
       '@rbxts/types':
-        specifier: ^1.0.813
-        version: 1.0.813
+        specifier: ^1.0.840
+        version: 1.0.840
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
@@ -55,8 +55,8 @@ packages:
   '@rbxts/object-utils@1.0.4':
     resolution: {integrity: sha512-dLLhf022ipV+9i910sOE7kl9losKHoon0WgeerHqVMQA5EYsLUsVT2AxhJuhk8MiDn5oJ2GiFofE/LadY9TpJQ==}
 
-  '@rbxts/pretty-react-hooks@0.6.1':
-    resolution: {integrity: sha512-dnHS1z2Emq2ZC1dqKtcYmuhu04xkFgN25J/rnWYL4UnX9LuGXGrG4qF3kBlNRyTQXjGf+pXVlX6mLQmwfsSxOQ==}
+  '@rbxts/pretty-react-hooks@0.6.2':
+    resolution: {integrity: sha512-r2qG31eWldcreg1nLzITE9L9fwTEB1wgXk0lpLfRj2FPxMlsGxy+ck5exXCV0UuGnI+ZZdmvHPETiQRpX5yfSw==}
 
   '@rbxts/react-roblox@17.2.3':
     resolution: {integrity: sha512-YgS+C3tf92iM1NTK1f6R2O2G8+nbcKFnblA0mTs2Nt878OsWLgxhnhkCBZ6wYv+yeDGD9/sssKHZ6s2LzUWTrQ==}
@@ -76,8 +76,8 @@ packages:
   '@rbxts/set-timeout@1.1.2':
     resolution: {integrity: sha512-P/A0IiH9wuZdSJYr4Us0MDFm61nvIFR0acfKFHLkcOsgvIgELC90Up9ugiSsaMEHRIcIcO5UjE39LuS3xTzQHw==}
 
-  '@rbxts/types@1.0.813':
-    resolution: {integrity: sha512-Qpsmqnl+TNdl5AYqKFkYHyUrv652r30qK6A3GObOyDz+cvn8i+HE61mO021oq0nu1FcA4pMHbYqLSbv2CMF9Ig==}
+  '@rbxts/types@1.0.840':
+    resolution: {integrity: sha512-xvWTl1/hellqMBW1UB49JYRPVmitfkyd/xBNYaY+35+Vtn3Y3pXB/U0+y5wHfzQNi78XpPzyIyo8ker27UCWhw==}
 
   '@roblox-ts/luau-ast@2.0.0':
     resolution: {integrity: sha512-cmMi093IdwBOLVxwuordhM8AmtbyTIyRpsTbB0D/JauidW4SXsQRQowSwWjHo4QP0DRJBXvOIlxtqEQi50uNzQ==}
@@ -393,7 +393,7 @@ snapshots:
 
   '@rbxts/object-utils@1.0.4': {}
 
-  '@rbxts/pretty-react-hooks@0.6.1':
+  '@rbxts/pretty-react-hooks@0.6.2':
     dependencies:
       '@rbxts/react': 17.2.3
       '@rbxts/react-roblox': 17.2.3
@@ -420,7 +420,7 @@ snapshots:
     dependencies:
       '@rbxts/services': 1.5.5
 
-  '@rbxts/types@1.0.813': {}
+  '@rbxts/types@1.0.840': {}
 
   '@roblox-ts/luau-ast@2.0.0': {}
 
