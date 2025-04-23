@@ -35,7 +35,7 @@ Respectfully,
 
 ### Components
 
-- [ ] Frame
+- [x] Frame
 - [ ] ScrollableFrame
 - [ ] Button
 - [ ] ImageButton
