@@ -1,0 +1,12 @@
+[package]
+name = "idkncc/better-react-components"
+version = "3.0.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+react = "jsdotlua/react@17.2.1"
+react-roblox = "jsdotlua/react-roblox@17.2.1"
+
+[dev-dependencies]
+ui-labs = "pepeeltoro41/ui-labs@2.3.8"

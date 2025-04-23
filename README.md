@@ -1,83 +1,61 @@
-# Better React Components
+# better-react-components
 
-![NPM Downloads](https://img.shields.io/npm/dm/%40rbxts%2Fbetter-react-components?style=for-the-badge)
-![NPM Version](https://img.shields.io/npm/v/%40rbxts%2Fbetter-react-components?style=for-the-badge)
+Roblox's UI elements, but with builtin modifiers
 
-Roblox's ui elements, with builtin modifiers
+> ![NOTE]
+>
+> Currently, I am rewriting this library from Typescript to Lua.
+>
+> I'll still publish this library to NPM.
 
-Also see **[introduction](docs/1_Introduction.md)**
+## Setup guide
 
-## Example
+```
+Dear Future Me.
 
-![Comperance](docs/better-react-components-is-based.png)
+Please, publish and write here, how to install this library from wally or npm
 
-<details>
-    <summary>better-react-components code</summary>
+Respectfully,
+  Past Me
+```
 
-    ```
-    <Frame
-        position={new UDim2(.5, 0, .5, 0)}
-        size={new UDim2(.5, 0, .5, 0)}
+## Development
 
-        anchorPoint={AnchorPoints.Middle}
-        cornerRadius={8}
-        padding={4}
-    >
-        <GridLayout
-            cellSize={new UDim2(.25, 0, .25, 0)}
-            cellPadding={new UDim2(0, 4, 0, 4)}
-            cellAspectRatio={1}
-        />
+1. Install Aftman and Make
+2. Run:
+   ```
+   make install          # installs all toolchain, dependencies and patch sourcemap.json
+   make serve            # starts rojo server
+   make build            # builds .rbxmx (NOT IMPLEMENTED)
 
-        <DummyElement />
-        <Button
-            textColor={"#64FEE7"}
-            text="Hello world!"
-        />
-        <Text
-            background={"#64FEE7"}
-            text="Hello there!"
-            font={Enum.Font.Arial}
-        />
-    </Frame>;
-    ```
-</details>
+   make patch-sourcemaps # patches sourcemaps. needed after installing wally dependencies
+   ```
 
-
-## Support
-
-### TODO
-
-- [ ] Upgrade ESLint to `9.*.*` version
-- [ ] Better documentation
+## Supported Components/Modifiers
 
 ### Components
 
-- [X] Frame
-- [X] ScrollableFrame
-- [X] Button
+- [ ] Frame
+- [ ] ScrollableFrame
+- [ ] Button
 - [ ] ImageButton
-- [X] Image
-- [X] Text
-- [X] TextBox
-- [X] CanvasGroup
+- [ ] Image
+- [ ] Text
+- [ ] TextBox
+- [ ] CanvasGroup
 
 ### Modifiers
 
-- [X] UIAspectRatioConstraint
-- [X] UICorner
-- [X] UIGradient
-- [X] UIGridLayout [(see GridLayout)](src/components/GridLayout.tsx)
-- [X] UIListLayout [(see ListLayout)](src/components/ListLayout.tsx)
-- [X] UIFlexLayout [(see ListLayout)](src/components/ListLayout.tsx)
-- [X] UIPadding
+- [ ] UIAspectRatioConstraint
+- [ ] UICorner
+- [ ] UIGradient
+- [ ] UIGridLayout
+- [ ] UIListLayout
+- [ ] UIFlexLayout
+- [ ] UIPadding
 - [ ] UIPageLayout
-- [X] UIScale
-- [X] UISizeConstraint
-- [X] UIStroke
+- [ ] UIScale
+- [ ] UISizeConstraint
+- [ ] UIStroke
 - [ ] UITableLayout
-- [X] UITextSizeConstraint
-
-### Custom Modifiers
-
-- ~~[ ] FlowLayout [(view)](https://devforum.roblox.com/t/flow-flexbox-layout-for-lua/2614394)~~ (Removed due release of flex features to ListLayout. [Devforum](https://devforum.roblox.com/t/flex-features-for-uilistlayout-client-release/3096190) )
+- [ ] UITextSizeConstraint

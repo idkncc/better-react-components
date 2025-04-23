@@ -1,0 +1,7 @@
+{
+    "luau-lsp": {
+        "sourcemap": {
+            "autogenerate": false
+        }
+    }
+}
