@@ -37,10 +37,10 @@ Respectfully,
 
 - [x] Frame
 - [ ] ScrollableFrame
-- [ ] Button
+- [x] TextButton
 - [ ] ImageButton
 - [ ] Image
-- [ ] Text
+- [x] TextLabel
 - [ ] TextBox
 - [ ] CanvasGroup
 
