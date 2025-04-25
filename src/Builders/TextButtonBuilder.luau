@@ -1,4 +1,4 @@
-local TextLabelBuilder = require(script.Parent.TextBuilder)
+local TextLabelBuilder = require("./TextBuilder")
 
 export type TextButtonProps = {
     Style: Enum.ButtonStyle?,

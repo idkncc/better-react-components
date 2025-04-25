@@ -1,3 +1,3 @@
-local TextLabelBuilder = require(script.Parent.TextBuilder)
+local TextLabelBuilder = require("./TextBuilder")
 
 return TextLabelBuilder

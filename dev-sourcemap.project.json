@@ -15,7 +15,7 @@
                 "$path": "Packages"
             },
             "better-react-components": {
-                "$path": "out"
+                "$path": "src"
             }
         }
     }

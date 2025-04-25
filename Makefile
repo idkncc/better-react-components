@@ -17,7 +17,7 @@ Packages DevPackages: wally.toml wally.lock
 	wally-package-types --sourcemap sourcemap.json DevPackages/
 
 sourcemap.json: src/* dev.project.json
-	rojo sourcemap dev.project.json --output sourcemap.json
+	rojo sourcemap dev-sourcemap.project.json --output sourcemap.json
 
 # intermediate steps
 

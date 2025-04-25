@@ -1,8 +1,6 @@
-local Packages = script.Parent.Parent.Parent
-
-local React = require(Packages.react)
-local ComponentBuilder = require(script.Parent.Parent.Builder)
-local Utils = require(script.Parent.Parent.Utils)
+local React = require("@pkg/react")
+local ComponentBuilder = require("../Builder")
+local Utils = require("../Utils")
 
 --- Border settings
 ---
