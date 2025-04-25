@@ -1,3 +1,3 @@
-local TextButtonBuilder = require(script.Parent.Parent.Builders.TextButtonBuilder)
+local TextButtonBuilder = require("../Builders/TextButtonBuilder")
 
 return TextButtonBuilder:build("TextButton")

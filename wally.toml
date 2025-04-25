@@ -4,6 +4,8 @@ version = "3.0.0"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
 
+include = [ "src", "default.project.json", "README.md" ]
+
 [dependencies]
 react = "jsdotlua/react@17.2.1"
 react-roblox = "jsdotlua/react-roblox@17.2.1"

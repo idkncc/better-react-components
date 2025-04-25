@@ -12,11 +12,12 @@
                 "$path": "DevPackages"
             },
             "Packages": {
-                "$path": "Packages",
+                "$path": "Packages"
+            },
+
                 "better-react-components": {
                     "$path": "src"
                 }
-            }
         }
     }
 }

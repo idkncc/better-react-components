@@ -1,7 +1,5 @@
-local Packages = script.Parent.Parent
-
-local React = require(Packages.react)
-local Utils = require(script.Parent.Utils)
+local React = require("@pkg/react")
+local Utils = require("./Utils")
 
 local ComponentBuilder = {}
 ComponentBuilder.__index = ComponentBuilder

@@ -1,0 +1,10 @@
+# This folder used for storing Wally package files
+#
+# `wally.project.json` is used for generating sourcemap.json
+#
+# To build wally package run:
+#  $ make wally-package
+
+*
+!.gitignore
+!wally.project.json

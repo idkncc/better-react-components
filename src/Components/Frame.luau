@@ -1,3 +1,3 @@
-local FrameBuilder = require(script.Parent.Parent.Builders.FrameBuilder)
+local FrameBuilder = require("../Builders/FrameBuilder")
 
 return FrameBuilder:build("Frame")

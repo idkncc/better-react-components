@@ -1,9 +1,6 @@
-local Packages = game:GetService("ReplicatedStorage").Packages
-local DevPackages = game:GetService("ReplicatedStorage").DevPackages
-
-local React = require(Packages.react)
-local ReactRoblox = require(Packages["react-roblox"])
-local UILabs = require(DevPackages["ui-labs"])
+local React = require("@pkg/react")
+local ReactRoblox = require("@pkg/react-roblox")
+local UILabs = require("@dev-pkg/ui-labs")
 
 local Frame = require(script.Parent.Parent.Components.Frame)
 
@@ -23,7 +20,7 @@ local story = {
             BottomRight = "br",
         }, "MiddleCenter"),
         BackgroundColor = Color3.fromHex("#FF0000"),
-        CornerRadius = 0
+        CornerRadius = 0,
     },
     story = function(props)
         return React.createElement(Frame, {

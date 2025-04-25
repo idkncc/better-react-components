@@ -1,24 +1,28 @@
-install: install-dependencies patch-sourcemap
+install: install-toolchain
+cleanup: cleanup-build
+
+wally-package: cleanup-build
+	./scripts/wally.sh
+
+# development
 serve:
-	rojo serve story.project.json
+	rojo serve dev.project.json
 
-#build: install-dependencies
-#	rojo build
+watch: Packages/ DevPackages/ sourcemap.json .darklua-dev.json
+	darklua process -w -c .darklua-dev.json src out 
 
-# intermediate scripts
-
-install-dependencies: aftman.toml wally.toml wally.lock
-	aftman install
+Packages DevPackages: wally.toml wally.lock
 	wally install
+	wally-package-types --sourcemap sourcemap.json Packages/
+	wally-package-types --sourcemap sourcemap.json DevPackages/
 
-patch-sourcemap: sourcemap.json Packages/* DevPackages/
-	wally-package-types --sourcemap dev-sourcemap.json Packages/
-	wally-package-types --sourcemap dev-sourcemap.json DevPackages/
+sourcemap.json: src/* dev.project.json
+	rojo sourcemap dev.project.json --output sourcemap.json
 
-# target files/dirs:
+# intermediate steps
 
-Packages: install-dependencies
+install-toolchain:
+	aftman install
 
-sourcemap.json: src/* story.project.json
-	rojo sourcemap story.project.json --output sourcemap.json
-
+cleanup-build:
+	git clean -Xf build # remove ignored files in build/
