@@ -28,6 +28,7 @@ local story = {
             Position = UDim2.new(0.5, 0, 0.5, 0),
             Size = UDim2.new(0.5, 0, 0.5, 0),
             BackgroundColor = props.controls.BackgroundColor,
+
             -- CornerRadius = props.controls.CornerRadius
         })
     end,

@@ -40,11 +40,11 @@ end
 function ComponentBuilder.build<P, OP>(
     self: ComponentBuilder<P, OP>,
     robloxComponent: string
-): (props: P) -> any
+): (P, any) -> React.ReactNode
     return React.forwardRef(function(props: React.ElementProps<string> & P)
         local outputProps, outputChildren = self.transformer(props)
 
         return React.createElement(robloxComponent, outputProps, outputChildren, props.children)
-    end)
+    end) :: any
 end
 return ComponentBuilder

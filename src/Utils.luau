@@ -1,3 +1,5 @@
+local React = require("@pkg/react")
+
 local Utils = {}
 
 --- User-friendly anchor points
@@ -20,6 +22,11 @@ export type Color = Color3 | string
 --- `"auto"` enables `TextScaled` property. Otherwise sets TextSize
 export type TextSize = number | "auto"
 
+--- Font
+export type FontValue = Font | EnumItem
+
+export type BindingOrValue<T> = React.Binding<T> | T
+
 local AnchorPointMapping = setmetatable({
     tl = Vector2.new(0, 0),
     t = Vector2.new(0.5, 0),
@@ -38,28 +45,76 @@ local AnchorPointMapping = setmetatable({
     end,
 })
 
-function Utils.Assign<T1, T2>(table1: T1, table2: T2): T1 & T2
+local function isBinding(value: any): boolean
+    return typeof(value) == "table" and value["getValue"] ~= nil and value["map"] ~= nil
+end
+
+-- TODO: create separate package "better-react-hooks"
+function Utils.mapBinding<T, R>(bindingOrValue: BindingOrValue<T>, map: (value: T) -> R): React.Binding<R>
+    local binding = if isBinding(bindingOrValue)
+        then bindingOrValue :: React.Binding<T>
+        else React.createBinding(bindingOrValue :: T)
+
+    return binding:map(map)
+end
+
+function Utils.Assign<T1, T2>(table1: { T1 }, table2: { T2 }): { T1 & T2 }
     for k, v in pairs(table2) do
         table1[k] = v
     end
 
-    return table1
+    return table1 :: { T1 & T2 }
 end
 
-function Utils.ConvertColor(value: Color3 | string): Color3
-    if typeof(value) == "string" then
-        return Color3.fromHex(value)
-    else
-        return value
-    end
+function Utils.ConvertColor(value: BindingOrValue<Color3 | string>): React.Binding<Color3>
+    return Utils.mapBinding(value, function(value)
+        if typeof(value) == "Color3" then
+            return value
+        elseif typeof(value) == "string" then
+            return Color3.fromHex(value)
+        else
+            error(
+                string.format(
+                    'Invalid value in ConvertColor. Expected Color3 or string, found "%s"',
+                    value
+                )
+            )
+        end
+    end)
 end
 
-function Utils.ConvertAnchorPoint(value: AnchorPoint): Vector2
-    if typeof(value) == "Vector2" then
-        return value
-    end
+function Utils.ConvertAnchorPoint(value: BindingOrValue<AnchorPoint>): React.Binding<Vector2>
+    return Utils.mapBinding(value, function(value)
+        if typeof(value) == "Vector2" then
+            return value
+        elseif typeof(value) == "string" then
+            return AnchorPointMapping[value]
+        else
+            error(
+                string.format(
+                    'Invalid value in ConvertAnchorPoint. Expected Vector2 or string, found "%s"',
+                    value
+                )
+            )
+        end
+    end)
+end
 
-    return AnchorPointMapping[value]
+function Utils.ConvertFont(value: BindingOrValue<FontValue>): React.Binding<Font>
+    return Utils.mapBinding(value, function(value)
+        if typeof(value) == "EnumItem" then
+            return Font.fromEnum(value :: Enum.Font)
+        elseif typeof(value) == "Font" then
+            return value
+        else
+            error(
+                string.format(
+                    'Invalid value in ConvertFont. Expected Font or Enum.Font, found "%s"',
+                    value
+                )
+            )
+        end
+    end)
 end
 
 return Utils

@@ -4,7 +4,7 @@ local GuiObjectBuilder = require("./GuiObjectBuilder")
 export type TextProps = {
     Text: string?,
 
-    Font: Enum.Font?,
+    Font: Utils.FontValue?,
     LineHeight: number?,
     RichText: boolean?,
     TextColor: Utils.Color?,
@@ -20,10 +20,10 @@ return GuiObjectBuilder:expand(function(props: TextProps)
     return {
         Text = props.Text,
 
-        FontFace = props.Font,
+        FontFace = props.Font and Utils.ConvertFont(props.Font),
         LineHeight = props.LineHeight,
         RichText = props.RichText,
-        TextColor3 = Utils.ConvertColor(props.TextColor),
+        TextColor3 = props.TextColor and Utils.ConvertColor(props.TextColor),
         TextWrapped = props.TextWrapped,
 
         TextSize = props.TextSize == "auto" and 1 or props.TextSize,

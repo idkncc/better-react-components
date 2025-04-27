@@ -1,3 +1,5 @@
-local TextLabelBuilder = require("./TextBuilder")
+local TextBuilder = require("./TextBuilder")
 
-return TextLabelBuilder
+return TextBuilder:expand(function(props)
+    return {}, {}
+end)

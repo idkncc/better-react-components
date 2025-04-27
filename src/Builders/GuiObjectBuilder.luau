@@ -1,12 +1,15 @@
 local React = require("@pkg/react")
-local ComponentBuilder = require("../Builder")
+local Builder = require("../Builder")
 local Utils = require("../Utils")
 
 --- Border settings
 ---
 --- NOTE: when building, it uses `UIStroke`, instead of `GuiObject`'s border properties
 export type Border = {
-    BorderColor: Utils.Color?,
+    Color: Utils.Color?,
+    Thickness: number?,
+    LineJoinMode: Enum.LineJoinMode,
+    Transparency: number?,
 }
 
 export type GuiObjectProps = {
@@ -30,7 +33,7 @@ export type GuiObjectProps = {
     Border: Border?,
 }
 
-return ComponentBuilder.new(function(props: GuiObjectProps)
+return Builder.new(function(props: GuiObjectProps)
     return {
         AnchorPoint = props.AnchorPoint and Utils.ConvertAnchorPoint(props.AnchorPoint),
         AutomaticSize = props.AutomaticSize,
@@ -45,10 +48,11 @@ return ComponentBuilder.new(function(props: GuiObjectProps)
         LayoutOrder = props.LayoutOrder,
         ZIndex = props.ZIndex,
     }, {
-        Border = props.border
-            and React.createElement("UIBorder", {
-                Color = props.Border.BorderColor and Utils.ConvertColor(props.Border.BorderColor),
-                Thickness = props.Border.Thickness,
-            }),
+        Border = props.Border and React.createElement("UIStroke", {
+            Color = props.Border.Color and Utils.ConvertColor(props.Border.Color),
+            Thickness = props.Border.Thickness,
+            LineJoinMode = props.Border.LineJoinMode,
+            Transparency = props.Border.Transparency,
+        }),
     }
 end)
