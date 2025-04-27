@@ -47,7 +47,7 @@ Respectfully,
 ### Modifiers
 
 - [ ] UIAspectRatioConstraint
-- [ ] UICorner
+- [x] UICorner (`CornerRadius` property)
 - [ ] UIGradient
 - [ ] UIGridLayout
 - [ ] UIListLayout
@@ -56,6 +56,6 @@ Respectfully,
 - [ ] UIPageLayout
 - [ ] UIScale
 - [ ] UISizeConstraint
-- [ ] UIStroke
+- [x] UIStroke (`Border` property)
 - [ ] UITableLayout
 - [ ] UITextSizeConstraint

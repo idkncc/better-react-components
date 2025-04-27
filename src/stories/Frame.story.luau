@@ -20,7 +20,6 @@ local story = {
             BottomRight = "br",
         }, "MiddleCenter"),
         BackgroundColor = Color3.fromHex("#FF0000"),
-        CornerRadius = 0,
     },
     story = function(props)
         return React.createElement(Frame, {
@@ -28,8 +27,6 @@ local story = {
             Position = UDim2.new(0.5, 0, 0.5, 0),
             Size = UDim2.new(0.5, 0, 0.5, 0),
             BackgroundColor = props.controls.BackgroundColor,
-
-            -- CornerRadius = props.controls.CornerRadius
         })
     end,
 }

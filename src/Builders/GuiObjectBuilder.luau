@@ -31,6 +31,7 @@ export type GuiObjectProps = {
     ZIndex: number?,
 
     Border: Border?,
+    CornerRadius: Utils.UDimValue,
 }
 
 return Builder.new(function(props: GuiObjectProps)
@@ -48,11 +49,14 @@ return Builder.new(function(props: GuiObjectProps)
         LayoutOrder = props.LayoutOrder,
         ZIndex = props.ZIndex,
     }, {
-        Border = props.Border and React.createElement("UIStroke", {
+        BRCBorder = props.Border and React.createElement("UIStroke", {
             Color = props.Border.Color and Utils.ConvertColor(props.Border.Color),
             Thickness = props.Border.Thickness,
             LineJoinMode = props.Border.LineJoinMode,
             Transparency = props.Border.Transparency,
+        }),
+        BRCCorner = props.CornerRadius and React.createElement("UICorner", {
+            CornerRadius = Utils.ConvertUDim(props.CornerRadius),
         }),
     }
 end)

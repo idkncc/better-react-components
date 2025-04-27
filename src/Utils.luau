@@ -25,6 +25,11 @@ export type TextSize = number | "auto"
 --- Font
 export type FontValue = Font | EnumItem
 
+--- UDim
+---
+--- Takes `UDim` or `number` as offset
+export type UDimValue = UDim | number
+
 export type BindingOrValue<T> = React.Binding<T> | T
 
 local AnchorPointMapping = setmetatable({
@@ -58,12 +63,14 @@ function Utils.mapBinding<T, R>(bindingOrValue: BindingOrValue<T>, map: (value: 
     return binding:map(map)
 end
 
-function Utils.Assign<T1, T2>(table1: { T1 }, table2: { T2 }): { T1 & T2 }
-    for k, v in pairs(table2) do
-        table1[k] = v
+function Utils.Assign<T1, T2>(table1: T1, table2: T2): T1 & T2
+    local result = table1 :: any
+
+    for k, v in pairs(table2 :: any) do
+        result[k] = v
     end
 
-    return table1 :: { T1 & T2 }
+    return result :: T1 & T2
 end
 
 function Utils.ConvertColor(value: BindingOrValue<Color3 | string>): React.Binding<Color3>
@@ -76,7 +83,7 @@ function Utils.ConvertColor(value: BindingOrValue<Color3 | string>): React.Bindi
             error(
                 string.format(
                     'Invalid value in ConvertColor. Expected Color3 or string, found "%s"',
-                    value
+                    typeof(value)
                 )
             )
         end
@@ -93,7 +100,7 @@ function Utils.ConvertAnchorPoint(value: BindingOrValue<AnchorPoint>): React.Bin
             error(
                 string.format(
                     'Invalid value in ConvertAnchorPoint. Expected Vector2 or string, found "%s"',
-                    value
+                    typeof(value)
                 )
             )
         end
@@ -110,7 +117,24 @@ function Utils.ConvertFont(value: BindingOrValue<FontValue>): React.Binding<Font
             error(
                 string.format(
                     'Invalid value in ConvertFont. Expected Font or Enum.Font, found "%s"',
-                    value
+                    typeof(value)
+                )
+            )
+        end
+    end)
+end
+
+function Utils.ConvertUDim(value: BindingOrValue<UDimValue>): React.Binding<UDim>
+    return Utils.mapBinding(value, function(value)
+        if typeof(value) == "UDim" then
+            return value
+        elseif typeof(value) == "number" then
+            return UDim.new(0, value)
+        else
+            error(
+                string.format(
+                    'Invalid value in ConvertUDim. Expected UDim or number, found "%s"',
+                    typeof(value)
                 )
             )
         end
