@@ -30,6 +30,15 @@ export type FontValue = Font | EnumItem
 --- Takes `UDim` or `number` as offset
 export type UDimValue = UDim | number
 
+--- Padding (like in CSS)
+---
+--- There's 3 scenarios
+---  1. Value is `UDimValue` or `{UDimValue}`: padding `UDimValue` is applied to all sides
+---  2. Value is `{UDimValue, UDimValue}`: first value is vertical padding, second - horizontal padding
+---  3. Value is `{UDimValue, UDimValue, UDimValue}`: where each value is {Top, Horizontal, Bottom}
+---  4. Value is `{UDimValue, UDimValue, UDimValue, UDimValue}`: where each value is {Top, Right, Bottom, Left}
+export type PaddingValue = UDimValue | { UDimValue }
+
 export type BindingOrValue<T> = React.Binding<T> | T
 
 local AnchorPointMapping = setmetatable({
@@ -124,21 +133,94 @@ function Utils.ConvertFont(value: BindingOrValue<FontValue>): React.Binding<Font
     end)
 end
 
+local function ConvertUDimInternal(value: UDimValue): UDim
+    if typeof(value) == "UDim" then
+        return value
+    elseif typeof(value) == "number" then
+        return UDim.new(0, value)
+    else
+        error(
+            string.format(
+                'Invalid value in ConvertUDim. Expected UDim or number, found "%s"',
+                typeof(value)
+            )
+        )
+    end
+end
+
 function Utils.ConvertUDim(value: BindingOrValue<UDimValue>): React.Binding<UDim>
+    return Utils.mapBinding(value, ConvertUDimInternal)
+end
+
+export type ConvertPaddingResult = {
+    PaddingBottom: UDim,
+    PaddingLeft: UDim,
+    PaddingRight: UDim,
+    PaddingTop: UDim,
+}
+
+local function ConvertPaddingInternal(value: { UDim }): ConvertPaddingResult
+    if #value == 0 then
+        return { PaddingTop = 0, PaddingRight = 0, PaddingBottom = 0, PaddingLeft = 0 }
+    elseif #value == 1 then
+        return {
+            PaddingTop = value[1],
+            PaddingRight = value[1],
+            PaddingBottom = value[1],
+            PaddingLeft = value[1],
+        }
+    elseif #value == 2 then
+        return {
+            PaddingTop = value[1],
+            PaddingRight = value[2],
+            PaddingBottom = value[1],
+            PaddingLeft = value[2],
+        }
+    elseif #value == 3 then
+        return {
+            PaddingTop = value[1],
+            PaddingRight = value[2],
+            PaddingBottom = value[3],
+            PaddingLeft = value[2],
+        }
+    elseif #value == 4 then
+        return {
+            PaddingTop = value[1],
+            PaddingRight = value[2],
+            PaddingBottom = value[3],
+            PaddingLeft = value[4],
+        }
+    else
+        error(
+            string.format(
+                "Invalid value in ConvertUDim. Expected up to 4 padding values, found %d.",
+                #value
+            )
+        )
+    end
+end
+
+function Utils.ConvertPadding(
+    value: BindingOrValue<PaddingValue>
+): React.Binding<ConvertPaddingResult>
     return Utils.mapBinding(value, function(value)
-        if typeof(value) == "UDim" then
-            return value
-        elseif typeof(value) == "number" then
-            return UDim.new(0, value)
+        if typeof(value) == "table" then
+            local result: { UDim } = {}
+            for _, v in value do
+                result[#result + 1] = ConvertUDimInternal(v)
+            end
+
+            return ConvertPaddingInternal(result)
+        elseif typeof(value) == "UDim" or typeof(value) == "number" then
+            return ConvertPaddingInternal({ ConvertUDimInternal(value) })
         else
             error(
                 string.format(
-                    'Invalid value in ConvertUDim. Expected UDim or number, found "%s"',
+                    'Invalid value in ConvertPadding. Expected UDimValue or {UDimValue}, found "%s"',
                     typeof(value)
                 )
             )
         end
     end)
 end
-
 return Utils

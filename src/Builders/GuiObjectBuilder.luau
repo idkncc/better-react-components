@@ -12,6 +12,12 @@ export type Border = {
     Transparency: number?,
 }
 
+export type Aspect = {
+    Ratio: number,
+    Type: Enum.AspectType?,
+    DominantAxis: Enum.DominantAxis?,
+}
+
 export type GuiObjectProps = {
     AnchorPoint: Utils.AnchorPoint?,
     AutomaticSize: Enum.AutomaticSize?,
@@ -31,7 +37,11 @@ export type GuiObjectProps = {
     ZIndex: number?,
 
     Border: Border?,
-    CornerRadius: Utils.UDimValue,
+    CornerRadius: Utils.UDimValue?,
+
+    Aspect: Aspect?,
+
+    Padding: Utils.PaddingValue?,
 }
 
 return Builder.new(function(props: GuiObjectProps)
@@ -58,5 +68,12 @@ return Builder.new(function(props: GuiObjectProps)
         BRCCorner = props.CornerRadius and React.createElement("UICorner", {
             CornerRadius = Utils.ConvertUDim(props.CornerRadius),
         }),
+        BRCAspectRatio = props.Aspect and React.createElement("UIAspectRatioConstraint", {
+            AspectRatio = props.Aspect.Ratio,
+            AspectType = props.Aspect.Type,
+            DominantAxis = props.Aspect.DominantAxis,
+        }),
+        BRCPadding = props.Padding
+            and React.createElement("UIPadding", Utils.ConvertPadding(props.Padding):getValue()),
     }
 end)
