@@ -1,3 +1,5 @@
+local React = require("@pkg/react")
+
 local Utils = require("../Utils")
 local GuiObjectBuilder = require("./GuiObjectBuilder")
 
@@ -13,6 +15,9 @@ export type TextProps = {
 
     TextXAlignment: Enum.TextXAlignment?,
     TextYAlignment: Enum.TextYAlignment?,
+
+    MinTextSize: number,
+    MaxTextSize: number,
 }
 
 --- Builder for text-based objects (`TextLabel`, `TextButton`, etc.)
@@ -31,5 +36,11 @@ return GuiObjectBuilder:expand(function(props: TextProps)
 
         TextXAlignment = props.TextXAlignment,
         TextYAlignment = props.TextYAlignment,
-    }, {}
+    }, {
+        BRCTextSizeConstraint = (props.MinTextSize ~= nil or props.MaxTextSize ~= nil)
+            and React.createElement("UITextSizeConstraint", {
+                MinTextSize = props.MinTextSize,
+                MaxTextSize = props.MaxTextSize,
+            }),
+    }
 end)

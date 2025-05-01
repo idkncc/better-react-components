@@ -42,6 +42,9 @@ export type GuiObjectProps = {
     Aspect: Aspect?,
 
     Padding: Utils.PaddingValue?,
+
+    MinSize: Vector2,
+    MaxSize: Vector2,
 }
 
 return Builder.new(function(props: GuiObjectProps)
@@ -75,5 +78,11 @@ return Builder.new(function(props: GuiObjectProps)
         }),
         BRCPadding = props.Padding
             and React.createElement("UIPadding", Utils.ConvertPadding(props.Padding):getValue()),
+
+        BRCSizeConstraint = (props.MinSize ~= nil or props.MaxSize ~= nil)
+            and React.createElement("UISizeConstraint", {
+                MinSize = props.MinSize,
+                MaxSize = props.MaxSize,
+            }),
     }
 end)

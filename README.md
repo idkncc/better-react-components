@@ -55,7 +55,7 @@ Respectfully,
 - [x] UIPadding
 - [ ] UIPageLayout
 - [ ] UIScale
-- [ ] UISizeConstraint
+- [x] UISizeConstraint
 - [x] UIStroke (`Border` property)
 - [ ] UITableLayout
-- [ ] UITextSizeConstraint
+- [x] UITextSizeConstraint
