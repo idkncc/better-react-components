@@ -36,26 +36,31 @@ Respectfully,
 ### Components
 
 - [x] Frame
-- [ ] ScrollableFrame
+- [ ] ScrollingFrame
+- [ ] CanvasGroup
+- [ ] ViewportFrame
 - [x] TextButton
-- [ ] ImageButton
-- [ ] Image
 - [x] TextLabel
 - [ ] TextBox
-- [ ] CanvasGroup
+- [ ] ImageButton
+- [ ] ImageLabel
+- [ ] Path2D
 
 ### Modifiers
 
 - [x] UIAspectRatioConstraint
 - [x] UICorner (`CornerRadius` property)
+- [x] UIStroke (`Border` property)
+- [x] UIPadding
+- [x] UISizeConstraint
+- [x] UITextSizeConstraint
+- [ ] UIScale
 - [ ] UIGradient
+
+### Layouts
+
 - [ ] UIGridLayout
 - [ ] UIListLayout
-- [ ] UIFlexLayout
-- [x] UIPadding
-- [ ] UIPageLayout
-- [ ] UIScale
-- [x] UISizeConstraint
-- [x] UIStroke (`Border` property)
+- [ ] UIFlexItem
 - [ ] UITableLayout
-- [x] UITextSizeConstraint
+- [ ] UIPageLayout
