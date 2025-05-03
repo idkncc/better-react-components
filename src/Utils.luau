@@ -41,6 +41,15 @@ export type PaddingValue = UDimValue | { UDimValue }
 
 export type BindingOrValue<T> = React.Binding<T> | T
 
+export type FlexAlignment =
+    "start"
+    | "end"
+    | "center"
+    | "space-between"
+    | "space-around"
+    | "space-evenly"
+    | "stretch"
+
 local AnchorPointMapping = setmetatable({
     tl = Vector2.new(0, 0),
     t = Vector2.new(0.5, 0),
@@ -80,6 +89,33 @@ function Utils.Assign<T1, T2>(table1: T1, table2: T2): T1 & T2
     end
 
     return result :: T1 & T2
+end
+
+-- thanks to https://gist.github.com/qizhihere/cb2a14432d9bf65693ad?permalink_comment_id=3389084#gistcomment-3389084
+function Utils.MergeMulti(...): any
+    local tables_to_merge = { ... }
+    assert(#tables_to_merge > 1, "There should be at least two tables to merge them")
+
+    for k, t in ipairs(tables_to_merge) do
+        assert(typeof(t) == "table", string.format("Expected a table as function parameter %d", k))
+    end
+
+    local result = table.clone(tables_to_merge[1])
+
+    for i = 2, #tables_to_merge do
+        local from = tables_to_merge[i]
+        for k, v in pairs(from) do
+            if type(v) == "table" then
+                result[k] = result[k] or {}
+                assert(type(result[k]) == "table", string.format("Expected a table: '%s'", k))
+                result[k] = Utils.MergeMulti(result[k], v)
+            else
+                result[k] = v
+            end
+        end
+    end
+
+    return result
 end
 
 function Utils.ConvertColor(value: BindingOrValue<Color3 | string>): React.Binding<Color3>
@@ -223,4 +259,111 @@ function Utils.ConvertPadding(
         end
     end)
 end
+
+export type ConvertFlexValueResult = {
+    HorizontalAlignment: Enum.HorizontalAlignment?,
+    HorizontalFlex: Enum.UIFlexAlignment?,
+    VerticalAlignment: Enum.VerticalAlignment?,
+    VerticalFlex: Enum.UIFlexAlignment?,
+}
+
+--- Converts CSS like JustifyContent and AlignItems values to Roblox's ListLayout props
+function Utils.ConvertFlexValue(
+    direction: Enum.FillDirection,
+    value: FlexAlignment
+): ConvertFlexValueResult
+    if value == "start" then
+        if direction == Enum.FillDirection.Horizontal then
+            return {
+                HorizontalAlignment = Enum.HorizontalAlignment.Left,
+                HorizontalFlex = Enum.UIFlexAlignment.None,
+            }
+        else
+            return {
+                VerticalAlignment = Enum.VerticalAlignment.Top,
+                VerticalFlex = Enum.UIFlexAlignment.None,
+            }
+        end
+    elseif value == "end" then
+        if direction == Enum.FillDirection.Horizontal then
+            return {
+                HorizontalAlignment = Enum.HorizontalAlignment.Right,
+                HorizontalFlex = Enum.UIFlexAlignment.None,
+            }
+        else
+            return {
+                VerticalAlignment = Enum.VerticalAlignment.Bottom,
+                VerticalFlex = Enum.UIFlexAlignment.None,
+            }
+        end
+    elseif value == "center" then
+        if direction == Enum.FillDirection.Horizontal then
+            return {
+                HorizontalAlignment = Enum.HorizontalAlignment.Center,
+                HorizontalFlex = Enum.UIFlexAlignment.None,
+            }
+        else
+            return {
+                VerticalAlignment = Enum.VerticalAlignment.Center,
+                VerticalFlex = Enum.UIFlexAlignment.None,
+            }
+        end
+    elseif value == "space-between" then
+        if direction == Enum.FillDirection.Horizontal then
+            return {
+                HorizontalAlignment = Enum.HorizontalAlignment.Center,
+                HorizontalFlex = Enum.UIFlexAlignment.SpaceBetween,
+            }
+        else
+            return {
+                VerticalAlignment = Enum.VerticalAlignment.Center,
+                VerticalFlex = Enum.UIFlexAlignment.SpaceBetween,
+            }
+        end
+    elseif value == "space-around" then
+        if direction == Enum.FillDirection.Horizontal then
+            return {
+                HorizontalAlignment = Enum.HorizontalAlignment.Center,
+                HorizontalFlex = Enum.UIFlexAlignment.SpaceAround,
+            }
+        else
+            return {
+                VerticalAlignment = Enum.VerticalAlignment.Center,
+                VerticalFlex = Enum.UIFlexAlignment.SpaceAround,
+            }
+        end
+    elseif value == "space-evenly" then
+        if direction == Enum.FillDirection.Horizontal then
+            return {
+                HorizontalAlignment = Enum.HorizontalAlignment.Center,
+                HorizontalFlex = Enum.UIFlexAlignment.SpaceEvenly,
+            }
+        else
+            return {
+                VerticalAlignment = Enum.VerticalAlignment.Center,
+                VerticalFlex = Enum.UIFlexAlignment.SpaceEvenly,
+            }
+        end
+    elseif value == "stretch" then
+        if direction == Enum.FillDirection.Horizontal then
+            return {
+                HorizontalAlignment = Enum.HorizontalAlignment.Center,
+                HorizontalFlex = Enum.UIFlexAlignment.Fill,
+            }
+        else
+            return {
+                VerticalAlignment = Enum.VerticalAlignment.Center,
+                VerticalFlex = Enum.UIFlexAlignment.Fill,
+            }
+        end
+    else
+        error(
+            string.format(
+                'Invalid value in ConvertFlexValue. Expected "start", "end", "center", "space-between", "space-around", "space-evenly" or "stretch", found "%s"',
+                value
+            )
+        )
+    end
+end
+
 return Utils

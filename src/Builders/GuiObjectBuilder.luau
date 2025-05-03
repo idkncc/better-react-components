@@ -2,6 +2,8 @@ local React = require("@pkg/react")
 local Builder = require("../Builder")
 local Utils = require("../Utils")
 
+local ListLayout = require("../Helpers/ListLayout")
+
 --- Border settings
 ---
 --- NOTE: when building, it uses `UIStroke`, instead of `GuiObject`'s border properties
@@ -45,6 +47,8 @@ export type GuiObjectProps = {
 
     MinSize: Vector2,
     MaxSize: Vector2,
+
+    ListLayout: ListLayout.ListLayoutProps,
 }
 
 return Builder.new(function(props: GuiObjectProps)
@@ -84,5 +88,6 @@ return Builder.new(function(props: GuiObjectProps)
                 MinSize = props.MinSize,
                 MaxSize = props.MaxSize,
             }),
+        BRCListLayout = props.ListLayout and React.createElement(ListLayout, props.ListLayout),
     }
 end)

@@ -60,7 +60,7 @@ Respectfully,
 ### Layouts
 
 - [ ] UIGridLayout
-- [ ] UIListLayout
+- [x] UIListLayout
 - [ ] UIFlexItem
 - [ ] UITableLayout
 - [ ] UIPageLayout
