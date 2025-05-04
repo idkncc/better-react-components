@@ -67,7 +67,7 @@ return Builder.new(function(props: GuiObjectProps)
         LayoutOrder = props.LayoutOrder,
         ZIndex = props.ZIndex,
 
-        BorderSizePixel = 0 -- we are using `UIStroke` instead.
+        BorderSizePixel = 0, -- we are using `UIStroke` instead.
     }, {
         BRCBorder = props.Border and React.createElement("UIStroke", {
             Color = props.Border.Color and Utils.ConvertColor(props.Border.Color),

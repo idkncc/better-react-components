@@ -28,7 +28,7 @@ local function PaddingStory(props)
             BackgroundColor = "#FFF",
             Text = ("Padding = {%s}"):format(table.concat(Padding, ", ")),
             Font = Enum.Font.Roboto,
-            TextSize = 30
+            TextSize = 30,
         })
     )
 end

@@ -9,7 +9,7 @@ return {
     reactRoblox = ReactRoblox,
     controls = {
         SizeY = UILabs.Slider(100, 0, 500),
-        MaxTextSize = UILabs.Slider(20, 1, 100)
+        MaxTextSize = UILabs.Slider(20, 1, 100),
     },
     story = function(props)
         return React.createElement(BRC.TextLabel, {
@@ -23,7 +23,7 @@ return {
             TextSize = "auto",
             Font = Enum.Font.Creepster,
 
-            MaxTextSize = props.controls.MaxTextSize
+            MaxTextSize = props.controls.MaxTextSize,
         })
     end,
 }
