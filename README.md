@@ -39,6 +39,7 @@ Respectfully,
 
 ### Components
 
+- [x] ScreenGui
 - [x] Frame
 - [ ] ScrollingFrame
 - [ ] CanvasGroup
