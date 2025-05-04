@@ -2,7 +2,7 @@ local React = require("@pkg/react")
 local ReactRoblox = require("@pkg/react-roblox")
 local UILabs = require("@dev-pkg/ui-labs")
 
-local BRC = require("../..")
+local BRC = require("@root/init")
 
 local FlexAlignmentValues = {
     Start = "start",

@@ -1,5 +1,5 @@
 local React = require("@pkg/react")
-local Utils = require("./Utils")
+local Utils = require("@root/Utils")
 
 local ComponentBuilder = {}
 ComponentBuilder.__index = ComponentBuilder
@@ -43,6 +43,13 @@ function ComponentBuilder.build<P, OP>(
 ): (P, any) -> React.ReactNode
     return React.forwardRef(function(props: React.ElementProps<string> & P)
         local outputProps, outputChildren = self.transformer(props)
+
+        for k, v in pairs(props) do
+            -- 99.98% sure, that this is some special ahh key
+            if typeof(k) == "table" then
+                outputProps[k] = v
+            end
+        end
 
         return React.createElement(robloxComponent, outputProps, outputChildren, props.children)
     end) :: any

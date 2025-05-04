@@ -1,10 +1,8 @@
 local React = require("@pkg/react")
 local ReactRoblox = require("@pkg/react-roblox")
 local UILabs = require("@dev-pkg/ui-labs")
-local BetterReactComponents = require("../..")
 
-local Frame = BetterReactComponents.Frame
-local TextLabel = BetterReactComponents.TextLabel
+local BRC = require("@root/init")
 
 local function PaddingStory(props)
     local Padding = React.useMemo(function()
@@ -16,7 +14,7 @@ local function PaddingStory(props)
     end, { props.controls.Padding })
 
     return React.createElement(
-        Frame,
+        BRC.Frame,
         {
             AnchorPoint = "m",
             Position = UDim2.new(0.5, 0, 0.5, 0),
@@ -25,7 +23,7 @@ local function PaddingStory(props)
 
             Padding = Padding,
         },
-        React.createElement(TextLabel, {
+        React.createElement(BRC.TextLabel, {
             Size = UDim2.new(1, 0, 1, 0),
             BackgroundColor = "#FFF",
             Text = ("Padding = {%s}"):format(table.concat(Padding, ", ")),

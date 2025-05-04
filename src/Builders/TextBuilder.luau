@@ -1,6 +1,6 @@
 local React = require("@pkg/react")
 
-local Utils = require("../Utils")
+local Utils = require("@root/Utils")
 local GuiObjectBuilder = require("./GuiObjectBuilder")
 
 export type TextProps = {

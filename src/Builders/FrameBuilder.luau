@@ -1,4 +1,4 @@
-local GuiObjectBuilder = require(script.Parent.GuiObjectBuilder)
+local GuiObjectBuilder = require("./GuiObjectBuilder")
 
 return GuiObjectBuilder:expand(function(props)
     return {}, {}

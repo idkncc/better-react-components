@@ -1,8 +1,8 @@
 local BetterReactComponents = {
-    Utils = require("./Utils"),
-    Builder = require("./Builder"),
+    Utils = require("@root/Utils"),
+    Builder = require("@root/Builder"),
 }
 
-local Components = require("./Components")
+local Components = require("@root/Components")
 
 return BetterReactComponents.Utils.Assign(BetterReactComponents, Components)

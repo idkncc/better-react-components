@@ -5,7 +5,8 @@
             "current": {
                 "name": "path",
                 "sources": {
-                    "@pkg": "Packages"
+                    "@pkg": "Packages",
+                    "@root": "src"
                 }
             },
             "target": {

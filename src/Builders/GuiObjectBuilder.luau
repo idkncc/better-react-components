@@ -1,8 +1,8 @@
 local React = require("@pkg/react")
-local Builder = require("../Builder")
-local Utils = require("../Utils")
+local Builder = require("@root/Builder")
+local Utils = require("@root/Utils")
 
-local ListLayout = require("../Helpers/ListLayout")
+local ListLayout = require("@root/Helpers/ListLayout")
 
 --- Border settings
 ---

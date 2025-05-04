@@ -1,3 +1,3 @@
-local TextLabelBuilder = require("../Builders/TextLabelBuilder")
+local TextLabelBuilder = require("@root/Builders/TextLabelBuilder")
 
 return TextLabelBuilder:build("TextLabel")

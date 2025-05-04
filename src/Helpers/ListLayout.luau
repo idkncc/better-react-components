@@ -1,5 +1,6 @@
 local React = require("@pkg/react")
-local Utils = require("../Utils")
+
+local Utils = require("@root/Utils")
 
 export type ListLayoutProps = {
     Gap: Utils.UDimValue,
@@ -36,7 +37,7 @@ return function(props: ListLayoutProps)
         }
 
         return Utils.MergeMulti(result, MainAxisResult, CrossAxisResult)
-    end, {props})
+    end, { props })
 
     return React.createElement("UIListLayout", rbxProps)
 end

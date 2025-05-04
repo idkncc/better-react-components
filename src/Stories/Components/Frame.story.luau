@@ -2,7 +2,7 @@ local React = require("@pkg/react")
 local ReactRoblox = require("@pkg/react-roblox")
 local UILabs = require("@dev-pkg/ui-labs")
 
-local Frame = require(script.Parent.Parent.Components.Frame)
+local BRC = require("@root/init")
 
 local story = {
     react = React,
@@ -22,7 +22,7 @@ local story = {
         BackgroundColor = Color3.fromHex("#FF0000"),
     },
     story = function(props)
-        return React.createElement(Frame, {
+        return React.createElement(BRC.Frame, {
             AnchorPoint = props.controls.AnchorPoint,
             Position = UDim2.new(0.5, 0, 0.5, 0),
             Size = UDim2.new(0.5, 0, 0.5, 0),

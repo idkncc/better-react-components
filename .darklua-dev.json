@@ -6,7 +6,8 @@
                 "name": "path",
                 "sources": {
                     "@pkg": "Packages",
-                    "@dev-pkg": "DevPackages"
+                    "@dev-pkg": "DevPackages",
+                    "@root": "src"
                 }
             },
             "target": {

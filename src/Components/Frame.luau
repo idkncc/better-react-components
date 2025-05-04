@@ -1,3 +1,3 @@
-local FrameBuilder = require("../Builders/FrameBuilder")
+local FrameBuilder = require("@root/Builders/FrameBuilder")
 
 return FrameBuilder:build("Frame")

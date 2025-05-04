@@ -2,7 +2,7 @@ local React = require("@pkg/react")
 local ReactRoblox = require("@pkg/react-roblox")
 local UILabs = require("@dev-pkg/ui-labs")
 
-local TextLabel = require("../..").TextLabel
+local BRC = require("@root/init")
 
 return {
     react = React,
@@ -12,7 +12,7 @@ return {
         MaxTextSize = UILabs.Slider(20, 1, 100)
     },
     story = function(props)
-        return React.createElement(TextLabel, {
+        return React.createElement(BRC.TextLabel, {
             AnchorPoint = "m",
             Position = UDim2.new(0.5, 0, 0.5, 0),
             Size = UDim2.new(0.5, 0, 0, props.controls.SizeY),
