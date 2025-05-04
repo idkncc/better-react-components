@@ -41,7 +41,7 @@ Respectfully,
 
 - [x] ScreenGui
 - [x] Frame
-- [ ] ScrollingFrame
+- [x] ScrollingFrame
 - [ ] CanvasGroup
 - [ ] ViewportFrame
 - [x] TextButton
