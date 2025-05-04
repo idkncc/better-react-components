@@ -1,0 +1,9 @@
+{
+    "name": "better-react-components",
+    "tree": {
+        "_Vendor": {
+            "$path": "Packages"
+        },
+        "$path": "src"
+    }
+}

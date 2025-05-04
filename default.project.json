@@ -1,6 +1,18 @@
 {
-    "name": "better-react-components",
+    "name": "better-react-components-development",
     "tree": {
-        "$path": "src"
+        "$className": "DataModel",
+        "ReplicatedStorage": {
+            "$className": "ReplicatedStorage",
+            "DevPackages": {
+                "$path": "DevPackages"
+            },
+            "Packages": {
+                "$path": "Packages"
+            },
+            "better-react-components": {
+                "$path": "src"
+            }
+        }
     }
 }

@@ -1,0 +1,10 @@
+# This folder used for storing Roblox package files
+#
+# `default.project.json` is used for generating sourcemap.json and building .rbxmx file
+#
+# To build roblox package run:
+#  $ make roblox-package
+
+*
+!.gitignore
+!default.project.json

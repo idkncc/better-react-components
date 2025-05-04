@@ -1,8 +1,8 @@
 # better-react-components
 
-Roblox's UI elements, but with builtin modifiers
+Roblox UI elements, but with builtin modifiers
 
-> ![NOTE]
+> [!NOTE]
 >
 > Currently, I am rewriting this library from Typescript to Lua.
 >
@@ -19,16 +19,20 @@ Respectfully,
   Past Me
 ```
 
-## Development
+## Development & Build from Scratch
 
 1. Install Aftman and Make
 2. Run:
    ```
-   make install          # installs all toolchain, dependencies and patch sourcemap.json
-   make serve            # starts rojo server
-   make build            # builds .rbxmx (NOT IMPLEMENTED)
+   make install         # installs toolchain
+   
+   # Development stuff:
+   make watch           # starts darklua's processer
+   make serve           # starts rojo server
 
-   make patch-sourcemaps # patches sourcemaps. needed after installing wally dependencies
+   # Buildin' stuff:
+   make wally-package   # builds wally package at `build/wally/`
+   make roblox-package  # builds roblox model file at `build/wally/better-react-components.rbxmx`
    ```
 
 ## Supported Components/Modifiers

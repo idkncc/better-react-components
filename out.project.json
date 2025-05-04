@@ -1,9 +1,5 @@
 {
-    "name": "better-react-components-stories",
-    "globIgnorePaths": [
-        "**/package.json",
-        "**/tsconfig.json"
-    ],
+    "name": "better-react-components-development",
     "tree": {
         "$className": "DataModel",
         "ReplicatedStorage": {
@@ -15,7 +11,7 @@
                 "$path": "Packages"
             },
             "better-react-components": {
-                "$path": "src"
+                "$path": "out"
             }
         }
     }
