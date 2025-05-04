@@ -45,10 +45,11 @@ export type GuiObjectProps = {
 
     Padding: Utils.PaddingValue?,
 
-    MinSize: Vector2,
-    MaxSize: Vector2,
+    MinSize: Vector2?,
+    MaxSize: Vector2?,
 
-    ListLayout: ListLayout.ListLayoutProps,
+    ListLayout: ListLayout.ListLayoutProps?,
+    FlexMode: Enum.UIFlexMode?,
 }
 
 return Builder.new(function(props: GuiObjectProps)
@@ -89,5 +90,7 @@ return Builder.new(function(props: GuiObjectProps)
                 MaxSize = props.MaxSize,
             }),
         BRCListLayout = props.ListLayout and React.createElement(ListLayout, props.ListLayout),
+        BRCFlexItem = props.FlexMode
+            and React.createElement("UIFlexItem", { FlexMode = props.FlexMode }),
     }
 end)

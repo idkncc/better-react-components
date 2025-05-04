@@ -61,6 +61,6 @@ Respectfully,
 
 - [ ] UIGridLayout
 - [x] UIListLayout
-- [ ] UIFlexItem
+- [x] UIFlexItem
 - [ ] UITableLayout
 - [ ] UIPageLayout
