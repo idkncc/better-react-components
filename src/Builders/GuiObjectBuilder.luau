@@ -1,58 +1,12 @@
 local React = require("@pkg/react")
 local Builder = require("@root/Builder")
+
 local Utils = require("@root/Utils")
+local Typings = require("@root/Typings")
 
 local ListLayout = require("@root/Helpers/ListLayout")
 
---- Border settings
----
---- NOTE: when building, it uses `UIStroke`, instead of `GuiObject`'s border properties
-export type Border = {
-    Color: Utils.Color?,
-    Thickness: number?,
-    LineJoinMode: Enum.LineJoinMode,
-    Transparency: number?,
-}
-
-export type Aspect = {
-    Ratio: number,
-    Type: Enum.AspectType?,
-    DominantAxis: Enum.DominantAxis?,
-}
-
-export type GuiObjectProps = {
-    AnchorPoint: Utils.AnchorPoint?,
-    AutomaticSize: Enum.AutomaticSize?,
-    BackgroundColor: Utils.Color?,
-    BackgroundTransparency: number?,
-
-    --- Alias for `BackgroundTransparency = 1`
-    NoBackground: boolean?,
-
-    Position: UDim2?,
-    Size: UDim2?,
-
-    SizeConstraint: Enum.SizeConstraint?,
-    Visible: boolean?,
-
-    LayoutOrder: number?,
-    ZIndex: number?,
-
-    Border: Border?,
-    CornerRadius: Utils.UDimValue?,
-
-    Aspect: Aspect?,
-
-    Padding: Utils.PaddingValue?,
-
-    MinSize: Vector2?,
-    MaxSize: Vector2?,
-
-    ListLayout: ListLayout.ListLayoutProps?,
-    FlexMode: Enum.UIFlexMode?,
-}
-
-return Builder.new(function(props: GuiObjectProps)
+return Builder.new(function(props: Typings.GuiObjectProps)
     return {
         AnchorPoint = props.AnchorPoint and Utils.ConvertAnchorPoint(props.AnchorPoint),
         AutomaticSize = props.AutomaticSize,

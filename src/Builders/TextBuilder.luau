@@ -1,27 +1,12 @@
 local React = require("@pkg/react")
 
 local Utils = require("@root/Utils")
+local Typings = require("@root/Typings")
+
 local GuiObjectBuilder = require("./GuiObjectBuilder")
 
-export type TextProps = {
-    Text: string?,
-
-    Font: Utils.FontValue?,
-    LineHeight: number?,
-    RichText: boolean?,
-    TextColor: Utils.Color?,
-    TextSize: Utils.TextSize?,
-    TextWrapped: boolean?,
-
-    TextXAlignment: Enum.TextXAlignment?,
-    TextYAlignment: Enum.TextYAlignment?,
-
-    MinTextSize: number,
-    MaxTextSize: number,
-}
-
 --- Builder for text-based objects (`TextLabel`, `TextButton`, etc.)
-return GuiObjectBuilder:expand(function(props: TextProps)
+return GuiObjectBuilder:expand(function(props: Typings.TextProps)
     return {
         Text = props.Text,
 

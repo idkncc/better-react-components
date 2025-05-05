@@ -1,54 +1,8 @@
 local React = require("@pkg/react")
 
+local Typings = require("@root/Typings")
+
 local Utils = {}
-
---- User-friendly anchor points
----
----       center
---- left  |    right
---- |     |    |
---- `tl`, `t`, `tr` – top
---- `ml`, `m`, `mr` – middle
---- `bl`, `b`, `br` – bottom
-export type AnchorPoint = "tl" | "t" | "tr" | "ml" | "m" | "mr" | "bl" | "b" | "br" | Vector2
-
---- Color
----
---- It's either `Color3` or hexcode of color (e.g. `#FF0000`)
-export type Color = Color3 | string
-
---- Text Size
----
---- `"auto"` enables `TextScaled` property. Otherwise sets TextSize
-export type TextSize = number | "auto"
-
---- Font
-export type FontValue = Font | EnumItem
-
---- UDim
----
---- Takes `UDim` or `number` as offset
-export type UDimValue = UDim | number
-
---- Padding (like in CSS)
----
---- There's 3 scenarios
----  1. Value is `UDimValue` or `{UDimValue}`: padding `UDimValue` is applied to all sides
----  2. Value is `{UDimValue, UDimValue}`: first value is vertical padding, second - horizontal padding
----  3. Value is `{UDimValue, UDimValue, UDimValue}`: where each value is {Top, Horizontal, Bottom}
----  4. Value is `{UDimValue, UDimValue, UDimValue, UDimValue}`: where each value is {Top, Right, Bottom, Left}
-export type PaddingValue = UDimValue | { UDimValue }
-
-export type BindingOrValue<T> = React.Binding<T> | T
-
-export type FlexAlignment =
-    "start"
-    | "end"
-    | "center"
-    | "space-between"
-    | "space-around"
-    | "space-evenly"
-    | "stretch"
 
 local AnchorPointMapping = setmetatable({
     tl = Vector2.new(0, 0),
@@ -73,7 +27,10 @@ local function isBinding(value: any): boolean
 end
 
 -- TODO: create separate package "better-react-hooks"
-function Utils.mapBinding<T, R>(bindingOrValue: BindingOrValue<T>, map: (value: T) -> R): React.Binding<R>
+function Utils.mapBinding<T, R>(
+    bindingOrValue: Typings.BindingOrValue<T>,
+    map: (value: T) -> R
+): React.Binding<R>
     local binding = if isBinding(bindingOrValue)
         then bindingOrValue :: React.Binding<T>
         else React.createBinding(bindingOrValue :: T)
@@ -118,7 +75,7 @@ function Utils.MergeMulti(...): any
     return result
 end
 
-function Utils.ConvertColor(value: BindingOrValue<Color3 | string>): React.Binding<Color3>
+function Utils.ConvertColor(value: Typings.BindingOrValue<Color3 | string>): React.Binding<Color3>
     return Utils.mapBinding(value, function(value)
         if typeof(value) == "Color3" then
             return value
@@ -135,7 +92,9 @@ function Utils.ConvertColor(value: BindingOrValue<Color3 | string>): React.Bindi
     end)
 end
 
-function Utils.ConvertAnchorPoint(value: BindingOrValue<AnchorPoint>): React.Binding<Vector2>
+function Utils.ConvertAnchorPoint(
+    value: Typings.BindingOrValue<Typings.AnchorPoint>
+): React.Binding<Vector2>
     return Utils.mapBinding(value, function(value)
         if typeof(value) == "Vector2" then
             return value
@@ -152,7 +111,7 @@ function Utils.ConvertAnchorPoint(value: BindingOrValue<AnchorPoint>): React.Bin
     end)
 end
 
-function Utils.ConvertFont(value: BindingOrValue<FontValue>): React.Binding<Font>
+function Utils.ConvertFont(value: Typings.BindingOrValue<Typings.FontValue>): React.Binding<Font>
     return Utils.mapBinding(value, function(value)
         if typeof(value) == "EnumItem" then
             return Font.fromEnum(value :: Enum.Font)
@@ -169,7 +128,7 @@ function Utils.ConvertFont(value: BindingOrValue<FontValue>): React.Binding<Font
     end)
 end
 
-local function ConvertUDimInternal(value: UDimValue): UDim
+local function ConvertUDimInternal(value: Typings.UDimValue): UDim
     if typeof(value) == "UDim" then
         return value
     elseif typeof(value) == "number" then
@@ -184,7 +143,7 @@ local function ConvertUDimInternal(value: UDimValue): UDim
     end
 end
 
-function Utils.ConvertUDim(value: BindingOrValue<UDimValue>): React.Binding<UDim>
+function Utils.ConvertUDim(value: Typings.BindingOrValue<Typings.UDimValue>): React.Binding<UDim>
     return Utils.mapBinding(value, ConvertUDimInternal)
 end
 
@@ -237,7 +196,7 @@ local function ConvertPaddingInternal(value: { UDim }): ConvertPaddingResult
 end
 
 function Utils.ConvertPadding(
-    value: BindingOrValue<PaddingValue>
+    value: Typings.BindingOrValue<Typings.PaddingValue>
 ): React.Binding<ConvertPaddingResult>
     return Utils.mapBinding(value, function(value)
         if typeof(value) == "table" then
@@ -270,7 +229,7 @@ export type ConvertFlexValueResult = {
 --- Converts CSS like JustifyContent and AlignItems values to Roblox's ListLayout props
 function Utils.ConvertFlexValue(
     direction: Enum.FillDirection,
-    value: FlexAlignment
+    value: Typings.FlexAlignment
 ): ConvertFlexValueResult
     if value == "start" then
         if direction == Enum.FillDirection.Horizontal then

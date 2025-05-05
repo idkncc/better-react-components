@@ -1,3 +1,3 @@
-local FrameBuilder = require("@root/Builders/FrameBuilder")
+local GuiObjectBuilder = require("@root/Builders/GuiObjectBuilder")
 
-return FrameBuilder:build("Frame")
+return GuiObjectBuilder:build("Frame")

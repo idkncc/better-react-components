@@ -1,20 +1,9 @@
 local React = require("@pkg/react")
 
 local Utils = require("@root/Utils")
+local Typings = require("@root/Typings")
 
-export type ListLayoutProps = {
-    Gap: Utils.UDimValue,
-
-    Direction: Enum.FillDirection?,
-    Order: Enum.SortOrder?,
-    Wraps: boolean?,
-
-    JustifyContent: Utils.FlexAlignment?,
-    AlignItems: Utils.FlexAlignment?,
-    -- TODO: ItemLineAlignment
-}
-
-return function(props: ListLayoutProps)
+return function(props: Typings.ListLayoutProps)
     local rbxProps = React.useMemo(function()
         local MainAxis = props.Direction or Enum.FillDirection.Vertical
         local CrossAxis = if MainAxis == Enum.FillDirection.Horizontal
