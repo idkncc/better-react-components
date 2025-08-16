@@ -85,25 +85,7 @@ export type ListLayoutProps = {
     -- TODO: ItemLineAlignment
 }
 
-export type GuiObjectProps = {
-    AnchorPoint: AnchorPoint?,
-    AutomaticSize: Enum.AutomaticSize?,
-    BackgroundColor: Color?,
-    BackgroundTransparency: number?,
-
-    --- Alias for `BackgroundTransparency = 1`
-    NoBackground: boolean?,
-
-    Position: UDim2?,
-    Size: UDim2?,
-
-    SizeConstraint: Enum.SizeConstraint?,
-    Visible: boolean?,
-
-    LayoutOrder: number?,
-    ZIndex: number?,
-
-    Border: Border?,
+export type GuiObjectModifiers = {
     CornerRadius: UDimValue?,
 
     Aspect: Aspect?,
@@ -116,6 +98,46 @@ export type GuiObjectProps = {
     ListLayout: ListLayoutProps?,
     FlexMode: Enum.UIFlexMode?,
 }
+
+export type GuiObjectProps = {
+    Active: boolean,
+
+    AnchorPoint: AnchorPoint?,
+    AutomaticSize: Enum.AutomaticSize?,
+
+    BackgroundColor: Color?,
+    BackgroundTransparency: number?,
+    --- Alias for `BackgroundTransparency = 1`
+    NoBackground: boolean?,
+
+    Border: Border?,
+
+    ClipsDescendants: boolean?,
+    -- TODO: GuiState:Enum.GuiState,
+    Interactable: boolean,
+
+    LayoutOrder: number?,
+
+    -- TODO: NextSelectionDown:GuiObject
+    -- TODO: NextSelectionLeft:GuiObject
+    -- TODO: NextSelectionRight:GuiObject
+    -- TODO: NextSelectionUp:GuiObject
+
+    Position: UDim2?,
+    Rotation: number?,
+
+    Selectable: boolean?,
+    -- TODO: SelectionImageObject:GuiObject,
+    -- TODO: SelectionOrder:number
+
+    Size: UDim2?,
+    SizeConstraint: Enum.SizeConstraint?,
+
+    Transparency: number,
+    Visible: boolean?,
+
+    ZIndex: number?,
+} & GuiObjectModifiers
 
 export type TextProps = {
     Text: string?,

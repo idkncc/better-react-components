@@ -8,20 +8,33 @@ local ListLayout = require("@root/Helpers/ListLayout")
 
 return Builder.new(function(props: Typings.GuiObjectProps)
     return {
+        Active = props.Active,
+
         AnchorPoint = props.AnchorPoint and Utils.ConvertAnchorPoint(props.AnchorPoint),
         AutomaticSize = props.AutomaticSize,
 
         BackgroundColor3 = props.BackgroundColor and Utils.ConvertColor(props.BackgroundColor),
         BackgroundTransparency = props.NoBackground and 1 or props.BackgroundTransparency,
 
-        Position = props.Position,
-        Size = props.Size,
-
-        SizeConstraint = props.SizeConstraint,
-        LayoutOrder = props.LayoutOrder,
-        ZIndex = props.ZIndex,
-
         BorderSizePixel = 0, -- we are using `UIStroke` instead.
+
+        ClipsDescendants = props.ClipsDescendants,
+        Interactable = props.Interactable,
+
+        LayoutOrder = props.LayoutOrder,
+
+        Position = props.Position,
+        Rotation = props.Rotation,
+
+        Selectable = props.Selectable,
+
+        Size = props.Size,
+        SizeConstraint = props.SizeConstraint,
+
+        Transparency = props.Transparency,
+        Visible = props.Visible,
+
+        ZIndex = props.ZIndex,
     }, {
         BRCBorder = props.Border and React.createElement("UIStroke", {
             Color = props.Border.Color and Utils.ConvertColor(props.Border.Color),
