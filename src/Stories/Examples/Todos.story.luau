@@ -10,8 +10,7 @@ type Todo = { text: string, completed: boolean }
 
 local function MenuStory(props)
     local todos, setTodos = React.useState({} :: { Todo })
-
-    print(todos)
+    local input, setInput = React.useBinding("")
 
     return React.createElement(BRC.Frame, {
         -- PRO TIP: use this utillity to calcalate aspect ratio for component:
@@ -44,13 +43,18 @@ local function MenuStory(props)
                 Order = Enum.SortOrder.LayoutOrder,
             },
         }, {
-            TodoText = React.createElement(BRC.TextLabel, {
+            TodoText = React.createElement(BRC.TextBox, {
                 LayoutOrder = 1,
 
                 Size = UDim2.new(0, 0, 1, 0),
                 FlexMode = Enum.UIFlexMode.Fill,
 
                 CornerRadius = 8,
+
+                Text = input,
+                [React.Change.Text] = function(inst)
+                    setInput(inst.Text)
+                end,
             }),
             CreateTodo = React.createElement(BRC.TextButton, {
                 LayoutOrder = 2,
@@ -65,9 +69,12 @@ local function MenuStory(props)
 
                 [React.Event.Activated] = function()
                     setTodos(function(todos)
+                        local text = input:getValue()
+                        setInput("")
+
                         return BRC.Utils.MergeMulti(
                             todos,
-                            { [#todos + 1] = { text = "Test", completed = false } }
+                            { [#todos + 1] = { text = text, completed = false } }
                         )
                     end)
                 end,
@@ -85,7 +92,6 @@ local function MenuStory(props)
                 Size = UDim2.new(1, 0, 1, 0),
                 FlexMode = Enum.UIFlexMode.Fill,
 
-
                 ListLayout = {
                     Gap = 8,
                     Direction = Enum.FillDirection.Vertical,
@@ -93,7 +99,7 @@ local function MenuStory(props)
                 },
             },
 
-            Collections.Array.map(todos, function(child: Todo, index: number)
+            Collections.Array.map(todos, function(todo: Todo, index: number)
                 return React.createElement(BRC.Frame, {
                     LayoutOrder = 10 + index,
                     Size = UDim2.new(1, 0, 0, 42),
@@ -118,6 +124,7 @@ local function MenuStory(props)
                         Padding = { 0, 8 },
 
                         TextXAlignment = Enum.TextXAlignment.Left,
+                        Text = todo.text,
                     }),
                     React.createElement(BRC.TextButton, {
                         LayoutOrder = 2,
@@ -128,9 +135,9 @@ local function MenuStory(props)
 
                         CornerRadius = 4,
 
-                        BackgroundColor = child.completed and "#DC2626" or "#00A63E",
+                        BackgroundColor = todo.completed and "#DC2626" or "#00A63E",
                         TextColor = "#FFF",
-                        Text = child.completed and "X" or "√",
+                        Text = todo.completed and "X" or "√",
 
                         [React.Event.Activated] = function()
                             setTodos(function(todos)

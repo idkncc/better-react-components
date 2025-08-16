@@ -4,4 +4,5 @@ return {
     ScrollingFrame = require(script.ScrollingFrame),
     TextButton = require(script.TextButton),
     TextLabel = require(script.TextLabel),
+    TextBox = require(script.TextBox),
 }
