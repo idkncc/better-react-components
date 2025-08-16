@@ -9,6 +9,7 @@ include = [ "src", "default.project.json", "README.md" ]
 [dependencies]
 react = "jsdotlua/react@~17.2"
 react-roblox = "jsdotlua/react-roblox@~17.2"
+collections = "jsdotlua/collections@~1.2"
 
 [dev-dependencies]
 ui-labs = "pepeeltoro41/ui-labs@2.3.8"
