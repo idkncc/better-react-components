@@ -37,21 +37,30 @@ function ComponentBuilder.expand<P, OP, NP, NOP>(
     end)
 end
 
-function ComponentBuilder.build<P, OP>(
+function ComponentBuilder.build<P, OP, T>(
     self: ComponentBuilder<P, OP>,
     robloxComponent: string
-): (P, any) -> React.ReactNode
-    return React.forwardRef(function(props: React.ElementProps<string> & P)
-        local outputProps, outputChildren = self.transformer(props)
+): (P, React.Ref<T>) -> React.ReactNode
+    return React.forwardRef(
+            function(props: React.ElementProps<string> & P, ref: React.Ref<T>)
+                local outputProps, outputChildren = self.transformer(props)
 
-        for k, v in pairs(props) do
-            -- 99.98% sure, that this is some special ahh key
-            if typeof(k) == "table" then
-                outputProps[k] = v
+                outputProps.ref = ref
+
+                for k, v in pairs(props) do
+                    -- 99.98% sure, that this is some special ahh key
+                    if typeof(k) == "table" then
+                        outputProps[k] = v
+                    end
+                end
+
+                return React.createElement(
+                    robloxComponent,
+                    outputProps,
+                    outputChildren,
+                    props.children
+                )
             end
-        end
-
-        return React.createElement(robloxComponent, outputProps, outputChildren, props.children)
-    end) :: any
+        ) :: any
 end
 return ComponentBuilder

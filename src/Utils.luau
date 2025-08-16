@@ -75,6 +75,14 @@ function Utils.MergeMulti(...): any
     return result
 end
 
+function Utils.CalculateAspectRatio(instance: GuiObject)
+    local AbsoluteSize = instance.AbsoluteSize
+
+    print("===============================")
+    print(("Calculated Aspect Ratio: %.3f"):format(AbsoluteSize.X / AbsoluteSize.Y))
+    print("===============================")
+end
+
 function Utils.ConvertColor(value: Typings.BindingOrValue<Color3 | string>): React.Binding<Color3>
     return Utils.mapBinding(value, function(value)
         if typeof(value) == "Color3" then

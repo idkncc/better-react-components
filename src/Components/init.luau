@@ -1,7 +1,7 @@
 return {
-    ScreenGui = require("./ScreenGui"),
-    Frame = require("./Frame"),
-    ScrollingFrame = require("./ScrollingFrame"),
-    TextButton = require("./TextButton"),
-    TextLabel = require("./TextLabel"),
+    ScreenGui = require(script.ScreenGui),
+    Frame = require(script.Frame),
+    ScrollingFrame = require(script.ScrollingFrame),
+    TextButton = require(script.TextButton),
+    TextLabel = require(script.TextLabel),
 }

@@ -25,5 +25,9 @@ local BetterReactComponents = {
 }
 
 local Components = require("@root/Components")
+local Builders = require("@root/Builders")
 
-return BetterReactComponents.Utils.Assign(BetterReactComponents, Components)
+return BetterReactComponents.Utils.Assign(
+    BetterReactComponents.Utils.Assign(BetterReactComponents, Components),
+    Builders
+)
