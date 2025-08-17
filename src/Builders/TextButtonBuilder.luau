@@ -4,8 +4,11 @@ local TextLabelBuilder = require("./TextBuilder")
 
 return TextLabelBuilder:expand(function(props: Typings.TextButtonProps)
     return {
-        Style = props.Style,
         AutoButtonColor = props.AutoButtonColor,
+        HoverHapticEffect = props.HoverHapticEffect,
+        PressHapticEffect = props.PressHapticEffect,
         Modal = props.Modal,
+        Selected = props.Selected,
+        Style = props.Style,
     }, {}
 end)

@@ -1,5 +1,6 @@
 return {
-    GuiObjectBuilder = require("./GuiObjectBuilder"),
-    TextBuilder = require("./TextBuilder"),
-    TextButtonBuilder = require("./TextButtonBuilder"),
+    GuiObjectBuilder = require(script.GuiObjectBuilder),
+    TextBuilder = require(script.TextBuilder),
+    TextBoxBuilder = require(script.TextBoxBuilder),
+    TextButtonBuilder = require(script.TextButtonBuilder),
 }

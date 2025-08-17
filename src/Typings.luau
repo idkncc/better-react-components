@@ -84,7 +84,7 @@ export type ListLayoutSettings = {
 --- Gui Object modifers
 export type GuiObjectModifiers = {
     Border: BorderSettings?,
-    
+
     CornerRadius: UDimValue?,
 
     Aspect: AspectSettings?,
@@ -146,26 +146,47 @@ export type ScreenGuiProps = {
 }
 
 export type TextProps = {
-    Text: string?,
-
     Font: FontValue?,
     LineHeight: number?,
+
+    MaxVisibleGraphemes: number,
+
     RichText: boolean?,
+    Text: string?,
+
     TextColor: Color?,
+    TextDirection: Enum.TextDirection?,
+    TextFits: boolean?,
     TextSize: TextSize?,
+    TextTransparency: number?,
+    TextTruncate: Enum.TextTruncate?,
     TextWrapped: boolean?,
 
     TextXAlignment: Enum.TextXAlignment?,
     TextYAlignment: Enum.TextYAlignment?,
 
-    MinTextSize: number,
-    MaxTextSize: number,
+    MinTextSize: number?,
+    MaxTextSize: number?,
+}
+
+export type TextBoxProps = {
+    ClearTextOnFocus: boolean?,
+    CursorPosition: number?,
+    MultiLine: boolean?,
+    PlaceholderColor: Color?,
+    PlaceholderText: string?,
+    SelectionStart: number?,
+    ShowNativeInput: boolean?,
+    TextEditable: boolean?,
 }
 
 export type TextButtonProps = {
-    Style: Enum.ButtonStyle?,
     AutoButtonColor: boolean?,
+    HoverHapticEffect: HapticEffect?,
+    PressHapticEffect: HapticEffect?,
     Modal: boolean?,
+    Selected: boolean?,
+    Style: Enum.ButtonStyle?,
 }
 
 export type ScrollingFrameScrollBar = {

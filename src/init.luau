@@ -18,6 +18,7 @@ export type GuiObjectModifiers = Typings.GuiObjectModifiers
 export type GuiObjectProps = Typings.GuiObjectProps
 export type ScreenGuiProps = Typings.ScreenGuiProps
 export type TextProps = Typings.TextProps
+export type TextBoxProps = Typings.TextBoxProps
 export type TextButtonProps = Typings.TextButtonProps
 export type ScrollingFrameScrollBar = Typings.ScrollingFrameScrollBar
 export type ScrollingFrameProps = Typings.ScrollingFrameProps
@@ -32,5 +33,5 @@ local Builders = require("@root/Builders")
 
 return BetterReactComponents.Utils.Assign(
     BetterReactComponents.Utils.Assign(BetterReactComponents, Components),
-    Builders
+    { Builders = require("@root/Builders") }
 )
