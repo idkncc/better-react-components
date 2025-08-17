@@ -3,7 +3,7 @@ local React = require("@pkg/react")
 local Utils = require("@root/Utils")
 local Typings = require("@root/Typings")
 
-return function(props: Typings.ListLayoutProps)
+return function(props: Typings.ListLayoutSettings)
     local rbxProps = React.useMemo(function()
         local MainAxis = props.Direction or Enum.FillDirection.Vertical
         local CrossAxis = if MainAxis == Enum.FillDirection.Horizontal

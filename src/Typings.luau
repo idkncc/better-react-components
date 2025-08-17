@@ -30,15 +30,14 @@ export type UDimValue = UDim | number
 
 --- Padding (like in CSS)
 ---
---- There's 3 scenarios
+--- There's 4 scenarios
 ---  1. Value is `UDimValue` or `{UDimValue}`: padding `UDimValue` is applied to all sides
 ---  2. Value is `{UDimValue, UDimValue}`: first value is vertical padding, second - horizontal padding
 ---  3. Value is `{UDimValue, UDimValue, UDimValue}`: where each value is {Top, Horizontal, Bottom}
 ---  4. Value is `{UDimValue, UDimValue, UDimValue, UDimValue}`: where each value is {Top, Right, Bottom, Left}
 export type PaddingValue = UDimValue | { UDimValue }
 
-export type BindingOrValue<T> = React.Binding<T> | T
-
+--- Flex alignments (like in CSS)
 export type FlexAlignment =
     "start"
     | "end"
@@ -48,32 +47,29 @@ export type FlexAlignment =
     | "space-evenly"
     | "stretch"
 
-export type ScreenGuiProps = {
-    Enabled: boolean?,
-    ResetOnSpawn: boolean?,
-    ZIndexBehavior: Enum.ZIndexBehavior?,
-    ScreenInsets: Enum.ScreenInsets?,
-    SafeAreaCompatibility: Enum.SafeAreaCompatibility?,
-    DisplayOrder: number?,
-}
+--- Type alias for either Binding<Value> or Value
+export type BindingOrValue<T> = React.Binding<T> | T
 
 --- Border settings
 ---
 --- NOTE: when building, it uses `UIStroke`, instead of `GuiObject`'s border properties
-export type Border = {
+export type BorderSettings = {
     Color: Color?,
     Thickness: number?,
     LineJoinMode: Enum.LineJoinMode,
     Transparency: number?,
 }
 
-export type Aspect = {
+--- Aspect ratio settings
+-- TODO: support number-only
+export type AspectSettings = {
     Ratio: number,
     Type: Enum.AspectType?,
     DominantAxis: Enum.DominantAxis?,
 }
 
-export type ListLayoutProps = {
+--- List layout settings
+export type ListLayoutSettings = {
     Gap: UDimValue,
 
     Direction: Enum.FillDirection?,
@@ -85,17 +81,20 @@ export type ListLayoutProps = {
     -- TODO: ItemLineAlignment
 }
 
+--- Gui Object modifers
 export type GuiObjectModifiers = {
+    Border: BorderSettings?,
+    
     CornerRadius: UDimValue?,
 
-    Aspect: Aspect?,
+    Aspect: AspectSettings?,
 
     Padding: PaddingValue?,
 
     MinSize: Vector2?,
     MaxSize: Vector2?,
 
-    ListLayout: ListLayoutProps?,
+    ListLayout: ListLayoutSettings?,
     FlexMode: Enum.UIFlexMode?,
 }
 
@@ -109,8 +108,6 @@ export type GuiObjectProps = {
     BackgroundTransparency: number?,
     --- Alias for `BackgroundTransparency = 1`
     NoBackground: boolean?,
-
-    Border: Border?,
 
     ClipsDescendants: boolean?,
     -- TODO: GuiState:Enum.GuiState,
@@ -138,6 +135,15 @@ export type GuiObjectProps = {
 
     ZIndex: number?,
 } & GuiObjectModifiers
+
+export type ScreenGuiProps = {
+    Enabled: boolean?,
+    ResetOnSpawn: boolean?,
+    ZIndexBehavior: Enum.ZIndexBehavior?,
+
+    ScreenInsets: Enum.ScreenInsets?,
+    DisplayOrder: number?,
+}
 
 export type TextProps = {
     Text: string?,
@@ -178,6 +184,7 @@ export type ScrollingFrameScrollBar = {
 
 export type ScrollingFrameProps = {
     AutomaticCanvasSize: Enum.AutomaticSize?,
+
     CanvasPosition: Vector2?,
     CanvasSize: UDim2?,
 
