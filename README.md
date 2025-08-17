@@ -39,28 +39,36 @@ Respectfully,
 
 ### Components
 
-- [x] ScreenGui
-- [x] Frame
-- [x] ScrollingFrame
 - [ ] CanvasGroup
-- [ ] ViewportFrame
-- [x] TextButton
-- [x] TextLabel
-- [ ] TextBox
+- [x] Frame
 - [ ] ImageButton
+- [x] TextButton
 - [ ] ImageLabel
+- [x] TextLabel
+- [x] ScrollingFrame
+- [x] TextBox
+- [ ] VideoDisplay
+- [ ] VideoFrame
+- [ ] ViewportFrame
+- [ ] LayerCollector
+  - [ ] BillboardGui
+  - [x] ScreenGui
+  - [ ] SurfaceGui
 - [ ] Path2D
 
 ### Modifiers
 
-- [x] UIAspectRatioConstraint
+- [x] UIConstraint
+  - [x] UIAspectRatioConstraint
+  - [x] UISizeConstraint
+  - [x] UITextSizeConstraint
 - [x] UICorner (`CornerRadius` property)
-- [x] UIStroke (`Border` property)
-- [x] UIPadding
-- [x] UISizeConstraint
-- [x] UITextSizeConstraint
-- [ ] UIScale
+- [ ] UIDragDetector
 - [ ] UIGradient
+- [x] UIPadding
+- [ ] UIScale
+- [x] UIStroke (`Border` property)
+
 
 ### Layouts
 
